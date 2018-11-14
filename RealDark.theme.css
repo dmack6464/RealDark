@@ -1,4 +1,4 @@
-//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.0"}*//{}
+//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.1"}*//{}
 /*The Configurator, change the variables to whatever you want.*/
 :root {
 /* titlebar settings */
@@ -7,24 +7,25 @@
   --i-tbr-maximizeimg: url("https://cdn.discordapp.com/attachments/406778960484237322/406779041064943617/btn-maximize.svg");
   --i-tbr-minimizeimg: url("https://cdn.discordapp.com/attachments/406778960484237322/406779041409138688/btn-minimize.svg");
 
-/* define what colour certain object backgrounds will be */
-	--guilds:var(--shade2);
-	--sidebars:var(--shade3);
-	--messages:var(--main);
-	--titlebar:var(--shade1a);
-	--title:"RealDark";
-	--title-align:left; /* center, left */
+/* Simplified settings area */
+	--guilds:var(--shade2); /* server list background colour */
+	--sidebars:var(--shade3); /* sidebars background colour */
+	--messages:var(--main); /* messages background colour */
+	--titlebar:var(--shade1a); /* title bar colour */
+	--title:"RealDark"; /* title bar text */
+	--title-align:left; /* Options: center, left */
+	--icon-rounding:0%; /* icon rounding: 0% for none, 50% for completely round icons */
+
+/* mention settings */
+    --mention:rgba(50,50,120, 0.20); /* mention background colour */
+    --mentionmark:#5555FF; /* mention marker colour */
+    --mentions:var(--accentcolor); /* mention notification colour */
 
 /* divider settings */
     --cw:200px; /* channel divider width */
     --mw:180px; /* member divider width */
     --bw:5px; /* member list and channel list divider height, default 5px */
     --dc:var(--sidebars); /* menber list and channel list divider colour, default #3070ff */
-
-/* mention settings */
-    --mention:rgba(50,50,120, 0.20); /* mention background colour */
-    --mentionmark:#5555FF; /* mention marker colour */
-    --mentions:var(--accentcolor); /* mention notification colour */
 
 /* regular settings */
     --popup:rgba(0,0,0,0.85); /* popup colour */
@@ -39,9 +40,7 @@
     --c:#00ffff;    /*hyperlink rgb(0,255,255) var(--c)*/
     --accentcolor:#3070ff; /* im actually using this now */
     --textboxcolour:var(--shade1); /* #090909 text box colour, old was #04040f, old2 was #1d1d2d */
-    --gr:0%; /* icon and other stuff rounding */
     --bdtt:rgba(58,113,160,0.85); /* override for BetterDiscord Blue */
-    --hc:#55dd55; /* channel/member border highlight colour. default is #55dd55 */
     --font:'Whitney'; /* Default is Whitney */
 
 /* other shit */
@@ -49,6 +48,35 @@
     --ch:28px; /* I would like to have channel height at 10px, but discord says fucking nope. set this to 10px if you dont mind rendering issues in the channel list. */
     --mh:40px; /* same deal as above, I would like this at 25px, but that meaftext-alignns rendering issues, this time in the member list. good fucking job Discord. */
     background-color: var(--main);
+}
+
+.theme-dark .message-2qRu38 {
+	background-color: var(--shade2)!important;
+}
+
+.bodyTitle-Y0qMQz {
+	color:var(--accentcolor);
+}
+
+.body-3iLsc4 {
+	padding:6px 6px 0px 6px;
+}
+
+.headerTop-3C2Zn0 {
+	padding:14px 10px 0px 10px;
+}
+
+.protip-YaFfgO {
+	display:none;
+}
+
+.rolesList-22qj2L {
+    margin-top: 2px;
+    max-height: 200px;
+    overflow-x: scroll;
+}
+.marginBottom20-32qID7 {
+	margin-bottom: 0px;
 }
 
 .side-8zPYf6 .header-2RyJ0Y:first-child {
@@ -139,7 +167,7 @@
 
 /* thing for PermissionsViewer plugin */
 .member-perms .member-perm .perm-circle {
-	border-radius: 0px;
+	border-radius: var(--icon-rounding);
 }
 
 .sizeDefault-2YlOZr:after, .sizeMini-1ii40f {
@@ -1272,7 +1300,7 @@ background-color: var(--guilds);
 }
 
 .theme-dark .headerNormal-T_seeN {
-    background-color: var(--popup);
+    background-color: transparent;
 }
 
 .headerTop-3C2Zn0 {
@@ -1280,13 +1308,15 @@ background-color: var(--guilds);
 }
 
 .theme-dark .body-3iLsc4, .theme-dark .footer-1fjuF6 {
-    background-color: var(--popup);
+    background-color: transparent;
 }
 
 .userPopout-3XzG_A {
-    background: transparent;
+    background: var(--popup);
     border-radius: 0px;
     width:300px;
+    max-height:90vh;
+    overflow-y: scroll;
 }
 
 /* Toast, anyone? */
@@ -1479,17 +1509,17 @@ background-color: var(--shade1);
 
 /* rounding for typing indicator */
 .small-5Os1Bb .statusTyping-2ed9jJ {
-    border-radius: var(--gr);
+    border-radius: var(--icon-rounding);
 }
 
 /* little circle that you can click to remove a role from someone.. rounding */
 .roleCircle-3xAZ1j {
-    border-radius: var(--gr);
+    border-radius: var(--icon-rounding);
 }
 
 /* role display on server profile rounding */
 .role-2irmRk {
-    border-radius: var(--gr);
+    border-radius: 0px;
 }
 
 /* make PinDMS plugin category regular case and bigger font */
@@ -1500,7 +1530,7 @@ background-color: var(--shade1);
 
 /* make status icon square in friends list */
 #friends .friends-table .friends-row .friends-column-status .status {
-    border-radius: var(--gr);
+    border-radius: var(--icon-rounding);
 }
 
 /* avatar status relocate so it doesnt look weird */
@@ -1575,48 +1605,48 @@ width:100%;
 /* .theme-dark .embedPill-1Zntps { background-color: var(--epc) !important; } */
 
 /* nearly everything to enforce icon rounding, may or may not be stolen from Saucey's DarkerDiscord Theme v1.2.6.4 */
-.guild-settings-base-section .avatar-uploader-inner{ background-size:100% 100%; border:none; height:100px; width:100px; border-radius:var(--gr) }
-.theme-dark .avatar-uploader-indicator{ background-color:#101010; filter:grayscale(100%)brightness(130%); border-radius:var(--gr) }
-.avatar-xxlarge{ border-radius:var(--gr); box-shadow:0 0 10px #000 }
-.theme-dark .guildIconExpired-2Qcq05{ background-color:transparent; border-radius:var(--gr) }
-.theme-dark .guildIconImage-3qTk45{ background-color:#2b2b2b; border-radius:var(--gr); box-shadow:0 0 6px rgba(0,0,0,.6) }
-.inviteModal-34DdOm .avatar-xxxlarge{ background-color:#2b2b2b; border-radius:var(--gr); color:#fff }
-.avatar-large .status,.avatar-profile .status,.avatar-small .status,.avatar-xlarge .status,.avatar-xsmall .status,.avatar-xxlarge .status{ border-radius:var(--gr);pointer-events:none; }
-.chat .avatar-large{ cursor:pointer; opacity:1; border-radius:var(--gr) }
-.emptyUser-3FRJaF{ background:#4a4a4a; border-radius:var(--gr) }
-.icon-3o6xvg{ border-radius:var(--gr)!important }
-.soloAvatar-2Vv88I{ cursor:pointer; margin-right:5px; border-radius:var(--gr) }
-.image-33JSyf,.status-oxiHuE{ border-radius:var(--gr) }
-.mutualFriendIconBackground-wlnw8X{ border-radius:var(--gr) }
-.iconActiveSmall-3IUUtn{ border-radius:var(--gr) }
-.theme-dark .partyMemberBackground-aSF9mc{ background-color:#313131; border-radius:var(--gr) }
-.theme-dark .overflowUserOverflow-2FO8KC{ background-color:#313131; color:#b9bbbe; border-radius:var(--gr) }
-.theme-dark .newsIconCircle-2mzNOD{ background-color:#0a0a0a; border-radius:var(--gr) }
-.headerLogo-1Iut_z{ border-radius:var(--gr) }
-.mask-3OgeRz{ -webkit-mask:none!important; -webkit-mask-size:0!important; border-radius:var(--gr) }
-.avatarWrapper-3H_478{ border-radius:var(--gr) }
-.avatar-16XVId{ border-radius:var(--gr) }
-.avatarHint-1qgaV3{ border-radius:var(--gr); box-shadow:inset 0 0 120px rgba(0,0,0,.75) }
-.avatar-profile .status{ border:2px solid #2b2b2b; bottom:0; right:0; border-radius:var(--gr)!important }
-.avatar-large,.avatar-profile{ border-radius:var(--gr) }
-.avatar-small,.avatar-xlarge,.avatar-xsmall,.avatar-xxlarge{ border-radius:var(--gr) }
-.avatar-3EQepX{ margin-right:20px; animation:float 2s ease-in-out infinite; border-radius:var(--gr) }
-.callAvatarWrapper-TICyxO.voice-2D-tt_ .ripple-16ZT2p{ border-radius:var(--gr) }
-.callAvatar-v-u4BM.voice-2D-tt_{ border-radius:var(--gr) }
-.callAvatarBorder-1D_KaE.voice-2D-tt_.speaking-oCqYMI{ border-radius:var(--gr) }
-.callAvatar-v-u4BM.video-3GgX2M{ border-radius:var(--gr) }
-.callAvatar-v-u4BM.video-3GgX2M .callAvatarVideo-YkbHae{ border-radius:var(--gr) }
-.callAvatar-v-u4BM .callAvatarStatus-3y6S04{ border-radius:var(--gr) }
-.callAvatarBorder-1D_KaE.video-3GgX2M.selected-2esnyn:not(.speaking-oCqYMI){ border-radius:var(--gr);  box-shadow:inset 0 0 0 2px var(--accentcolor) }
-.callAvatarBorder-1D_KaE.video-3GgX2M.speaking-oCqYMI{ border-radius:var(--gr); box-shadow:inset 0 0 0 2px #43b581 }
-.avatarDefault-35WC3R,.avatarSpeaking-1wJCNq{ border-radius:var(--gr) }
-.avatar-uploader-inner{ background-color:var(--main); border:5px solid #ebebeb; border-radius:var(--gr) }
-.guilds-wrapper .guilds-error{ background:#413338; border:2px solid #f04747; border-radius:var(--gr); color:#fff!important }
-.guilds-wrapper .guilds-add{ background:#171717; border:1px dashed #535559; border-radius:var(--gr); color:#535559 }
-.guilds-wrapper .guilds .guild.selected{ background:#1f1f1f; border-radius:var(--gr); transform:scale(1.08); transition:all .2s ease-in-out }
-.guilds-wrapper .guilds .guild .guild-inner{ background:var(---accentcolor); border-radius:var(--gr)!important; cursor:pointer; font-size:18px; line-height:50px; overflow:hidden; text-align:center; transition:all .2s ease-in-out; background-color:#353535!important }
-.guilds-wrapper .guilds .guild.audio .guild-inner:after,.guilds-wrapper .guilds .guild.video .guild-inner:after{ border-radius:var(--gr) }
-.messages-popout .message-group .avatar-large{ margin:0 20px 0 0; border-radius:var(--gr) }
+.guild-settings-base-section .avatar-uploader-inner{ background-size:100% 100%; border:none; height:100px; width:100px; border-radius:var(--icon-rounding) }
+.theme-dark .avatar-uploader-indicator{ background-color:#101010; filter:grayscale(100%)brightness(130%); border-radius:var(--icon-rounding) }
+.avatar-xxlarge{ border-radius:var(--icon-rounding); box-shadow:0 0 10px #000 }
+.theme-dark .guildIconExpired-2Qcq05{ background-color:transparent; border-radius:var(--icon-rounding) }
+.theme-dark .guildIconImage-3qTk45{ background-color:#2b2b2b; border-radius:var(--icon-rounding); box-shadow:0 0 6px rgba(0,0,0,.6) }
+.inviteModal-34DdOm .avatar-xxxlarge{ background-color:#2b2b2b; border-radius:var(--icon-rounding); color:#fff }
+.avatar-large .status,.avatar-profile .status,.avatar-small .status,.avatar-xlarge .status,.avatar-xsmall .status,.avatar-xxlarge .status{ border-radius:var(--icon-rounding);pointer-events:none; }
+.chat .avatar-large{ cursor:pointer; opacity:1; border-radius:var(--icon-rounding) }
+.emptyUser-3FRJaF{ background:#4a4a4a; border-radius:var(--icon-rounding) }
+.icon-3o6xvg{ border-radius:var(--icon-rounding)!important }
+.soloAvatar-2Vv88I{ cursor:pointer; margin-right:5px; border-radius:var(--icon-rounding) }
+.image-33JSyf,.status-oxiHuE{ border-radius:var(--icon-rounding) }
+.mutualFriendIconBackground-wlnw8X{ border-radius:var(--icon-rounding) }
+.iconActiveSmall-3IUUtn{ border-radius:var(--icon-rounding) }
+.theme-dark .partyMemberBackground-aSF9mc{ background-color:#313131; border-radius:var(--icon-rounding) }
+.theme-dark .overflowUserOverflow-2FO8KC{ background-color:#313131; color:#b9bbbe; border-radius:var(--icon-rounding) }
+.theme-dark .newsIconCircle-2mzNOD{ background-color:#0a0a0a; border-radius:var(--icon-rounding) }
+.headerLogo-1Iut_z{ border-radius:var(--icon-rounding) }
+.mask-3OgeRz{ -webkit-mask:none!important; -webkit-mask-size:0!important; border-radius:var(--icon-rounding) }
+.avatarWrapper-3H_478{ border-radius:var(--icon-rounding) }
+.avatar-16XVId{ border-radius:var(--icon-rounding) }
+.avatarHint-1qgaV3{ border-radius:var(--icon-rounding); box-shadow:inset 0 0 120px rgba(0,0,0,.75) }
+.avatar-profile .status{ border:2px solid #2b2b2b; bottom:0; right:0; border-radius:var(--icon-rounding)!important }
+.avatar-large,.avatar-profile{ border-radius:var(--icon-rounding) }
+.avatar-small,.avatar-xlarge,.avatar-xsmall,.avatar-xxlarge{ border-radius:var(--icon-rounding) }
+.avatar-3EQepX{ margin-right:20px; animation:float 2s ease-in-out infinite; border-radius:var(--icon-rounding) }
+.callAvatarWrapper-TICyxO.voice-2D-tt_ .ripple-16ZT2p{ border-radius:var(--icon-rounding) }
+.callAvatar-v-u4BM.voice-2D-tt_{ border-radius:var(--icon-rounding) }
+.callAvatarBorder-1D_KaE.voice-2D-tt_.speaking-oCqYMI{ border-radius:var(--icon-rounding) }
+.callAvatar-v-u4BM.video-3GgX2M{ border-radius:var(--icon-rounding) }
+.callAvatar-v-u4BM.video-3GgX2M .callAvatarVideo-YkbHae{ border-radius:var(--icon-rounding) }
+.callAvatar-v-u4BM .callAvatarStatus-3y6S04{ border-radius:var(--icon-rounding) }
+.callAvatarBorder-1D_KaE.video-3GgX2M.selected-2esnyn:not(.speaking-oCqYMI){ border-radius:var(--icon-rounding);  box-shadow:inset 0 0 0 2px var(--accentcolor) }
+.callAvatarBorder-1D_KaE.video-3GgX2M.speaking-oCqYMI{ border-radius:var(--icon-rounding); box-shadow:inset 0 0 0 2px #43b581 }
+.avatarDefault-35WC3R,.avatarSpeaking-1wJCNq{ border-radius:var(--icon-rounding) }
+.avatar-uploader-inner{ background-color:var(--main); border:5px solid #ebebeb; border-radius:var(--icon-rounding) }
+.guilds-wrapper .guilds-error{ background:#413338; border:2px solid #f04747; border-radius:var(--icon-rounding); color:#fff!important }
+.guilds-wrapper .guilds-add{ background:#171717; border:1px dashed #535559; border-radius:var(--icon-rounding); color:#535559 }
+.guilds-wrapper .guilds .guild.selected{ background:#1f1f1f; border-radius:var(--icon-rounding); transform:scale(1.08); transition:all .2s ease-in-out }
+.guilds-wrapper .guilds .guild .guild-inner{ background:var(---accentcolor); border-radius:var(--icon-rounding)!important; cursor:pointer; font-size:18px; line-height:50px; overflow:hidden; text-align:center; transition:all .2s ease-in-out; background-color:#353535!important }
+.guilds-wrapper .guilds .guild.audio .guild-inner:after,.guilds-wrapper .guilds .guild.video .guild-inner:after{ border-radius:var(--icon-rounding) }
+.messages-popout .message-group .avatar-large{ margin:0 20px 0 0; border-radius:var(--icon-rounding) }
 
 /* fix for ThemeRepo download button */
 .bda-slist .bda-footer { color: #ffffff; }
@@ -1716,6 +1746,7 @@ END OLD FIXES
 */
 
 /*Scrollbars*/
+::-webkit-scrollbar-corner {background-color: transparent;}
 ::-webkit-scrollbar {width: 6px !important;height: 8px !important;}
 ::-webkit-scrollbar-track:active{background-color: #2a2a2a !important;}
 *:not(:hover)::-webkit-scrollbar-thumb { background: transparent !important; border: 0px solid transparent !important; }
@@ -1789,7 +1820,7 @@ END OLD FIXES
     background: -o-linear-gradient(#31343a, #41454c) !important;
     background: -moz-linear-gradient(#31343a, #41454c) !important;
     background: linear-gradient(rgba(40, 40, 40, 0.5), rgba(25, 25, 25, 0.5)) !important;
-    border-radius: var(--gr) !important;
+    border-radius: var(--icon-rounding) !important;
     padding-right: 10px !important;
     padding-left: 10px !important;
   /*text-shadow: 2px 1px 5px rgba(0, 0, 0, 1); */ /*I dont like the text shadowing. But theres options here to do so.*/
@@ -1807,7 +1838,7 @@ END OLD FIXES
     width: 100% !important;
     height: 100% !important;
     background: transparent;
-    border-radius: var(--gr);
+    border-radius: var(--icon-rounding);
     top: -2px;
     left: -2px;
     box-shadow: none !important; 
