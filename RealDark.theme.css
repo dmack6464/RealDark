@@ -1,4 +1,4 @@
-//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.1"}*//{}
+//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.3"}*//{}
 /*The Configurator, change the variables to whatever you want.*/
 :root {
 /* titlebar settings */
@@ -50,6 +50,164 @@
     background-color: var(--main);
 }
 
+.contentCozy-3XX413:hover {
+	margin-left:69px;
+	padding-left:10px;
+	border-left:1px solid var(--accentcolor);
+}
+
+
+#friends .friends-table .friends-row .friends-column-actions {
+	margin-left: 0px!important;
+}
+
+.messageGroupWrapper-o-Zw7G {
+	border:1px solid;
+	border-radius: 0px;
+}
+
+.theme-dark .header-ykumBX {
+	-webkit-box-shadow:none;
+	box-shadow: none;
+	border-bottom:1px solid var(--accentcolor);
+}
+
+.theme-dark .messagesPopoutWrap-1MQ1bW {
+	border: none;
+}
+
+.search-results-wrap .action-buttons .jump-button {
+	border-radius: 0px;
+}
+
+.theme-dark .search-results-wrap .action-buttons .jump-button:hover {
+	background-color: var(--shade0)
+}
+
+.theme-dark .search-results-wrap .action-buttons .jump-button {
+	background-color: var(--shade1);
+}
+
+.search-results-wrap .action-buttons {
+	box-shadow: none;
+	-webkit-box-shadow:none;
+}
+
+.theme-dark .scrollerWrap-2lJEkd .scroller-2FKFPG::-webkit-scrollbar-track {
+	border:6px!important;
+	border-radius: 0px!important;
+}
+
+.theme-dark .scrollerWrap-2lJEkd .scroller-2FKFPG::-webkit-scrollbar-track:hover {
+	background-color: #111111!important;
+}
+
+.theme-dark .scrollerWrap-2lJEkd .scroller-2FKFPG::-webkit-scrollbar-track:active {
+	background-color: #2a2a2a!important;
+}
+
+#friends .friends-table .friends-table-header .friends-column {
+	font-size: 14px;
+	text-transform: none;
+}
+
+#friends .friends-table .friends-row .friends-column-guilds .more-mutual-guilds-btn {
+	border:none;
+}
+
+#friends .friends-table .friends-column-guilds {
+	width:22%;
+}
+
+#friends .friends-table .friends-column-guilds {
+	display:-webkit-box!important;
+	display:flex!important;
+}
+
+
+#friends .friends-table .friends-column-status {
+	width:22%;
+}
+
+#friends .friends-table .friends-column-name {
+	width:22%;
+}
+
+.theme-dark #friends .friends-table .friends-row+.friends-row {
+	border:none;
+}
+
+#friends .friends-table .friends-row .friends-column-actions .friends-action {
+	border-radius: 0px;
+}
+
+.theme-dark #friends .friends-table .friends-row .friends-column-actions .friends-action:hover {
+	background-color: var(--shade1)
+}
+
+.theme-dark #friends .friends-table .friends-row .friends-column-actions .friends-action {
+	background-color: var(--shade2);
+}
+
+#friends .friends-table .friends-row:hover {
+	border-radius:0px;
+}
+
+.theme-dark #friends .friends-table .friends-row:hover {
+	background: var(--shade3);
+}
+
+.theme-dark .elevationBorderHigh-2WYJ09 {
+	box-shadow: none;
+	-webkit-box-shadow:none;
+}
+
+.theme-dark .resultsGroup-r_nuzN:before {
+	border:none;
+}
+
+.theme-dark .focused-2bY0OD {
+	background-color: var(--shade2);
+	border:none;
+}
+
+.theme-dark .searchAnswer-3Dz2-q, .theme-dark .searchFilter-2ESiM3 {
+	background-color: var(--shade2);
+}
+.searchFilter-2ESiM3 {
+	border-radius: 0px;
+}
+
+.theme-dark .option-96V44q.selected-rZcOL-:after {
+	background: transparent;
+}
+
+.theme-dark .option-96V44q.selected-rZcOL- {
+	background-color: var(--shade1);
+}
+
+.option-96V44q {
+	border-radius: 0px;
+}
+
+.theme-dark .option-96V44q:after {
+	background:transparent;
+}
+
+.resultsGroup-r_nuzN .header-2N-gMV {
+	text-transform: none;
+	font-size: 14px;
+}
+
+.theme-dark .container-3ayLPN {
+	background-color: var(--popup);
+	border-radius: 0px;
+}
+
+.footer-1fjuF6 {
+	border:none;
+}
+
 .theme-dark .message-2qRu38 {
 	background-color: var(--shade2)!important;
 }
@@ -74,9 +232,6 @@
     margin-top: 2px;
     max-height: 200px;
     overflow-x: scroll;
-}
-.marginBottom20-32qID7 {
-	margin-bottom: 0px;
 }
 
 .side-8zPYf6 .header-2RyJ0Y:first-child {
@@ -912,7 +1067,11 @@ width: 20px;
 
 .theme-dark .messageGroupWrapper-o-Zw7G {
     background-color: transparent;
-    border-color: var(--shade1);
+    border-color: var(--shade0);
+}
+
+.theme-dark .messageGroupWrapper-o-Zw7G:hover {
+	border-color: var(--shade0)
 }
 
 .messageGroupBlocked-3wrQQX {
@@ -1086,7 +1245,9 @@ background-color: var(--guilds);
 }
 
 .theme-dark .quickMessage-1yeL4E {
-    background-color: transparent;
+    background-color: var(--shade2);
+    border:none;
+    border;border-radius: 0px;
 }
 
 .theme-dark #autocomplete-popout .autocomplete-header-background {
@@ -1300,7 +1461,7 @@ background-color: var(--guilds);
 }
 
 .theme-dark .headerNormal-T_seeN {
-    background-color: transparent;
+    background-color: var(--popup);
 }
 
 .headerTop-3C2Zn0 {
@@ -1308,11 +1469,13 @@ background-color: var(--guilds);
 }
 
 .theme-dark .body-3iLsc4, .theme-dark .footer-1fjuF6 {
-    background-color: transparent;
+    background-color: var(--popup);
 }
 
 .userPopout-3XzG_A {
-    background: var(--popup);
+	-webkit-box-shadow:none;
+	box-shadow: none;
+    background: transparent;
     border-radius: 0px;
     width:300px;
     max-height:90vh;
@@ -1374,7 +1537,7 @@ END NEW FIXES
 .theme-dark .search-results-wrap, .theme-dark .search-results-wrap .channel-separator .channel-name { background-color: var(--main);}
 .search-results-wrap .search-result, .search-results-wrap .results-wrapper {background: var(--main);}
 .theme-dark .search-results-wrap .search-header, .theme-dark .searchQuery-1B7rtx {-webkit-box-shadow: 0 1px 0 var(--main); background-color: var(--main);}
-.theme-dark .searchQuery-1B7rtx.selected-rZcOL-, .resultsGroup-r_nuzN {background-color: var(--main);}
+.theme-dark .searchQuery-1B7rtx.selected-rZcOL-, .resultsGroup-r_nuzN {background-color: transparent;}
 
 /* idk why, but placing this here fixes an issue of it not working at all. */
 .theme-dark .membersGroup-v9BXpm{position:relative}
@@ -1421,9 +1584,10 @@ START OLD FIXES
 
 /* another search fix */
 .theme-dark .search-results-wrap .search-result .search-result-message.hit {
-    background-color: var(--shade1) !important;
+    background-color: var(--shade2) !important;
     border-bottom: 2px solid var(--main) !important;
     border-top: 2px solid var(--main) !important;
+    border-radius: 0px;
 }
 
 /* colour for the friend request pending badge */
@@ -1764,7 +1928,7 @@ END OLD FIXES
 /* Border and colour of the scrollbar thumb  */
 ::-webkit-scrollbar-thumb {
     overflow: auto !important ;
-    border-radius: 20px !important ;  /* 0px for box style */
+    border-radius: 0px !important ;  /* 0px for box style */
     background-color: #303030 !important;
     border-color: transparent !important;
 }
