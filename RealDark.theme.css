@@ -180,7 +180,7 @@
 }
 
 #friends .friends-table .friends-column-guilds {
-	width:25%;
+	width:22%;
 }
 
 #friends .friends-table .friends-column-guilds {
@@ -190,11 +190,11 @@
 
 
 #friends .friends-table .friends-column-status {
-	width:25%;
+	width:22%;
 }
 
 #friends .friends-table .friends-column-name {
-	width:25%;
+	width:22%;
 }
 
 .theme-dark #friends .friends-table .friends-row+.friends-row {
