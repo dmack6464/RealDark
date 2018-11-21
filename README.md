@@ -1,6 +1,6 @@
 # RealDark
 ## A BetterDiscord theme inspired by YzY229's Darkness theme which has some useful modification options, including:
-adding your own window title
+adding your own window title<br>
 optionally hiding Spotify Premium elements
 ## fixed bugs being:
 user popouts being unusable on medium-small screens<br>
