@@ -3,7 +3,7 @@
 adding your own window title
 optionally hiding Spotify Premium elements
 ## fixed bugs being:
-user popouts being unusable on medium-small screens
+user popouts being unusable on medium-small screens<br>
 many roles making user popouts unusable
 <p align="center"><img src="./img/1.png" alt="RealDark Example"></p>
 <p align="center"><img src="./img/2.png" alt="RealDark Example"></p>
