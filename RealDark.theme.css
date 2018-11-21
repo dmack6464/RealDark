@@ -1,4 +1,4 @@
-//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.3"}*//{}
+//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.4"}*//{}
 /*The Configurator, change the variables to whatever you want.*/
 :root {
 /* titlebar settings */
@@ -15,6 +15,9 @@
 	--title:"RealDark"; /* title bar text */
 	--title-align:left; /* Options: center, left */
 	--icon-rounding:0%; /* icon rounding: 0% for none, 50% for completely round icons */
+/* Spotify Premium Element Options */
+	--spotify-premiom-options:none; /* flex for show, none for hide */
+	--spotify-listening-party-hide-text:"Listening Party Hidden"; /* change to "" if unhiding Spotify Premium options */
 
 /* mention settings */
     --mention:rgba(50,50,120, 0.20); /* mention background colour */
@@ -48,6 +51,67 @@
     --ch:28px; /* I would like to have channel height at 10px, but discord says fucking nope. set this to 10px if you dont mind rendering issues in the channel list. */
     --mh:40px; /* same deal as above, I would like this at 25px, but that meaftext-alignns rendering issues, this time in the member list. good fucking job Discord. */
     background-color: var(--main);
+}
+
+.input-2VB9rf {
+	border-radius: 0px;
+}
+
+.result-oB0z-- {
+	border-radius: 0px;
+}
+
+.theme-dark .divider-3573oO {
+	background-color: var(--accentcolor);
+}
+
+.button-mM-y8i, .theme-dark .button-mM-y8i {
+	border-radius: 0px;
+	background-color: var(--shade1);
+	box-shadow: none;
+	-webkit-box-shadow:none;
+}
+
+.theme-dark .card-FDVird:before {
+	background-color: var(--shade2);
+	border:none;
+	border-radius: 0px!important;
+}
+
+.theme-dark #autocomplete-popout .row.selected {
+	background: var(--shade2)
+}
+
+#autocomplete-popout h3 {
+	font-size: 16px;
+	text-transform: none;
+}
+
+/* REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE FUCK YOU DISCORD FOR MAKING ME PUT THIS SHIT HERE */
+.scrollerThemed-2oenus.themeDark-2cjlUp.scrollerTrack-1ZIpsv>.scroller-2FKFPG::-webkit-scrollbar-track,
+.scrollerThemed-2oenus.themeDark-2cjlUp.scrollerTrack-1ZIpsv>.scrollerStore-390omS::-webkit-scrollbar-track,
+.theme-dark .scrollerWrap-2lJEkd.scrollerTrack-1ZIpsv>.scroller-2FKFPG::-webkit-scrollbar-track,
+.theme-dark .scrollerWrap-2lJEkd.scrollerTrack-1ZIpsv>.scrollerStore-390omS::-webkit-scrollbar-track,
+.theme-light .scrollerThemed-2oenus.themeDark-2cjlUp.scrollerTrack-1ZIpsv>.scroller-2FKFPG::-webkit-scrollbar-track,
+.theme-light .scrollerThemed-2oenus.themeDark-2cjlUp.scrollerTrack-1ZIpsv>.scrollerStore-390omS::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+.theme-dark #autocomplete-popout .autocomplete-arrow,
+.theme-dark #autocomplete-popout .autocomplete-shadow {
+	box-shadow: none;
+	-webkit-box-shadow:none;
+	border-radius: 0px;
+}
+
+.listeningActionsUserPopout-Ga2V_N .button-1Pkqso:not(:first-child) {
+	display: var(--spotify-premiom-options);
+}
+
+.contentCozy-3XX413:hover {
+    margin-left:70px;
+    padding-left:8px;
+    border-left:2px solid var(--accentcolor);
 }
 
 .contentCozy-3XX413:hover {
@@ -116,7 +180,7 @@
 }
 
 #friends .friends-table .friends-column-guilds {
-	width:22%;
+	width:25%;
 }
 
 #friends .friends-table .friends-column-guilds {
@@ -126,11 +190,11 @@
 
 
 #friends .friends-table .friends-column-status {
-	width:22%;
+	width:25%;
 }
 
 #friends .friends-table .friends-column-name {
-	width:22%;
+	width:25%;
 }
 
 .theme-dark #friends .friends-table .friends-row+.friends-row {
@@ -826,14 +890,15 @@ width: 20px;
 .invite-18yqGF, .theme-dark .invite-18yqGF {
 	border-radius: 0px;
 	background-color: var(--shade1);
+	margin:4px 0px 0px 0px;
 }
 
 /* spotify listening party invite hide */
-.theme-dark .invite-18yqGF:before {content: "Listening Party Hidden"; color: orange; font-size: 15px;}
-.fullHeight-24whqn {display: none;}
+.theme-dark .invite-18yqGF:before {display: var(--spotify-premiom-options); content: var(--spotify-listening-party-hide-text); color: orange; font-size: 15px;}
+.fullHeight-24whqn {display: var(--spotify-premiom-options);}
 .container-3I3vDQ {width: unset; height: unset;}
 .invite-18yqGF:hover .helpIcon-2EyVTp {display: none;}
-.coverImageWrapper-22d5LB {display: none;}
+.coverImageWrapper-22d5LB {display: var(--spotify-premiom-options);}
 .invite-18yqGF, .theme-dark .invite-18yqGF {padding:0px; background-color: unset; border:none;}
 
 .guildName-2hvnt_ {
@@ -1067,11 +1132,7 @@ width: 20px;
 
 .theme-dark .messageGroupWrapper-o-Zw7G {
     background-color: transparent;
-    border-color: var(--shade0);
-}
-
-.theme-dark .messageGroupWrapper-o-Zw7G:hover {
-	border-color: var(--shade0)
+    border-color: var(--shade1);
 }
 
 .messageGroupBlocked-3wrQQX {
@@ -1227,7 +1288,10 @@ background-color: var(--guilds);
 }
 
 .theme-dark .quickswitcher-3JagVE {
-    background-color: var(--popup);
+    background-color: var(--shade2);
+    border-radius: 0px;
+    box-shadow: none;
+    -webkit-box-shadow:none;
 }
 
 .lookInverted-2D7oAl.colorGreen-29iAKY:hover,
@@ -1254,7 +1318,8 @@ background-color: var(--guilds);
     background-color: var(--popup);
     border-top-style: solid;
     border-top-width: 1px;
-    border-top-color: #505050;
+    border-top-color: var(--accentcolor);
+    border-radius: 0px;
 }
 
 .theme-dark #autocomplete-popout section {
