@@ -1,4 +1,6 @@
+[dmackserv]: https://discord.gg/7HrZXFq
 # RealDark
+## [Support Server][dmackserv]<br>
 ## A BetterDiscord theme which has some useful modification options, including:
 adding your own window title<br>
 optionally hiding Spotify Premium elements
