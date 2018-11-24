@@ -1,4 +1,4 @@
-//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.4"}*//{}
+//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.5"}*//{}
 /*The Configurator, change the variables to whatever you want.*/
 :root {
 /* titlebar settings */
@@ -16,8 +16,8 @@
 	--title-align:left; /* Options: center, left */
 	--icon-rounding:0%; /* icon rounding: 0% for none, 50% for completely round icons */
 /* Spotify Premium Element Options */
-	--spotify-premiom-options:none; /* flex for show, none for hide */
-	--spotify-listening-party-hide-text:"Listening Party Hidden"; /* change to "" if unhiding Spotify Premium options */
+	--spotify-premiom-options:flex; /* flex for show, none for hide */
+	--spotify-listening-party-hide-text:""; /* change to "" if unhiding Spotify Premium options. Default is "Listening Party Hidden" */
 
 /* mention settings */
     --mention:rgba(50,50,120, 0.20); /* mention background colour */
@@ -52,6 +52,124 @@
     --mh:40px; /* same deal as above, I would like this at 25px, but that meaftext-alignns rendering issues, this time in the member list. good fucking job Discord. */
     background-color: var(--main);
 }
+
+.platform-win .container-16j22k:before {
+	margin-top: 30px;
+	text-align: center;
+	vertical-align: middle;
+	display: block;
+	color: var(--text);
+    font-size: 20px;
+	position: absolute;
+	content: "Ga zelf fucken, kut :D";
+}
+
+.quote-3aooyW {
+	font-size: 18px;
+}
+
+.contentBase-11jeVK {
+	text-transform: none;
+}
+
+.links-3Ldd4A:first-child {
+	line-height: 0px;
+	color:transparent;
+	font-size: 0px;
+}
+
+.links-3Ldd4A:not(:first-child) {
+	line-height: 0px;
+	color:transparent;
+	font-size: 0px;
+}
+
+.links-3Ldd4A:first-child:after {
+	color: #00b0f4;
+	font-size: 15px;
+    font-weight: 500;
+    line-height: 15px;
+    content:"Complain here"
+}
+
+.links-3Ldd4A:not(:first-child):after {
+	color: #00b0f4;
+	font-size: 15px;
+    font-weight: 500;
+    line-height: 15px;
+    content:"If you can access this, Discord has probably fucked up their shit again."
+}
+
+.problemsText-1Yx-Kl {
+	line-height: 0px;
+	color:transparent;
+}
+
+.problemsText-1Yx-Kl:after {
+	display: block;
+	color: var(--text);
+    font-size: 14px;
+    margin-bottom: 8px;
+    content:"Think it's Discord's fault again? Try these links."
+}
+
+.container-16j22k {
+	background-color: var(--shade1a);
+}
+
+.da-status {
+	line-height: 0px;
+	color:transparent;
+}
+
+.status-1JTY3j:after {
+	display: block;
+	color: #f04747;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    text-transform: none;
+	content:"Either Discord fucked up, or you tripped over your fucking internet cable again. You fucking degenerate.";
+}
+
+.actionIcon-h73Pge {
+	padding: 0px;
+}
+
+.theme-dark .listeningAlong-2UPsxf {
+	background-color: var(--shade1);
+	border-bottom:1px solid var(--accentcolor);
+	padding:0px 10px;
+}
+
+.connectedAccount-36nQx7 {
+	border:none;
+}
+
+/* some things copied from https://imbastion.github.io/BD-Themes/NierDance.theme.css */
+/* Profile Popout */
+.avatarHint-1qgaV3,.userPopout-3XzG_A{border-radius:0}
+#app-mount .quickMessage-1yeL4E{background:hsla(0, 0%, 0%, 0.2);border-color:hsla(0, 0%, 0%, 0.2);color:white}
+
+.topSectionPlaying-1J5E4n,#app-mount .headerPlaying-j0WQBV,.topSectionPlaying-1J5E4n ~ .body-3ND3kc,#app-mount .headerPlaying-j0WQBV ~ .body-3iLsc4,#app-mount .headerPlaying-j0WQBV ~ .footer-1fjuF6{background:hsla(227, 37%, 19%, 0.7)!important}
+.topSectionStreaming-1Tpf5X,#app-mount .headerStreaming-2FjmGz,.topSectionStreaming-1Tpf5X ~ .body-3ND3kc,#app-mount .headerStreaming-2FjmGz ~ .body-3iLsc4,#app-mount .headerStreaming-2FjmGz ~ .footer-1fjuF6{background:hsla(262,80%,40%,.6)!important}
+.topSectionSpotify-1lI0-P,#app-mount .headerSpotify-zpWxgT,.topSectionSpotify-1lI0-P ~ .body-3ND3kc,#app-mount .headerSpotify-zpWxgT ~ .body-3iLsc4,#app-mount .headerSpotify-zpWxgT ~ .footer-1fjuF6{background:rgba(32,64,32,.70)!important}
+.topSectionXbox-3fWLjS,#app-mount .headerXbox-3G-4PF,.topSectionXbox-3fWLjS ~ .body-3ND3kc,#app-mount .headerXbox-3G-4PF~.body-3iLsc4,#app-mount .headerXbox-3G-4PF ~ .footer-1fjuF6{background: rgba(16, 50, 16, .6)!important}
+
+.connectedAccount-36nQx7{position: relative}
+.connectedAccountIcon-3P3V6F,.connectedAccountName-f8AEe2,.connectedAccountVerifiedIcon-3aZz_K, .body-3ND3kc a {z-index:1;color:white;border-color:transparent}
+img[src="/assets/f09c1c70a67ceaaeb455d163f3f9cbb8.png"] + div:before {content:"";height:46px;width:262px;background:#191919;position:absolute;margin-left:-38px}
+img[src="/assets/ff3516ac66b71ef616b1df63e20fee65.png"] + div:before {content:"";height:46px;width:262px;background:#960505;position:absolute;margin-left:-38px}
+img[src="/assets/806953fe1cc616477175cbcdf90d5cd3.png"] + div:before {content:"";height:46px;width:262px;background:#b27f19;position:absolute;margin-left:-38px}
+img[src="/assets/4662875160dc4c56954003ebda995414.png"] + div:before {content:"";height:46px;width:262px;background:#004895;position:absolute;margin-left:-38px}
+img[src="/assets/3abe9ce5a00cc24bd8aae04bf5968f4c.png"] + div:before {content:"";height:46px;width:262px;background:#882c0d;position:absolute;margin-left:-38px}
+img[src="/assets/8c289d499232cd8e9582b4a5639d9d1d.png"] + div:before {content:"";height:46px;width:262px;background:#0f6089;position:absolute;margin-left:-38px}
+img[src="/assets/edbbf6107b2cd4334d582b26e1ac786d.png"] + div:before {content:"";height:46px;width:262px;background:#220d4b;position:absolute;margin-left:-38px}
+img[src="/assets/5be6cc17e596c02e7506f2776cfb1622.png"] + div:before {content:"";height:46px;width:262px;background:#1e71ad;position:absolute;margin-left:-38px}
+img[src="/assets/f0655521c19c08c4ea4e508044ec7d8c.png"] + div:before {content:"";height:46px;width:262px;background:#064c12;position:absolute;margin-left:-38px}
+img[src="/assets/8d8f815f3d81a33b1e70ec7c22e1b6fe.png"] + div:before {content:"";height:46px;width:262px;background:#0f176f;position:absolute;margin-left:-38px}
+
+/* end of code stealing, atleast for a bit! :D */
 
 .input-2VB9rf {
 	border-radius: 0px;
@@ -888,7 +1006,7 @@ width: 20px;
 }
 
 /* spotify listening party invite hide */
-.theme-dark .invite-18yqGF:before {display: var(--spotify-premiom-options); content: var(--spotify-listening-party-hide-text); color: orange; font-size: 15px;}
+.theme-dark .invite-18yqGF:before {content: var(--spotify-listening-party-hide-text); color: orange; font-size: 15px;}
 .fullHeight-24whqn {display: var(--spotify-premiom-options);}
 .container-3I3vDQ {width: unset; height: unset;}
 .invite-18yqGF:hover .helpIcon-2EyVTp {display: none;}
@@ -1549,10 +1667,10 @@ background-color: var(--guilds);
 /* playing noti */
 .body-ZAhrcj {background: var(--shade1) !important; }
 .headerPlaying-j0WQBV {background: rgba(48,48,80,.85);}
-.headerSpotify-zpWxgT {background: rgba(32,64,32,.85);}
+/* .headerSpotify-zpWxgT {background: rgba(32,64,32,.85);} */
 .headerXbox-3G-4PF {background: rgba(45,34,0,.85);}
 .topSectionPlaying-1J5E4n {background: rgba(48,48,80,.25);}
-.topSectionSpotify-1lI0-P {background: rgba(32,64,32,.25);}
+/* .topSectionSpotify-1lI0-P {background: rgba(32,64,32,.25);} */
 
 .theme-dark .menu-Sp6bN1 {
     background: var(--popup);
