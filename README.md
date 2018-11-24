@@ -3,7 +3,8 @@
 ## [Support Server][dmackserv]<br>
 ## A BetterDiscord theme which has some useful modification options, including:
 adding your own window title<br>
-optionally hiding Spotify Premium elements
+optionally hiding Spotify Premium elements<br>
+hiding your email in settings, unless you hover over it
 ## fixed Discord bugs being:
 user popouts being unusable on medium-small screens<br>
 many roles making user popouts unusable
