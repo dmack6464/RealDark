@@ -7,7 +7,8 @@ optionally hiding Spotify Premium elements<br>
 hiding your email in settings, unless you hover over it
 ## fixed Discord bugs being:
 user popouts being unusable on medium-small screens<br>
-many roles making user popouts unusable
+many roles making user popouts unusable<br>
+connecting screen being boring
 <p align="center"><img src="./img/1.png" alt="RealDark Example"></p>
 <p align="center"><img src="./img/2.png" alt="RealDark Example"></p>
 <p align="center"><img src="./img/3.png" alt="RealDark Example"></p>
