@@ -1,14 +1,16 @@
 [dmackserv]: https://discord.gg/7HrZXFq
 # RealDark
 ## [Support Server][dmackserv]<br>
-## A BetterDiscord theme which has some useful modification options, including:
-adding your own window title<br>
-optionally hiding Spotify Premium elements<br>
-hiding your email in settings, unless you hover over it
+## A BetterDiscord theme which has some useful and unique features, including:
+Adding your own window title<br>
+Optionally hiding Spotify Premium elements<br>
+Hiding your email in settings, unless you hover over it<br>
+Optional rounded or square icons<br>
+(Advanced) Blurred (or glass) popup backgrounds!
 ## fixed Discord bugs being:
-user popouts being unusable on medium-small screens<br>
-many roles making user popouts unusable<br>
-connecting screen being boring
+User popouts being unusable on medium-small screens<br>
+Many roles making user popouts unusable<br>
+Connecting screen being boring
 <p align="center"><img src="./img/1.png" alt="RealDark Example"></p>
 <p align="center"><img src="./img/2.png" alt="RealDark Example"></p>
 <p align="center"><img src="./img/3.png" alt="RealDark Example"></p>
