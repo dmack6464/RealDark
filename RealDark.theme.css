@@ -1,11 +1,6 @@
-//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.5"}*//{}
+//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.6"}*//{}
 /*The Configurator, change the variables to whatever you want.*/
 :root {
-/* titlebar settings */
-  --i-tbr-btninvert: 0%;
-  --i-tbr-closeimg: url("https://cdn.discordapp.com/attachments/406778960484237322/406779041270464522/btn-close.svg");
-  --i-tbr-maximizeimg: url("https://cdn.discordapp.com/attachments/406778960484237322/406779041064943617/btn-maximize.svg");
-  --i-tbr-minimizeimg: url("https://cdn.discordapp.com/attachments/406778960484237322/406779041409138688/btn-minimize.svg");
 
 /* Simplified settings area */
 	--guilds:var(--shade2); /* server list background colour */
@@ -31,14 +26,14 @@
     --dc:var(--sidebars); /* menber list and channel list divider colour, default #3070ff */
 
 /* regular settings */
-    --popup:rgba(0,0,0,0.85); /* popup colour */
+    --popup:rgba(20,20,25,0.85); /* popup colour changed from rgba(0,0,0,0.85) */
     --textboxborder:#404040;
-    --shade0:#252525; /* shade colour 0 */
-    --shade1:#1d1d1d; /* shade colour 1 */
-    --shade1a:#141414; /* shade colour 1a */
-    --shade2:#0f0f0f; /* shade colour 2 */
-    --shade3:#090909; /* shade colour 3 */
-    --main:#030303;       /*main color rgb(0,0,0) var(--main)*/
+    --shade0:#252529; /* shade colour 0 */
+    --shade1:#1d1d22; /* shade colour 1 */
+    --shade1a:#141418; /* shade colour 1a */
+    --shade2:#0f0f14; /* shade colour 2 */
+    --shade3:#09090D; /* shade colour 3 */
+    --main:#030307;       /*main color rgb(0,0,0) var(--main)*/
     --text:#DDDDDD;    /*text rgb(255,255,250) var(--text)*/
     --c:#00ffff;    /*hyperlink rgb(0,255,255) var(--c)*/
     --accentcolor:#3070ff; /* im actually using this now */
@@ -46,11 +41,94 @@
     --bdtt:rgba(58,113,160,0.85); /* override for BetterDiscord Blue */
     --font:'Whitney'; /* Default is Whitney */
 
+/* ADVANCED: Add blur to popup menus!
+
+"webPreferences": {
+    	"experimentalFeatures" : true
+    }
+
+Add this to your AppData\Local\Discord\app-0.0.301\resources\app\config.json
+Thanks to 105835945139445760 for the idea and making this possible! */
+	--background-blur:1px; /* Set to 0px for no blurring, default is 1px */
+
 /* other shit */
     --epc:#707070; /* embed pill colour override, search for pilloverride and uncomment that code to enable */
     --ch:28px; /* I would like to have channel height at 10px, but discord says fucking nope. set this to 10px if you dont mind rendering issues in the channel list. */
     --mh:40px; /* same deal as above, I would like this at 25px, but that meaftext-alignns rendering issues, this time in the member list. good fucking job Discord. */
     background-color: var(--main);
+}
+
+.popoutLeft-30WmrD.noArrow-3BYQ0Z,
+.popoutRight-2ZVwL-.noArrow-3BYQ0Z,
+.popoutBottom-1YbShG.noArrow-3BYQ0Z,
+.popoutBottomLeft-JehOp2.noArrow-3BYQ0Z,
+.popoutBottomRight-2JrySt.noArrow-3BYQ0Z,
+.popoutInvert-3UdKhn:not(.popoutBottom-1YbShG).popoutTop-3uu9vG,
+.popoutInvert-3UdKhn:not(.popoutBottom-1YbShG).popoutTopRight-3BzFIE {
+	backdrop-filter:blur(var(--background-blur));
+}
+
+/* if you want a shitty buggy "You are typing..." notification, replace the id with your own. */
+
+div [style*="324260038736871426"] + .da-typing::before {
+    content: 'You are typing...';
+    font-size: 16px;
+    line-height: 18px;
+    color: var(--text);
+    position: fixed;
+    top: 73px;
+    left:0;
+    margin:0% calc(50% - 75px) 0% calc(50% - 75px);
+    width:150px;
+    height: 20px;
+    font-weight: 700;
+    text-align: center;
+    z-index: 100000;
+    background: var(--popup);
+}
+
+.lookFilled-1Gx00P.colorGreen-29iAKY > .spinner-2enMB9:before {
+	content:"Please Wait...";
+	width: 100%
+}
+
+/* I got rid of some animations to increase performance somewhat. :D */
+
+.pulsingEllipsis-3YiXRF {
+	width:0px;
+}
+
+.pulsingEllipsisItem-32hhWL:nth-of-type(3),
+.pulsingEllipsisItem-32hhWL:nth-of-type(2),
+.pulsingEllipsisItem-32hhWL:nth-of-type(1) {
+	-webkit-animation:none;
+	animation: none;
+	display:none;
+}
+
+.da-typing > span:not(.da-text) {
+	width:26px;
+	height:26px;
+	border:2px solid rgba(60, 60, 255, 0.7);
+	border-radius: var(--icon-rounding);
+}
+
+.base-gE7OpD .ellipsis-19qdx6 {
+	display:none;
+}
+
+.theme-dark .header-Hg_qNF {
+	line-height: 0px;
+	color:transparent;
+}
+
+.customScroller-26gWhv>div {
+    max-width: unset;
+    min-width: unset;
+}
+
+.theme-dark .member-1q7VfX .roleWrapper-1Hde_V {
+	flex-direction: row-reverse;
 }
 
 .platform-win .container-16j22k:before {
@@ -153,7 +231,7 @@
 
 .topSectionPlaying-1J5E4n,#app-mount .headerPlaying-j0WQBV,.topSectionPlaying-1J5E4n ~ .body-3ND3kc,#app-mount .headerPlaying-j0WQBV ~ .body-3iLsc4,#app-mount .headerPlaying-j0WQBV ~ .footer-1fjuF6{background:hsla(227, 37%, 19%, 0.7)!important}
 .topSectionStreaming-1Tpf5X,#app-mount .headerStreaming-2FjmGz,.topSectionStreaming-1Tpf5X ~ .body-3ND3kc,#app-mount .headerStreaming-2FjmGz ~ .body-3iLsc4,#app-mount .headerStreaming-2FjmGz ~ .footer-1fjuF6{background:hsla(262,80%,40%,.6)!important}
-.topSectionSpotify-1lI0-P,#app-mount .headerSpotify-zpWxgT,.topSectionSpotify-1lI0-P ~ .body-3ND3kc,#app-mount .headerSpotify-zpWxgT ~ .body-3iLsc4,#app-mount .headerSpotify-zpWxgT ~ .footer-1fjuF6{background:rgba(32,64,32,.70)!important}
+.topSectionSpotify-1lI0-P,#app-mount .headerSpotify-zpWxgT,.topSectionSpotify-1lI0-P ~ .body-3ND3kc,#app-mount .headerSpotify-zpWxgT ~ .body-3iLsc4,#app-mount .headerSpotify-zpWxgT ~ .footer-1fjuF6{background:rgba(32,64,32,.70)!important;}
 .topSectionXbox-3fWLjS,#app-mount .headerXbox-3G-4PF,.topSectionXbox-3fWLjS ~ .body-3ND3kc,#app-mount .headerXbox-3G-4PF~.body-3iLsc4,#app-mount .headerXbox-3G-4PF ~ .footer-1fjuF6{background: rgba(16, 50, 16, .6)!important}
 
 .connectedAccount-36nQx7{position: relative}
