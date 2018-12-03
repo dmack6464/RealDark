@@ -12,6 +12,8 @@ Removed animations to increase performance
 User popouts being unusable on medium-small screens<br>
 Many roles making user popouts unusable<br>
 Connecting screen being boring
+<p align="center"><img src="./img/5.png" alt="RealDark Example"></p>
+<p align="center"><img src="./img/6.png" alt="RealDark Example"></p>
 <p align="center"><img src="./img/1.png" alt="RealDark Example"></p>
 <p align="center"><img src="./img/2.png" alt="RealDark Example"></p>
 <p align="center"><img src="./img/3.png" alt="RealDark Example"></p>
