@@ -1,4 +1,4 @@
-//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.6"}*//{}
+//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.7"}*//{}
 /*The Configurator, change the variables to whatever you want.*/
 :root {
 
@@ -14,6 +14,9 @@
 	--spotify-premiom-options:flex; /* flex for show, none for hide */
 	--spotify-listening-party-hide-text:""; /* change to "" if unhiding Spotify Premium options. Default is "Listening Party Hidden" */
 
+/* New Annoyances Created by Discord */
+	--new-chat-buttons:none; /* none to hide, flex to show */
+
 /* mention settings */
     --mention:rgba(50,50,120, 0.20); /* mention background colour */
     --mentionmark:#5555FF; /* mention marker colour */
@@ -26,7 +29,7 @@
     --dc:var(--sidebars); /* menber list and channel list divider colour, default #3070ff */
 
 /* regular settings */
-    --popup:rgba(20,20,25,0.85); /* popup colour changed from rgba(0,0,0,0.85) */
+    --popup:rgba(15,15,20,0.85); /* popup colour changed from rgba(0,0,0,0.85) */
     --textboxborder:#404040;
     --shade0:#252529; /* shade colour 0 */
     --shade1:#1d1d22; /* shade colour 1 */
@@ -39,15 +42,16 @@
     --accentcolor:#3070ff; /* im actually using this now */
     --textboxcolour:var(--shade1); /* #090909 text box colour, old was #04040f, old2 was #1d1d2d */
     --bdtt:rgba(58,113,160,0.85); /* override for BetterDiscord Blue */
-    --font:'Whitney'; /* Default is Whitney */
-
-/* ADVANCED: Add blur to popup menus!
+    --font:'Whitney'; /* Default is Whitney ________________________________________*/
+    --imagesize:unset; /* -------------->   |set to unset for normal image sizes,    |
+                                            |50px for small, stealthy image sizes!   |
+/* ADVANCED: Add blur to popup menus!       |useful for if you're in a public place! |
 
 "webPreferences": {
     	"experimentalFeatures" : true
     }
 
-Add this to your AppData\Local\Discord\app-0.0.301\resources\app\config.json
+Add the above code to your AppData\Local\Discord\app-0.0.301\resources\app\config.json
 Thanks to 105835945139445760 for the idea and making this possible! */
 	--background-blur:1px; /* Set to 0px for no blurring, default is 1px */
 
@@ -58,13 +62,305 @@ Thanks to 105835945139445760 for the idea and making this possible! */
     background-color: var(--main);
 }
 
+.theme-dark .unread-2OHH1w:before {
+	border-radius: 0px;
+	background:var(--accentcolor);
+}
+
+.theme-dark .wrapper-2lTRaf,
+.dragfix-1wSxtO:active {
+	border-radius: var(--icon-rounding)!important;
+}
+
+.circleIconButton-jET_ig {
+	width: 50px;
+	height: 50px;
+	border-radius:0px;
+	border:none;
+	margin: 1px auto 2px auto;
+}
+
+.wrapper-1Rf91z:hover .createJoinContainer-2Av064 {
+	width: 191px;
+}
+
+.wrapper-1Rf91z:hover .circleIconButton-jET_ig {
+	width: 100%;
+	margin-left: 2px;
+}
+
+.wrapper-2lTRaf {
+	border-radius: var(--icon-rounding)!important;
+}
+
+/* thanks to 288053351579648000 for the guild names next to icons */
+.theme-dark .wrapper-2lTRaf {
+    overflow: visible;
+}
+.theme-dark .wrapper-2lTRaf a::after {
+    content:attr(aria-label);
+    overflow: visible;
+    color: white;
+    position: absolute;
+    left: 60px;
+    top: 50%;
+    width: 120px;
+    transform: translateY(-50%);
+    pointer-events:none;
+}
+.scrollerWrap-1IAIlv,
+.wrapper-1Rf91z{
+    width: 70px;
+    /*transition: all 0.25s;*/
+}
+.wrapper-1Rf91z:hover .scrollerWrap-1IAIlv,
+.wrapper-1Rf91z:hover {
+    width: 200px;
+}
+
+
+/* :nth-child(2) */
+button.buttonWrapper-1ZmCpA.da-buttonWrapper:not(.ghost-button-wrapper) {
+display: var(--new-chat-buttons);
+}
+
+.wrapper-1Rf91z {
+	background-color: var(--guilds)!important;
+}
+
+.imageWrapper-2p5ogY img {
+	max-height:var(--imagesize)!important;
+	max-width:var(--imagesize)!important;
+}
+
+.imageWrapper-2p5ogY img:hover {
+	max-height:unset!important;
+	max-width: unset!important;
+}
+
+.button-38aScr {
+	border-radius: 0px;
+}
+
+.lookInverted-2D7oAl.colorBrand-3pXr91 {
+	background-color: var(--shade0)
+}
+
+.theme-dark .spoilerText-3p6IlD.hidden-HHr2R9:hover {
+	background-color: var(--shade1);
+}
+
+.inlineContent-3ZjPuv {
+	transition: none;
+	-webkit-transition:none;
+}
+
+.spoilerText-3p6IlD {
+	border-radius: 0px;
+	padding: 0px 4px;
+	margin:0px 2px 0px 0px;
+}
+
+.mobileIndicator-3gyhuE {
+	color:var(--accentcolor);
+}
+
+.theme-dark .friendsTable-133bsv .friendsRow-2yicud .friendsColumnActions-1LT3_M .friendsAction-__WNE9 {
+	background-color: var(--shade1);
+}
+
+.theme-dark .friendsTable-133bsv .friendsRow-2yicud:hover {
+	border-radius:0px;
+	background:var(--shade2);
+}
+
+.channel-2QD9_O .status-1ibiUI {
+	border: 2px solid #566071
+}
+
+.userSettingsAccount-2eMFVR.da-userSettingsAccount {
+  position: relative;
+}
+
+.userSettingsAccount-2eMFVR.da-userSettingsAccount:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -3px;
+  
+}
+.userSettingsAccount-2eMFVR.da-userSettingsAccount:before {
+  right: -3px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d70070, #9c4e97, #0035a9, transparent);
+}
+
+/* its probably what you think it is */
+
+.theme-dark .topPill-30KHOu .itemSelected-1qLhcL {
+	background-color: var(--shade0);
+	color:var(--text);
+}
+
+.tabBar-1E2ExX .primary-3j8BhM {
+	background-color: var(--bdtt)!important;
+	color: var(--text)!important;
+	border-radius: 0px!important;
+}
+
+.searchBar-2_Yu-C .searchBarInner-1_Tg2R {
+	background: var(--shade0);
+	border:none;
+	border-radius: 0px;
+}
+
+.theme-dark .friendsTable-133bsv .friendsTableHeader-32yE7d .friendsColumnSeparator-3MqtMA {
+	background-color: var(--accentcolor);
+}
+
+.friendsTable-133bsv .friendsTableHeader-32yE7d .friendsColumn-eVHFqJ {
+	text-transform: none;
+	font-size: 14px;
+}
+
+.theme-dark .friendsTable-133bsv .friendsTableHeader-32yE7d .friendsColumn-eVHFqJ {
+	color:var(--text);
+}
+
+.inner-1W0Bkn, .avatarSmall-3ACRaI .status-2zcSVk {
+	border-radius: var(--rounding);
+}
+
+.friendsTable-133bsv .friendsColumnGuilds-2we6jb {
+    display: inherit!important;
+}
+
+.theme-dark .container-3gCOGc {
+	background-color: var(--main);
+}
+
+.appMount-3lHmkl {
+	background-color: var(--titlebar);
+}
+
+.theme-dark .friendsTable-133bsv .friendsTableHeader-32yE7d {
+	border-bottom: 1px solid var(--accentcolor);
+}
+
+.emojiButton-2wRZts,
+.theme-light .textArea-2Spzkt,
+.theme-light .attachButtonInner-1iyZ9F {
+	display:none;
+}
+.theme-light .channelTextArea-rNsIhG {
+	margin-bottom: 50px;
+}
+.theme-light .inner-zqa7da {
+	width:100%;
+	height:0;
+}
+.theme-light .inner-zqa7da:before {
+	color:#f00;
+	height:20px;
+	width:100%;
+	text-align: center;
+	content:"YOU FUCKING IDIOT, CHANGE IT BACK";
+}
+
+.contentRegionScroller-26nc1e .toolsContainer-1edPuj,
+.toolsContainer-1edPuj {
+	position: absolute;
+	right:-5px;
+	top:5px;
+	padding:0;
+	margin: 0;
+}
+
+.closeButton-1tv5uR {
+	width:20px;
+	height:20px;
+	flex:0;
+}
+
+.closeButton-1tv5uR svg {
+	width:20px;
+	height:20px;
+}
+
+.contentRegionScroller-26nc1e .tools-3-3s-N {
+	position: unset;
+}
+
+.theme-dark .layer-3QrUeG {
+	opacity:1!important;
+	transform: none!important;
+}
+
+#user-settings {
+	width:90%;
+	height: 90%;
+	margin: auto;
+	padding:0;
+	border:2px solid var(--shade0);
+	background:var(--shade0);
+	opacity: 1!important;
+	z-index: 999;
+}
+
+#user-settings:before {
+	content:"User Settings";
+	background-color: var(--shade0);
+	color: var(--text);
+	opacity: .6;
+	z-index: 1000;
+	font-weight: 700;
+	padding: 2px 0px 3px 5px;
+	text-align: var(--title-align);
+}
+
+.wanderingCubesItem-WPXqao,
+.spinner-wandering-cubes .spinner-item {
+	animation:none;
+	-webkit-animation:none;
+	margin:0px!important;
+}
+.wanderingCubesItem-WPXqao:first-child,
+.spinner-wandering-cubes .spinner-item:first-child {
+	top:0!important;
+	left:0!important;
+}
+.wanderingCubesItem-WPXqao:last-child,
+.spinner-wandering-cubes .spinner-item:last-child {
+	bottom:0;
+	right:0;
+	left:unset;
+	top:unset;
+}
+
+.modal-1UGdnR {
+	opacity:1!important;
+	transform: none!important;
+}
+
+.downloadLink-1ywL9o {
+	transition:none;
+	-webkit-transition:none;
+}
+
+.backdrop-1wrmKB {
+	opacity: 0.6!important;
+}
+
+/* blurring for if you followed the mini tuto in the config area */
 .popoutLeft-30WmrD.noArrow-3BYQ0Z,
 .popoutRight-2ZVwL-.noArrow-3BYQ0Z,
 .popoutBottom-1YbShG.noArrow-3BYQ0Z,
 .popoutBottomLeft-JehOp2.noArrow-3BYQ0Z,
 .popoutBottomRight-2JrySt.noArrow-3BYQ0Z,
 .popoutInvert-3UdKhn:not(.popoutBottom-1YbShG).popoutTop-3uu9vG,
-.popoutInvert-3UdKhn:not(.popoutBottom-1YbShG).popoutTopRight-3BzFIE {
+.popoutInvert-3UdKhn:not(.popoutBottom-1YbShG).popoutTopRight-3BzFIE,
+.theme-dark.contextMenu-HLZMGh,
+.toast {
 	backdrop-filter:blur(var(--background-blur));
 }
 
@@ -139,7 +435,7 @@ div [style*="324260038736871426"] + .da-typing::before {
 	color: var(--text);
     font-size: 20px;
 	position: absolute;
-	content: "Ga zelf fucken, kut :D";
+	content: "Ga jezelf fucken, kut :D";
 }
 
 .quote-3aooyW {
@@ -167,7 +463,7 @@ div [style*="324260038736871426"] + .da-typing::before {
 	font-size: 15px;
     font-weight: 500;
     line-height: 15px;
-    content:"Complain here"
+    content:"Complain here, response not guaranteed"
 }
 
 .links-3Ldd4A:not(:first-child):after {
@@ -635,7 +931,8 @@ div.wrapper-232cHJ.badge-36LyGI.da-wrapper.da-badge {
 
 .wordmark-2L03Wr svg,
 .wordmark-2iDDfm svg {
-	display: none;
+	height:0px;
+	width:0px;
 }
 .wordmark-2L03Wr:after, .wordmark-2iDDfm:after {
     position: absolute;
@@ -647,6 +944,7 @@ div.wrapper-232cHJ.badge-36LyGI.da-wrapper.da-badge {
 }
 .wordmark-2iDDfm {
 	text-align:var(--title-align);
+	opacity: .6;
 }
 
 .theme-dark .unreadMentionsBar-1VrBNe {
@@ -736,6 +1034,7 @@ div.wrapper-232cHJ.badge-36LyGI.da-wrapper.da-badge {
 
 .name-2WpE7M {
 	opacity: 1;
+	color:var(--text);
 }
 
 .privateChannels-1nO12o {
@@ -972,7 +1271,7 @@ div.wrapper-232cHJ.badge-36LyGI.da-wrapper.da-badge {
 	padding-bottom:53px;
 }
 
-.theme-dark .guildsAdd-21_IdK {
+.createJoinContainer-2Av064 {
     background: var(--shade1);
     position: fixed;
     bottom: 0;
@@ -1766,7 +2065,7 @@ background-color: var(--guilds);
 .header-QKLPzZ {background: transparent !important;}
 .root-SR8cQa {
     background: var(--popup) !important;
-    border-radius: 4px;
+    border-radius: 0px;
 }
 .theme-dark .listRow-hutiT_ {
     background: transparent;
@@ -2253,7 +2552,8 @@ END OLD FIXES
 .avatar-small.animate .status,
 .channel-members .avatar-small .status,
 .private-channels .avatar-small .status,
-.avatar-small .status  {
+.avatar-small .status,
+.avatarSmall-3ACRaI .status-2zcSVk  {
     width: 100% !important;
     height: 100% !important;
     background: transparent;
@@ -2261,6 +2561,7 @@ END OLD FIXES
     top: -2px;
     left: -2px;
     box-shadow: none !important; 
+    pointer-events: none;
 }
 .status-online,
 .online-2S838R,
@@ -2290,6 +2591,8 @@ END OLD FIXES
 .account .avatar-small .status-streaming {
     border: 1px solid #643da7 !important;
 }
+.invisible-1kp8Z0,
+.unknown-Ms2zdV,
 .status-invisible,
 .statusInvisible-23hZKw,
 .channel-members .avatar-small .status-invisible,
@@ -2299,8 +2602,9 @@ END OLD FIXES
 }
 .status-offline,
 .statusOffline-3R-4Bv,
+.offline-3qoTek,
 .private-channels .avatar-small .status-offline {
-    border: 2px solid #747f8d !important;
+    border: 2px solid #566071 !important;
 }
 .small-5Os1Bb .statusTyping-2ed9jJ,
 .status.status-typing {
