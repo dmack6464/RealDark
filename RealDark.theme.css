@@ -1,4 +1,14 @@
-//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.7"}*//{}
+//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.9"}*//{}
+/*----------
+someone has to be reading my code, right??
+I like dew kaz and maybe airalyne, idk about that one
+
+there, i said it, dont give me shit for some strange reason.
+
+however, frame seems to be a pretty good addition to people i trust more than anyone else, smolz being the first
+
+scroll to the bottom if you care enough for more reading
+----------*/
 /*The Configurator, change the variables to whatever you want.*/
 :root {
 
@@ -62,6 +72,62 @@ Thanks to 105835945139445760 for the idea and making this possible! */
     background-color: var(--main);
 }
 
+.wrapper-1Rf91z * {
+	mask: none;
+}
+
+.theme-dark .betterfriendcount-badge {
+	background: var(--accentcolor)!important;
+	border-radius: var(--icon-rounding);
+}
+
+.theme-dark .topPill-30KHOu .themed-OHr7kt.selected-3s45Ha.item-PXvHYJ {
+	background-color: var(--shade0);
+	border-radius: 0px;
+}
+
+.theme-dark .container-1r6BKw {
+	background: var(--shade1);
+}
+
+.item-2hkk8m, .theme-dark .unread-3zKkbm {
+	border-radius: 0px;
+	background-color: var(--accentcolor);
+}
+
+.theme-dark .wrapper-1ucjTd.modeSelected-1zApJ_ .content-3at_AU,
+.theme-dark .wrapper-1ucjTd.modeSelected-1zApJ_:hover .content-3at_AU {
+	background-color: var(--shade0)
+}
+
+.theme-dark .wrapper-1ucjTd .content-3at_AU {
+	border-radius: 0px;
+}
+
+.theme-dark .wrapper-1ucjTd:hover .content-3at_AU {
+	background-color: var(--shade2);
+}
+
+.theme-dark .wrapper-1ucjTd.modeSelected-1zApJ_ {
+	background-color: var(--accentcolor);
+}
+.theme-dark .wrapper-1ucjTd.modeSelected-1zApJ_ .content-3at_AU {
+	background: linear-gradient(to right, #3070ff, #1d1d22, #1d1d22, #1d1d22, #1d1d22, #1d1d22, #1d1d22, #1d1d22);
+}
+
+.name-IbjUBS {
+	text-transform: none;
+	font-size: 14px;
+	color: var(--accentcolor);
+}
+
+.addButtonIcon-3u-3Hu {
+	opacity: 1;
+}
+.addButtonIcon-3u-3Hu polygon {
+	fill: var(--text);
+}
+
 .theme-dark .unread-2OHH1w:before {
 	border-radius: 0px;
 	background:var(--accentcolor);
@@ -94,7 +160,7 @@ Thanks to 105835945139445760 for the idea and making this possible! */
 }
 
 /* thanks to 288053351579648000 for the guild names next to icons */
-.theme-dark .wrapper-2lTRaf {
+/*.theme-dark .wrapper-2lTRaf {
     overflow: visible;
 }
 .theme-dark .wrapper-2lTRaf a::after {
@@ -112,7 +178,7 @@ Thanks to 105835945139445760 for the idea and making this possible! */
 .wrapper-1Rf91z{
     width: 70px;
     /*transition: all 0.25s;*/
-}
+/*}
 .wrapper-1Rf91z:hover .scrollerWrap-1IAIlv,
 .wrapper-1Rf91z:hover {
     width: 200px;
@@ -2616,3 +2682,34 @@ END OLD FIXES
     left: 1px;
     top: 1px;
 }
+
+
+/*
+
+10/05/2019
+keep your friends secret and give your enemies none
+
+while i am no longer in a relation with tom, i still trust him! possibly the most trusted
+person i know on the internet period.
+
+perhaps i should introduce you to one of my enemies!
+https://www.youtube.com/channel/UCC_zAKS_kNraQVNeQN_9YHQ
+
+plans... hmm idk yet, stay tuned, even tho i wont announce when i start them. /shrug
+
+im still sus of boby over the lockdown in the third of june 2018...
+
+actually, i have some ideas for plans, just rinse and repeat what i did to get into the
+crusade!!!!! except a bit more refined, i have fucking awesome ideas for that.
+
+i barely even tried with commieboi183 but i still got somewhere! shocking!
+
+---------------------------------------------------------------------------------------
+
+seriously tho discord has helped me cope with life, writing themes is a good change
+from writing batch files all the time.
+
+expect to see CommLauncher in the github batch and dairy isle soon
+
+end text
+fuck off lamer
