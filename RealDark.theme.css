@@ -1,4 +1,4 @@
-//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/7HrZXFq","author":"D Mack","version":"1.9"}*//{}
+//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/4GJvzEp","author":"D Mack","version":"1.10"}*//{}
 /*----------
 someone has to be reading my code, right??
 I like dew kaz and maybe airalyne, idk about that one
@@ -70,6 +70,90 @@ Thanks to 105835945139445760 for the idea and making this possible! */
     --ch:28px; /* I would like to have channel height at 10px, but discord says fucking nope. set this to 10px if you dont mind rendering issues in the channel list. */
     --mh:40px; /* same deal as above, I would like this at 25px, but that meaftext-alignns rendering issues, this time in the member list. good fucking job Discord. */
     background-color: var(--main);
+}
+
+.theme-dark .side-8zPYf6 .themed-OHr7kt.item-PXvHYJ:hover,
+.theme-dark .topPill-30KHOu .themed-OHr7kt.item-PXvHYJ:hover {
+	background-color: var(--shade1);
+}
+
+.theme-dark .side-8zPYf6 .themed-OHr7kt.selected-3s45Ha.item-PXvHYJ,
+.theme-dark .side-8zPYf6 .themed-OHr7kt.selected-3s45Ha.item-PXvHYJ:hover,
+.theme-dark .topPill-30KHOu .themed-OHr7kt.selected-3s45Ha.item-PXvHYJ,
+.theme-dark .topPill-30KHOu .themed-OHr7kt.selected-3s45Ha.item-PXvHYJ:hover {
+	background-color: var(--shade0);
+}
+
+.theme-dark .jumpButton-Ia2hRJ {
+	border-radius: 0px;
+	color: var(--text);
+	font-weight: 500;
+	background-color: var(--shade1);
+}
+
+.theme-dark .searchHeader-1l-wpR .tab-2Ixsn0.selected-16te-P,
+.theme-dark .searchHeader-1l-wpR .tab-2Ixsn0:hover{
+	border-bottom: 2px solid var(--accentcolor);
+}
+
+.theme-dark .searchBar-3dMhjb {
+	background-color: var(--shade0);
+	border-bottom: 2px solid var(--textboxborder);
+	border-radius: 0px;
+}
+
+.theme-dark .channelSeparator-1X1FuH:before {
+	border-color: var(--accentcolor);
+}
+
+.theme-dark .channelSeparator-1X1FuH .channelName-1QajIf {
+	color: var(--text);
+	background-color: var(--shade3);
+}
+
+.theme-dark .searchResult-3pzFAB:before, .theme-dark .searchResult-3pzFAB:after {
+	background-image: none;
+}
+
+.theme-dark .searchResultsWrap-2DKFzt {
+	background-color: var(--shade3);
+}
+
+.theme-dark .searchHeader-1l-wpR {
+	background-color: var(--shade1a);
+}
+
+.theme-dark .searchResult-3pzFAB .searchResultMessage-2VxO12.hit-NLlWXA {
+	background-color: var(--shade2);
+	border: none;
+	border-radius: 0px;
+	box-shadow: none;
+}
+
+.container-1r6BKw path[fill="currentColor"],
+.theme-dark .icon-1_QxNX path[fill="currentColor"] {
+	fill: var(--accentcolor);
+}
+
+.theme-dark .numberBadge-2s8kKX {
+	background-color: var(--bdtt)!important;
+}
+
+.theme-dark .mobileIndicatorPrimary-2viufb {
+	color: var(--accentcolor);
+}
+
+/* replacing icon rounding code with my own so i can say its my code, which it is now */
+.avatarUploaderInner-3UNxY3,
+.image-33JSyf, .wrapper-2F3Zv8,
+.iconInactive-98JN5i,
+.numberBadge-2s8kKX {
+	border-radius: var(--icon-rounding);
+	-webkit-mask:none;
+}
+
+.avatarUploaderIndicator-2G-aIZ {
+	display: none;
 }
 
 .wrapper-1Rf91z * {
@@ -158,32 +242,6 @@ Thanks to 105835945139445760 for the idea and making this possible! */
 .wrapper-2lTRaf {
 	border-radius: var(--icon-rounding)!important;
 }
-
-/* thanks to 288053351579648000 for the guild names next to icons */
-/*.theme-dark .wrapper-2lTRaf {
-    overflow: visible;
-}
-.theme-dark .wrapper-2lTRaf a::after {
-    content:attr(aria-label);
-    overflow: visible;
-    color: white;
-    position: absolute;
-    left: 60px;
-    top: 50%;
-    width: 120px;
-    transform: translateY(-50%);
-    pointer-events:none;
-}
-.scrollerWrap-1IAIlv,
-.wrapper-1Rf91z{
-    width: 70px;
-    /*transition: all 0.25s;*/
-/*}
-.wrapper-1Rf91z:hover .scrollerWrap-1IAIlv,
-.wrapper-1Rf91z:hover {
-    width: 200px;
-}
-
 
 /* :nth-child(2) */
 button.buttonWrapper-1ZmCpA.da-buttonWrapper:not(.ghost-button-wrapper) {
@@ -432,7 +490,7 @@ display: var(--new-chat-buttons);
 
 /* if you want a shitty buggy "You are typing..." notification, replace the id with your own. */
 
-div [style*="324260038736871426"] + .da-typing::before {
+/*div [style*="324260038736871426"] + .da-typing::before {
     content: 'You are typing...';
     font-size: 16px;
     line-height: 18px;
@@ -447,7 +505,7 @@ div [style*="324260038736871426"] + .da-typing::before {
     text-align: center;
     z-index: 100000;
     background: var(--popup);
-}
+}*/
 
 .lookFilled-1Gx00P.colorGreen-29iAKY > .spinner-2enMB9:before {
 	content:"Please Wait...";
@@ -789,6 +847,7 @@ img[src="/assets/8d8f815f3d81a33b1e70ec7c22e1b6fe.png"] + div:before {content:""
 
 .theme-dark .searchAnswer-3Dz2-q, .theme-dark .searchFilter-2ESiM3 {
 	background-color: var(--shade2);
+	color: var(--accentcolor);
 }
 .searchFilter-2ESiM3 {
 	border-radius: 0px;
@@ -956,40 +1015,6 @@ img[src="/assets/8d8f815f3d81a33b1e70ec7c22e1b6fe.png"] + div:before {content:""
 .container-1UB9sr {
 	background: var(--shade1);
 }
-
-/* may be borrowed from Show-URLs v1.0.3 by square */
-.chat-3bRxxu .messagesWrapper-3lZDfY {
-  z-index: unset;
-}
-.messages-3amgkR a:after,
-.topic-2QX7LI a:after
-{
-  content: attr(href);
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background: var(--shade1);
-  color: var(--text);
-  font-size: 13.5px;
-  line-height: 16.5px;
-  font-weight: 500;
-  padding: 1px 3px 2px 3px;
-  max-width: calc(100% - 320px);
-  transition: opacity .10s linear;
-  pointer-events: none;
-  opacity: 0;
-  z-index: 42;
-}
-.messages-3amgkR a:hover:after,
-.topic-2QX7LI a:hover:after
-{
-  opacity: 1;
-  animation: fade .10s 10s forwards;
-}
-@keyframes fade {
-  to{ opacity: 0; }
-}
-/* not being restrictive on which <a/> tags are to be handled breaks scrollbars */
 
 div.wrapper-232cHJ.badge-36LyGI.da-wrapper.da-badge {
 	height: 16px;
@@ -1281,10 +1306,6 @@ div.wrapper-232cHJ.badge-36LyGI.da-wrapper.da-badge {
 	margin-bottom: 0px;
 	border-radius: 0px;
 }
-
-/* may or may not be stolen & edited from CleanDark by Satoru */
-.theme-dark .userSettingsAccount-2eMFVR div:nth-child(2) > div:nth-child(2) > .viewBody-2Qz-jg { transition: 0.2s ease-in; filter: blur(8px);}
-.theme-dark .userSettingsAccount-2eMFVR div:nth-child(2) > div:nth-child(2) > .viewBody-2Qz-jg:hover { filter: blur(0px);}
 
 .uploadModal-2ifh8j .inner-3nWsbo {
 	border-radius: 0px;
@@ -2179,6 +2200,32 @@ END NEW FIXES
     padding-top: 5px;
 }
 
+.messages-3amgkR a:after, .topic-2QX7LI a:after {
+	right:0;
+	bottom:0;
+	position: fixed;
+	z-index:42;
+	max-width: calc(100% - 330px);
+	padding: 1px 10px 2px 5px;
+	line-height:16px;
+	font-size: 14px;
+	font-weight: 500;
+	background: var(--bdtt);
+	color: var(--text);
+	opacity: 0;
+	pointer-events: none;
+  	content: attr(href);
+}
+.messages-3amgkR a:hover:after, .topic-2QX7LI a:hover:after {opacity: 1;}
+.chat-3bRxxu .messagesWrapper-3lZDfY {z-index: unset;}
+
+.theme-dark .userSettingsAccount-2eMFVR div:nth-child(2) > div:nth-child(1) > .viewBody-2Qz-jg {margin-top:24px;}
+.theme-dark .userSettingsAccount-2eMFVR div:nth-child(2) > div > .viewBody-2Qz-jg {font-weight: 500;}
+.theme-dark .userSettingsAccount-2eMFVR div:nth-child(2) > div:nth-child(2) > .viewBody-2Qz-jg {filter: blur(8px);}
+.theme-dark .userSettingsAccount-2eMFVR div:nth-child(2) > div:nth-child(2) > .viewBody-2Qz-jg:hover {filter: blur(0px);}
+.theme-dark .userSettingsAccount-2eMFVR div:nth-child(2) > div:nth-child(1) > .h5-18_1nd {display: none;}
+.theme-dark .userSettingsAccount-2eMFVR div:nth-child(2) > div:nth-child(2) > .h5-18_1nd {display: none;}
+
 /*
 
 START OLD FIXES
@@ -2388,49 +2435,7 @@ width:100%;
 /* pilloverride */
 /* .theme-dark .embedPill-1Zntps { background-color: var(--epc) !important; } */
 
-/* nearly everything to enforce icon rounding, may or may not be stolen from Saucey's DarkerDiscord Theme v1.2.6.4 */
-.guild-settings-base-section .avatar-uploader-inner{ background-size:100% 100%; border:none; height:100px; width:100px; border-radius:var(--icon-rounding) }
-.theme-dark .avatar-uploader-indicator{ background-color:#101010; filter:grayscale(100%)brightness(130%); border-radius:var(--icon-rounding) }
-.avatar-xxlarge{ border-radius:var(--icon-rounding); box-shadow:0 0 10px #000 }
-.theme-dark .guildIconExpired-2Qcq05{ background-color:transparent; border-radius:var(--icon-rounding) }
-.theme-dark .guildIconImage-3qTk45{ background-color:#2b2b2b; border-radius:var(--icon-rounding); box-shadow:0 0 6px rgba(0,0,0,.6) }
-.inviteModal-34DdOm .avatar-xxxlarge{ background-color:#2b2b2b; border-radius:var(--icon-rounding); color:#fff }
-.avatar-large .status,.avatar-profile .status,.avatar-small .status,.avatar-xlarge .status,.avatar-xsmall .status,.avatar-xxlarge .status{ border-radius:var(--icon-rounding);pointer-events:none; }
-.chat .avatar-large{ cursor:pointer; opacity:1; border-radius:var(--icon-rounding) }
-.emptyUser-3FRJaF{ background:#4a4a4a; border-radius:var(--icon-rounding) }
-.icon-3o6xvg{ border-radius:var(--icon-rounding)!important }
-.soloAvatar-2Vv88I{ cursor:pointer; margin-right:5px; border-radius:var(--icon-rounding) }
-.image-33JSyf,.status-oxiHuE{ border-radius:var(--icon-rounding) }
-.mutualFriendIconBackground-wlnw8X{ border-radius:var(--icon-rounding) }
-.iconActiveSmall-3IUUtn{ border-radius:var(--icon-rounding) }
-.theme-dark .partyMemberBackground-aSF9mc{ background-color:#313131; border-radius:var(--icon-rounding) }
-.theme-dark .overflowUserOverflow-2FO8KC{ background-color:#313131; color:#b9bbbe; border-radius:var(--icon-rounding) }
-.theme-dark .newsIconCircle-2mzNOD{ background-color:#0a0a0a; border-radius:var(--icon-rounding) }
-.headerLogo-1Iut_z{ border-radius:var(--icon-rounding) }
-.mask-3OgeRz{ -webkit-mask:none!important; -webkit-mask-size:0!important; border-radius:var(--icon-rounding) }
-.avatarWrapper-3H_478{ border-radius:var(--icon-rounding) }
-.avatar-16XVId{ border-radius:var(--icon-rounding) }
-.avatarHint-1qgaV3{ border-radius:var(--icon-rounding); box-shadow:inset 0 0 120px rgba(0,0,0,.75) }
-.avatar-profile .status{ border:2px solid #2b2b2b; bottom:0; right:0; border-radius:var(--icon-rounding)!important }
-.avatar-large,.avatar-profile{ border-radius:var(--icon-rounding) }
-.avatar-small,.avatar-xlarge,.avatar-xsmall,.avatar-xxlarge{ border-radius:var(--icon-rounding) }
-.avatar-3EQepX{ margin-right:20px; animation:float 2s ease-in-out infinite; border-radius:var(--icon-rounding) }
-.callAvatarWrapper-TICyxO.voice-2D-tt_ .ripple-16ZT2p{ border-radius:var(--icon-rounding) }
-.callAvatar-v-u4BM.voice-2D-tt_{ border-radius:var(--icon-rounding) }
-.callAvatarBorder-1D_KaE.voice-2D-tt_.speaking-oCqYMI{ border-radius:var(--icon-rounding) }
-.callAvatar-v-u4BM.video-3GgX2M{ border-radius:var(--icon-rounding) }
-.callAvatar-v-u4BM.video-3GgX2M .callAvatarVideo-YkbHae{ border-radius:var(--icon-rounding) }
-.callAvatar-v-u4BM .callAvatarStatus-3y6S04{ border-radius:var(--icon-rounding) }
-.callAvatarBorder-1D_KaE.video-3GgX2M.selected-2esnyn:not(.speaking-oCqYMI){ border-radius:var(--icon-rounding);  box-shadow:inset 0 0 0 2px var(--accentcolor) }
-.callAvatarBorder-1D_KaE.video-3GgX2M.speaking-oCqYMI{ border-radius:var(--icon-rounding); box-shadow:inset 0 0 0 2px #43b581 }
-.avatarDefault-35WC3R,.avatarSpeaking-1wJCNq{ border-radius:var(--icon-rounding) }
-.avatar-uploader-inner{ background-color:var(--main); border:5px solid #ebebeb; border-radius:var(--icon-rounding) }
-.guilds-wrapper .guilds-error{ background:#413338; border:2px solid #f04747; border-radius:var(--icon-rounding); color:#fff!important }
-.guilds-wrapper .guilds-add{ background:#171717; border:1px dashed #535559; border-radius:var(--icon-rounding); color:#535559 }
-.guilds-wrapper .guilds .guild.selected{ background:#1f1f1f; border-radius:var(--icon-rounding); transform:scale(1.08); transition:all .2s ease-in-out }
-.guilds-wrapper .guilds .guild .guild-inner{ background:var(---accentcolor); border-radius:var(--icon-rounding)!important; cursor:pointer; font-size:18px; line-height:50px; overflow:hidden; text-align:center; transition:all .2s ease-in-out; background-color:#353535!important }
-.guilds-wrapper .guilds .guild.audio .guild-inner:after,.guilds-wrapper .guilds .guild.video .guild-inner:after{ border-radius:var(--icon-rounding) }
-.messages-popout .message-group .avatar-large{ margin:0 20px 0 0; border-radius:var(--icon-rounding) }
+
 
 /* fix for ThemeRepo download button */
 .bda-slist .bda-footer { color: #ffffff; }
@@ -2682,7 +2687,6 @@ END OLD FIXES
     left: 1px;
     top: 1px;
 }
-
 
 /*
 
