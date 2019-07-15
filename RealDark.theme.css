@@ -1,4 +1,4 @@
-//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/4GJvzEp","author":"D Mack","version":"1.11"}*//{}
+//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/4GJvzEp","author":"D Mack","version":"1.12"}*//{}
 /*----------
 someone has to be reading my code, right??
 I like dew kaz and maybe airalyne, idk about that one
@@ -58,20 +58,25 @@ scroll to the bottom if you care enough for more reading
     --RDRed:#f04747;
     --RDYellow1:#f0bd47;
     --RDYellow2:#0f0;
-    --message-divider:none; /* Options: "block" to show, "none" to hide. */
+    --message-divider:none; /* Options: "block" to show, "none" to hide. Feature requested by 253971558391873536. */
     --font:'Whitney'; /* Default is Whitney ________________________________________*/
     --imagesize:unset; /* -------------->   |set to unset for normal image sizes,    |
                                             |50px for small, stealthy image sizes!   |
-/* DEPRECATED: Add blur to popup menus!     |useful for if you're in a public place! |
+/* Advanced: Add blur to popup menus!       |useful for if you're in a public place! |
 
-"webPreferences": {
-    	"experimentalFeatures" : true
-    }
+1. Open AppData\Local\Discord\app-0.0.305\resources\app\index.js
+2. Under:
 
-Add the above code to your AppData\Local\Discord\app-0.0.301\resources\app\config.json
-Thanks to 105835945139445760 for the idea and making this possible! 
+   	options.webPreferences.nodeIntegration = true;
 
-THIS HACK NO LONGER WORKS FOR NOW */
+   add:
+
+   	options.webPreferences.experimentalFeatures = true;
+
+3. Save, close and relaunch DIscord.
+Thanks to 105835945139445760 for keeping this hack working!
+No thanks to the BetterDiscord2 support staff. it was one motherfucking line of code you had to give me. Eat shit and die!
+*/
 
 	--background-blur:1px; /* Set to 0px for no blurring, default is 1px */
 
@@ -81,6 +86,35 @@ THIS HACK NO LONGER WORKS FOR NOW */
     --mh:40px; /* same deal as above, I would like this at 25px, but that meaftext-alignns rendering issues, this time in the member list. good fucking job Discord. */
     background-color: var(--main);
 }
+
+.theme-dark .timestampCozy-2hLAPV {
+	color: var(--accentcolor);
+	font-weight: 600;
+}
+
+#dht-ctrl {
+	top:100px;
+	bottom: unset;
+	right: 250px;
+	height: auto;
+	width:500px;
+	background-color: var(--popup);
+	color: var(--text);
+}
+
+.autocompleteHeaderBackground-30T70q {
+	border-radius: 0px;
+}
+
+.popout-2iWAc- {
+	border-radius: 0px;
+}
+
+/*
+.scrollerWrap-1IAIlv {
+	width:70px;
+}
+*/
 
 .subtitle-2yP_Eh {
 	text-transform: none;
@@ -224,6 +258,7 @@ THIS HACK NO LONGER WORKS FOR NOW */
 
 .theme-dark .emojiButtonNormal-TdumYh {
 	opacity: 1;
+	width: 50px;
 }
 
 .theme-dark .emojiButtonNormal-TdumYh div,
@@ -267,6 +302,7 @@ THIS HACK NO LONGER WORKS FOR NOW */
 
 .theme-dark .autocompleteArrow-Zxoy9H, .theme-dark .autocompleteHeaderBackground-30T70q {
 	border-top: 1px solid var(--accentcolor);
+	border-bottom: 1px solid var(--accentcolor);
 }
 
 .theme-dark .side-8zPYf6 .themed-OHr7kt.item-PXvHYJ:hover,
@@ -677,6 +713,11 @@ display: var(--new-chat-buttons);
 }
 
 /* blurring for if you followed the mini tuto in the config area */
+.newMessagesBar-mujexs,
+.theme-dark .jumpToPresentBar-9P20AM,
+.container-VSDcQc,
+.popout-2iWAc-,
+.theme-dark .messagesPopoutWrap-1MQ1bW,
 .popoutLeft-30WmrD.noArrow-3BYQ0Z,
 .popoutRight-2ZVwL-.noArrow-3BYQ0Z,
 .popoutBottom-1YbShG.noArrow-3BYQ0Z,
@@ -730,7 +771,7 @@ display: var(--new-chat-buttons);
 .da-typing > span:not(.da-text) {
 	width:26px;
 	height:26px;
-	border:2px solid rgba(60, 60, 255, 0.7);
+	border:2px solid rgba(60, 60, 255, 0.85);
 	border-radius: var(--icon-rounding);
 }
 
@@ -2903,39 +2944,5 @@ END OLD FIXES
 
 /*
 
-10/05/2019
-keep your friends secret and give your enemies none
-
-while i am no longer in a relation with tom, i still trust him! possibly the most trusted
-person i know on the internet period.
-
-
-i am starting to regret my decision breaking up with tom, i just took it for granted how
-well we got along and suddenly im thrown straight into the deep end again...
-
-fucking hell
-
-
-perhaps i should introduce you to one of my enemies!
-https://www.youtube.com/channel/UCC_zAKS_kNraQVNeQN_9YHQ
-
-plans... hmm idk yet, stay tuned, even tho i wont announce when i start them. /shrug
-
-im still sus of boby over the lockdown in the third of june 2018...
-
-actually, i have some ideas for plans, just rinse and repeat what i did to get into the
-crusade!!!!! except a bit more refined, i have fucking awesome ideas for that.
-
-i barely even tried with commieboi183 but i still got somewhere! shocking!
-
----------------------------------------------------------------------------------------
-
-seriously tho discord has helped me cope with life, writing themes is a good change
-from writing batch files all the time.
-
-expect to see CommLauncher in the github batch and dairy isle soon
-
+#4f006e
 dinosaur_woman has left the game.
-
-end text
-fuck off lamer
