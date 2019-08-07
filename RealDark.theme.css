@@ -1,16 +1,6 @@
-//META{"name":"RealDark","description":"A really dark theme that has some subtle highlights. Support server: https://discord.gg/4GJvzEp","author":"D Mack","version":"1.12"}*//{}
+//META{"name":"RealDark","description":"A dark/black theme that boasts enhanced usability, readability, customisation and experimental features! - Support server: https://discord.gg/4GJvzEp","author":"D Mack","version":"1.14"}*//{}
 /*----------
-someone has to be reading my code, right??
-I like dew kaz and maybe airalyne, idk about that one
 
-why would i list someone that i dont even know if i like yet? that doesnt make sense!
-/shrug
-
-why do i even list people at all???? i just remembered i had a crush on river ages ago...
-
-there, i said it, dont give me shit for some strange reason.
-
-scroll to the bottom if you care enough for more reading
 ----------*/
 /*The Configurator, change the variables to whatever you want.*/
 :root {
@@ -23,6 +13,7 @@ scroll to the bottom if you care enough for more reading
 	--title:"RealDark"; /* title bar text */
 	--title-align:left; /* Options: center, left */
 	--icon-rounding:0%; /* icon rounding: 0% for none, 50% for completely round icons */
+	--timestamp:var(--accentcolor2); /* I cant decide on a good colour for timestamps, so you can choose it yourself. */
 /* Spotify Premium Element Options */
 	--spotify-premiom-options:flex; /* flex for show, none for hide */
 	--spotify-listening-party-hide-text:""; /* change to "" if unhiding Spotify Premium options. Default is "Listening Party Hidden" */
@@ -32,7 +23,7 @@ scroll to the bottom if you care enough for more reading
 
 /* mention settings */
     --mention:rgba(50,50,120, 0.20); /* mention background colour */
-    --mentionmark:#5555FF; /* mention marker colour */
+    --mentionmark:#5555FF; /* mention marker colour, may be used as a second/third accent in future */
     --mentions:var(--accentcolor); /* mention notification colour */
 
 /* divider settings */
@@ -40,16 +31,17 @@ scroll to the bottom if you care enough for more reading
 
 /* regular settings */
     --popup:rgba(15,15,20,0.85); /* popup colour changed from rgba(0,0,0,0.85) */
-    --shade0:#252529; /* shade colour 0 */
-    --shade1:#1d1d22; /* shade colour 1 */
-    --shade1a:#141418; /* shade colour 1a */
+    --shade0:#1d1d21; /* shade colour 0 */
+    --shade1:#18181c; /* shade colour 1 */
+    --shade1a:#121216; /* shade colour 1a */
     --shade2:#0f0f14; /* shade colour 2 */
     --shade3:#09090D; /* shade colour 3 */
     --main:#030307;       /*main color rgb(0,0,0) var(--main)*/
     --text:#DDDDDD;    /*text rgb(255,255,250) var(--text)*/
     --text2:#909094; /* born out of necessity */
-    --c:#00ffff;    /*hyperlink rgb(0,255,255) var(--c)*/
+    --links:#00ffff; /* Put in place of --c due to being unused, this one __will__ be used. */
     --accentcolor:#3070ff; /* im actually using this now */
+    --accentcolor2:#00a0ff; /* im actually using 2 now, fuck you. this is actually my prefered role colour on guilds */
     --textboxcolour:var(--shade1); /* #090909 text box colour, old was #04040f, old2 was #1d1d2d */
     --bdtt:rgba(58,113,160,0.85); /* override for BetterDiscord Blue */
     --RDRed:#f04747;
@@ -85,12 +77,116 @@ No thanks to the BetterDiscord2 support staff. it was one motherfucking line of 
     background-color: var(--main);
 }
 
+/* ----------------------------------------------------- experiments */
+
+@keyframes rainbow {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  to {
+    -webkit-filter: hue-rotate(360deg);
+  }
+}
+
+span[style="color: rgb(0, 230, 33);"],
+button[style*="color: rgb(0, 230, 33);"],
+input[style*="color: rgb(0, 230, 33);"],
+div[style*="color: rgb(0, 230, 33);"] {
+	color: #0f0;
+	animation: rainbow 0.5s infinite linear;
+}
+
+/*
+[layer-id="user-settings"] .userSettingsAccount-2eMFVR~ :last-child:after{
+  margin: 10px 0;
+  position: absolute;
+  display: block;
+  background: var(--shade0);
+  content: url('data:image/svg+xml;%20charset=utf8,%20%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%22200px%22%20width%3D%22400px%22%3E%0A%0A%20%20%3CforeignObject%20y%3D%220%22%20x%3D%220%22%20height%3D%22100%25%22%20width%3D%22100%25%22%3E%0A%09%3Cdiv%20class%3D%22classTest%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%3E%0A%3Cstyle%3E%0A*%20%7B%0A%09font-family%3ASans-serif%3B%0A%09font-size%3A14px%3B%0A%09font-weight%3A600%3B%0A%09text-align%3Acenter%3B%0A%7D%0A.text%20%7B%0A%09color%3A%238d8d8f%3B%0A%09max-width%3A400px%3B%0A%7D%0A.dummyLink%20%7B%0A%09color%3A%233070ff%3B%0A%09text-decoration%3Aunderline%3B%0A%7D%0A%0A.alignVertical%20%7B%0A%09padding-top%3A75px%3B%0A%7D%0A.finePrint%20%7B%0A%09position%3Aabsolute%3B%0A%09bottom%3A0%3B%0A%09font-family%3Amonospace%3B%0A%09font-weight%3A400%3B%0A%09font-size%3A12px%3B%0A%7D%0A%3C%2Fstyle%3E%0A%3Cdiv%3E%0A%09%3Cdiv%20class%3D%22text%20alignVertical%22%3ERealDark%20for%20BetterDiscord%20by%20D%20Mack%20-%20%3Cdiv%20class%3D%22text%20dummyLink%22%3Egithub.com%2Fdmack6464%2FRealDark%3C%2Fdiv%3E%3C%2Fdiv%3E%0A%09%3Cdiv%20class%3D%22text%20finePrint%22%3EType%20the%20link%20into%20your%20browser%2C%20this%20hack%20is%20too%20advanced%20for%20clickable%20links%20or%20selectable%20text%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%09%3C%2Fdiv%3E%0A%20%20%3C%2FforeignObject%3E%0A%3C%2Fsvg%3E');
+  width: 400px;
+  height: 200px;
+}
+*/
+
+/* ------------------------------------------------- end experiments */
+
+.theme-dark .wrapper-39oAo3 {
+	background-color: var(--shade0);
+	border-radius: 0px;
+	margin-bottom: 3px;
+}
+
+.content-c_0cLD {
+	font-size: 0px;
+}
+.content-c_0cLD:after {
+	font-size: 18px;
+	color: #f55;
+	content: "Fuck you niggy you have to wait 10 minutes because IdiotBro kicked you :("
+}
+
+.theme-dark .mention {
+	color: var(--accentcolor)!important;
+	background-color: transparent;
+}
+
+.theme-dark .wrapper-3WhCwL {
+	color: var(--links);
+	background-color: var(--mention);
+}
+.theme-dark .wrapper-3WhCwL:hover {
+	color: var(--text);
+	background-color: var(--shade0);
+}
+
+.theme-dark .markup-2BOw-j a,
 .anchor-3Z-8Bb {
-	color: var(--accentcolor);
+	color: var(--links)!important;
+}
+
+.theme-dark .markup-2BOw-j blockquote {
+	border-color: var(--accentcolor);
+}
+
+.theme-dark .expandedFolderBackground-2sPsd-.hover-2ji_A7 {
+	background-color: var(--shade0);
+}
+
+.theme-dark .expandedFolderBackground-2sPsd-:not(.da-collapsed) {
+	border-radius: 0px;
+	background-color: var(--shade0);
+	border-top: 2px solid var(--accentcolor);
+	border-left: 2px solid var(--accentcolor);
+	border-right: 2px solid var(--accentcolor);
+	width: 44px;
+}
+.theme-dark .expandedFolderBackground-2sPsd-:not(.da-collapsed):after {
+	position: absolute;
+	display: block;
+	content: "";
+	width: 100%;
+	height: 4px;
+	bottom: -4px;
+	left: -2px;
+	border-left: 2px solid var(--accentcolor);
+	border-right: 2px solid var(--accentcolor);
+	border-bottom: 2px solid var(--accentcolor);
+	background-color: var(--shade0);
+}
+
+.expandedFolderIconWrapper-1xLaU- {
+	background-color: var(--shade0);
+	border:2px solid var(--accentcolor);
+	width: 44px;
+}
+
+.folderIconWrapper-226oVY {
+	border-radius: 0px;
 }
 
 .theme-dark .button-OhfaWu.selected-wSa2KV {
-	background-color: var(--accentcolor);
+	background-color: var(--shade0);
 }
 
 .theme-dark .checked-3_4uQ9 svg g polyline {
@@ -323,7 +419,7 @@ header div[aria-label="Level 3"] div:before {
 }
 
 .theme-dark .timestampCozy-2hLAPV {
-	color: var(--accentcolor);
+	color: var(--timestamp);
 	font-weight: 600;
 }
 
@@ -1928,10 +2024,15 @@ width: 20px;
 	display:none;
 }
 
-.theme-dark .title-2BxgL2, .title-2BxgL2 {
+.theme-dark .title-2BxgL2 {
     color: var(--text);
     text-transform: none;
-    font-size:20px;
+    font-size:0;
+}
+.theme-dark .title-2BxgL2:after {
+	font-size: 20px;
+	color: var(--accentcolor);
+	content: "they're gone";
 }
 
 .text-GwUZgS {
@@ -3164,6 +3265,8 @@ END OLD FIXES
 }
 
 /*
+
+fuck you devilbro, eat shit and die
 
 #4f006e
 dinosaur_woman has left the game.
