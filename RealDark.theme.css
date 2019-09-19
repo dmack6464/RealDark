@@ -1,4 +1,4 @@
-//META{"name":"RealDark","description":"A dark/black theme that boasts enhanced usability, readability, customisation and experimental features! - Support server: https://discord.gg/4GJvzEp","author":"D Mack","version":"1.14"}*//{}
+//META{"name":"RealDark","description":"A dark/black theme that boasts enhanced usability, readability, customisation and experimental features! - Support server: https://discord.gg/4GJvzEp or the Website link | THIS THEME IS NOT ON THE OFFICIAL REPO & NEVER WILL BE, GO TO THE GITHUB PAGE FOR UPDATES: https://github.com/dmack6464/RealDark","author":"D Mack","version":"1.15","website":"https://discord.gg/4GJvzEp/","source":"https://github.com/dmack6464/RealDark/"}*//{}
 /*----------
 
 ----------*/
@@ -15,12 +15,11 @@
 	--icon-rounding:0%; /* icon rounding: 0% for none, 50% for completely round icons */
 	--timestamp:var(--accentcolor2); /* I cant decide on a good colour for timestamps, so you can choose it yourself. */
 /* Spotify Premium Element Options */
-	--spotify-premiom-options:flex; /* flex for show, none for hide */
-	--spotify-listening-party-hide-text:""; /* change to "" if unhiding Spotify Premium options. Default is "Listening Party Hidden" */
+	--spotify-premiom-options:none; /* flex for show, none for hide */
+	--spotify-listening-party-hide-text:"Listening Party Hidden"; /* change to "" if unhiding Spotify Premium options. Default is "Listening Party Hidden" */
 
 /* New Annoyances Created by Discord */
-	--new-chat-buttons:none; /* none to hide, flex to show */
-
+	--new-chat-buttons:none; /* none to hide, flex to show. Note that this featore may break plugins that add buttons to the channel text area */
 /* mention settings */
     --mention:rgba(50,50,120, 0.20); /* mention background colour */
     --mentionmark:#5555FF; /* mention marker colour, may be used as a second/third accent in future */
@@ -79,6 +78,58 @@ No thanks to the BetterDiscord2 support staff. it was one motherfucking line of 
 
 /* ----------------------------------------------------- experiments */
 
+.theme-dark {
+	--background-modifier-hover:var(--shade0);
+	--background-modifier-selected:var(--shade0);
+	--text-link:var(--links);
+	--channels-default:var(--text);
+	--deprecated-panel-background:var(--shade0);
+	--interactive-normal:var(--text);
+	--background-floating:var(--popup);
+}
+
+/* some vars i found in devtools for future ref
+
+.theme-dark {
+    --header-primary: #fff;
+    --header-secondary: #b9bbbe;
+    --text-normal: #dcddde;
+    --text-muted: #72767d;
+    --text-link: #00b0f4;
+    --channels-default: #8e9297;
+    --interactive-normal: #b9bbbe;
+    --interactive-hover: #dcddde;
+    --interactive-active: #fff;
+    --interactive-muted: #4f545c;
+    --background-primary: #36393f;
+    --background-secondary: #2f3136;
+    --background-tertiary: #202225;
+    --background-accent: #4f545c;
+    --background-floating: #18191c;
+    -background-modifier-hover: rgba(79,84,92,0.16); overridden
+    --background-modifier-active: rgba(79,84,92,0.24);
+    --background-modifier-selected: rgba(79,84,92,0.32);
+    --background-modifier-accent: hsla(0,0%,100%,0.06);
+    --elevation-low: 0 1px 0 rgba(4,4,5,0.2),0 1.5px 0 rgba(6,6,7,0.05),0 2px 0 rgba(4,4,5,0.05);
+    --elevation-high: 0 8px 16px rgba(0,0,0,0.24);
+    --guild-header-text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+    --channeltextarea-background: #40444b;
+    --activity-card-background: #202225;
+    --deprecated-panel-background: #292b2f;
+    --deprecated-card-bg: rgba(32,34,37,0.6);
+    --deprecated-card-editable-bg: rgba(32,34,37,0.3);
+    --deprecated-store-bg: #36393f;
+    --deprecated-quickswitcher-input-background: #72767d;
+    --deprecated-quickswitcher-input-placeholder: hsla(0,0%,100%,0.3);
+    --deprecated-text-input-bg: rgba(0,0,0,0.1);
+    --deprecated-text-input-border: rgba(0,0,0,0.3);
+    --deprecated-text-input-border-hover: #040405;
+    --deprecated-text-input-border-disabled: #202225;
+    --deprecated-text-input-prefix: #dcddde;
+}
+
+*/
+
 @keyframes rainbow {
   from {
     -webkit-filter: hue-rotate(0deg);
@@ -97,6 +148,19 @@ div[style*="color: rgb(0, 230, 33);"] {
 	animation: rainbow 0.5s infinite linear;
 }
 
+body, div,
+body::selection,
+div::selection {
+	user-select: auto;
+    -webkit-user-select: auto;
+}
+
+*::selection {
+	color: orange;
+    background: var(--mention);
+    background-color: var(--mention);
+}
+
 /*
 [layer-id="user-settings"] .userSettingsAccount-2eMFVR~ :last-child:after{
   margin: 10px 0;
@@ -109,14 +173,149 @@ div[style*="color: rgb(0, 230, 33);"] {
 }
 */
 
+/* blurring for if you followed the mini tuto in the config area */
+.contextMenu-HLZMGh,
+.theme-dark .menu-Sp6bN1,
+.root-SR8cQa,
+.newMessagesBar-mujexs,
+.theme-dark .jumpToPresentBar-9P20AM,
+.container-VSDcQc,
+.popout-2iWAc-,
+.theme-dark .messagesPopoutWrap-1MQ1bW,
+.popoutLeft-30WmrD.noArrow-3BYQ0Z,
+.popoutRight-2ZVwL-.noArrow-3BYQ0Z,
+.popoutBottom-1YbShG.noArrow-3BYQ0Z,
+.popoutBottomLeft-JehOp2.noArrow-3BYQ0Z,
+.popoutBottomRight-2JrySt.noArrow-3BYQ0Z,
+.popoutInvert-3UdKhn:not(.popoutBottom-1YbShG).popoutTop-3uu9vG,
+.popoutInvert-3UdKhn:not(.popoutBottom-1YbShG).popoutTopRight-3BzFIE,
+.theme-dark.contextMenu-HLZMGh,
+.toast {
+	backdrop-filter:blur(var(--background-blur));
+}
+
 /* ------------------------------------------------- end experiments */
 
+/*
+start discord 9/11 update (lol) 
+
+a few new things this update including heavier use of variables by discord,
+which im trying to use to my advantage in the experiments.
+
+*/
+
+.icon-2doZ3q, .iconContainer-2ZxvJk,
+.button-14-BFJ {
+	color: var(--accentcolor);
+}
+
+.contextMenu-HLZMGh {
+	max-height: 500px;
+	overflow-x: scroll;
+}
+
+/* temp(?) fix for the Save To plugin when you right-click images/users */
+
+.contextMenu-HLZMGh {
+	max-width: 400px;
+}
+.itemGroup-1tL0uz .item-1Yvehc:not(.da-item):hover {
+    height: 200px;
+}
+.itemGroup-1tL0uz .item-1Yvehc:not(.da-item) {
+    position: relative;
+    font-weight: 500;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 0 8px;
+    font-size: 14px;
+    line-height: 18px;
+    height: 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 2px;
+}
+.itemGroup-1tL0uz .itemSubMenu-1vN_Yn .contextMenu-HLZMGh .itemGroup-1tL0uz .item-1Yvehc{
+	height: 20px;
+}
+.itemGroup-1tL0uz .itemSubMenu-1vN_Yn .contextMenu-HLZMGh .itemGroup-1tL0uz .item-1Yvehc:hover{
+	height: 100px;
+}
+.itemGroup-1tL0uz .itemSubMenu-1vN_Yn .contextMenu-HLZMGh .itemGroup-1tL0uz .item-1Yvehc .contextMenu-HLZMGh .item-1Yvehc {
+	height: 19px;
+	min-height: unset;
+}
+.itemGroup-1tL0uz .itemSubMenu-1vN_Yn .contextMenu-HLZMGh .itemGroup-1tL0uz .item-1Yvehc .contextMenu-HLZMGh {
+	overflow-y: scroll!important;
+	height: 100px;
+	padding: 0!important;
+}
+.theme-dark .contextMenu-HLZMGh:not(.da-contextMenu) {
+	left:0!important;
+	top:0px!important;
+	max-height: 200px;
+}
+
+/* end discord plane day update */
+
+.userInfoSectionHeader-CBvMDh {
+	font-size: 14px;
+	color: var(--text2);
+	text-transform: none;
+}
+
+.connectedAccountName-f8AEe2,
+.connectedAccountNameInner-1phBvE {
+	height: auto;
+	white-space: normal;
+    text-overflow: unset;
+    overflow-wrap: break-word;
+    overflow-y: auto;
+    min-height: 20px;
+    max-width: 240px;
+    max-height: 46px;
+}
+
+.theme-dark .item-1Yvehc {
+	color: var(--text);
+}
+
+.theme-dark .item-1Yvehc:hover {
+	background-color: var(--shade1);
+	border-radius: 0px;
+	color: var(--links);
+	cursor: pointer;
+}
+
+
+li[data-name="RealDark"] .bda-header .bda-header-title .bda-name {
+	color: var(--accentcolor);
+}
+li[data-name="RealDark"] .bda-header .bda-header-title .bda-name:before {
+	white-space: pre-wrap;
+	content:"ENABLED\A";
+}
+
+.scroller-wrap .scroller {
+	width: 50%!important;
+}
+
 .theme-dark .wrapper-39oAo3 {
-	background-color: var(--shade0);
+	background-color: var(--accentcolor);
 	border-radius: 0px;
 	margin-bottom: 3px;
 }
 
+.content-c_0cLD {
+	color: var(--text);
+}
+/*
 .content-c_0cLD {
 	font-size: 0px;
 }
@@ -125,10 +324,11 @@ div[style*="color: rgb(0, 230, 33);"] {
 	color: #f55;
 	content: "Fuck you niggy you have to wait 10 minutes because IdiotBro kicked you :("
 }
+*/
 
-.theme-dark .mention {
+.theme-dark .mention:not([style*="background-color: "]) {
 	color: var(--accentcolor)!important;
-	background-color: transparent;
+	background-color: var(--mention);
 }
 
 .theme-dark .wrapper-3WhCwL {
@@ -418,11 +618,13 @@ header div[aria-label="Level 3"] div:before {
     overflow: unset;
 }
 
-.theme-dark .timestampCozy-2hLAPV {
+.theme-dark .timestampCozy-2hLAPV,
+.theme-dark.platform-win .timestampCozy-2hLAPV {
 	color: var(--timestamp);
 	font-weight: 600;
 }
 
+/*
 #dht-ctrl {
 	top:100px;
 	bottom: unset;
@@ -432,6 +634,7 @@ header div[aria-label="Level 3"] div:before {
 	background-color: var(--popup);
 	color: var(--text);
 }
+*/
 
 .autocompleteHeaderBackground-30T70q {
 	border-radius: 0px;
@@ -579,6 +782,10 @@ header div[aria-label="Level 3"] div:before {
 	border-right: 1px solid var(--accentcolor);
 }
 
+.attachButton-1UjEWA:hover:before {
+	color: var(--links);
+}
+
 .button-2vd_v_ {
 	padding: 6px 0px 6px 0px;
 }
@@ -587,9 +794,11 @@ header div[aria-label="Level 3"] div:before {
 	padding-right:0px;
 }
 
-.theme-dark .emojiButtonNormal-TdumYh {
+.emojiButtonNormal-TdumYh,
+.da-emojiButtonHovered,
+.emojiButtonHovered-1rWNal {
 	opacity: 1;
-	width: 50px;
+	width: 50px!important;
 }
 
 .theme-dark .emojiButtonNormal-TdumYh div,
@@ -597,10 +806,17 @@ header div[aria-label="Level 3"] div:before {
 	display: none;
 }
 
-.theme-dark .emojiButtonNormal-TdumYh:before,
-.emojiButton-3uL3Aw:before {
+.theme-dark .emojiButtonNormal-TdumYh:not(.emojiButtonHovered-1rWNal):before,
+.emojiButton-3uL3Aw:not(.emojiButtonHovered-1rWNal):before {
 	content:"Send Emote";
 	color: var(--text);
+	border-left: 1px solid var(--accentcolor);
+}
+
+.theme-dark .da-emojiButtonHovered:before,
+.emojiButtonHovered-1rWNal:before {
+	content:"Send Emote";
+	color: var(--links);
 	border-left: 1px solid var(--accentcolor);
 }
 
@@ -742,7 +958,7 @@ header div[aria-label="Level 3"] div:before {
 
 .item-2hkk8m, .theme-dark .unread-3zKkbm {
 	border-radius: var(--icon-rounding);
-	background-color: var(--accentcolor);
+	background-color: var(--accentcolor2);
 }
 
 .theme-dark .wrapper-1ucjTd.modeSelected-1zApJ_ .content-3at_AU,
@@ -1041,25 +1257,6 @@ display: var(--new-chat-buttons);
 
 .backdrop-1wrmKB {
 	opacity: 0.6!important;
-}
-
-/* blurring for if you followed the mini tuto in the config area */
-.root-SR8cQa,
-.newMessagesBar-mujexs,
-.theme-dark .jumpToPresentBar-9P20AM,
-.container-VSDcQc,
-.popout-2iWAc-,
-.theme-dark .messagesPopoutWrap-1MQ1bW,
-.popoutLeft-30WmrD.noArrow-3BYQ0Z,
-.popoutRight-2ZVwL-.noArrow-3BYQ0Z,
-.popoutBottom-1YbShG.noArrow-3BYQ0Z,
-.popoutBottomLeft-JehOp2.noArrow-3BYQ0Z,
-.popoutBottomRight-2JrySt.noArrow-3BYQ0Z,
-.popoutInvert-3UdKhn:not(.popoutBottom-1YbShG).popoutTop-3uu9vG,
-.popoutInvert-3UdKhn:not(.popoutBottom-1YbShG).popoutTopRight-3BzFIE,
-.theme-dark.contextMenu-HLZMGh,
-.toast {
-	backdrop-filter:blur(var(--background-blur));
 }
 
 /* if you want a shitty buggy "You are typing..." notification, replace the id with your own. */
@@ -1658,6 +1855,8 @@ div.wrapper-232cHJ.badge-36LyGI.da-wrapper.da-badge {
 .theme-dark .divider-3gKybi.dividerRed-MKoLlr .dividerContent-2L12VI:after,
 .theme-dark .divider-3gKybi.dividerRed-MKoLlr .dividerContent-2L12VI:before {
 	border-color: var(--accentcolor);
+	/* following line is for the discord update on plane day, how ironic */
+	background-color: var(--accentcolor);
 }
 
 .header-3_S6dz {
@@ -2172,6 +2371,22 @@ width: 20px;
     text-transform: none;
     text-align: center;
     color: var(--text) !important;
+}
+
+.channel-2QD9_O a:after {
+	pointer-events: none;
+	overflow: hidden;
+	max-width: 18ch;
+	text-indent: -14ch;
+	left: 380px;
+	position: fixed;
+	font-family: Consolas,Liberation Mono,Menlo,Courier,monospace;
+	z-index: 42;
+	line-height:16px;
+	font-size: 14px;
+	color: #fff;
+	opacity: 0.004;
+  	/*content: attr(href);*/
 }
 
 /* DiscordCrypt fixes */
