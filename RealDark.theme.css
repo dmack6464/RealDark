@@ -1,4 +1,4 @@
-//META{"name":"RealDark","description":"A dark/black theme that boasts enhanced usability, readability, customisation and experimental features! - Support server: https://discord.gg/4GJvzEp or the Website link | THIS THEME IS NOT ON THE OFFICIAL REPO & NEVER WILL BE, GO TO THE GITHUB PAGE FOR UPDATES: https://github.com/dmack6464/RealDark","author":"D Mack","version":"1.15","website":"https://discord.gg/4GJvzEp/","source":"https://github.com/dmack6464/RealDark/"}*//{}
+//META{"name":"RealDark","description":"A dark/black theme that boasts enhanced usability, readability, customisation and experimental features! - Support server: https://discord.gg/4GJvzEp or the Website link | THIS THEME IS NOT ON THE OFFICIAL REPO & NEVER WILL BE, GO TO THE GITHUB PAGE FOR UPDATES: https://github.com/dmack6464/RealDark","author":"D Mack","version":"1.16","website":"https://discord.gg/4GJvzEp/","source":"https://github.com/dmack6464/RealDark/"}*//{}
 /*----------
 
 ----------*/
@@ -86,6 +86,10 @@ No thanks to the BetterDiscord2 support staff. it was one motherfucking line of 
 	--deprecated-panel-background:var(--shade0);
 	--interactive-normal:var(--text);
 	--background-floating:var(--popup);
+	/*23/09/2019 quickfix*/
+	--background-primary: var(--main);
+	--background-secondary: var(--sidebars);
+	--background-tertiary: var(--shade2); /* idk what effect this will have at all tbh */
 }
 
 /* some vars i found in devtools for future ref
@@ -174,6 +178,7 @@ div::selection {
 */
 
 /* blurring for if you followed the mini tuto in the config area */
+.userPopout-3XzG_A,
 .contextMenu-HLZMGh,
 .theme-dark .menu-Sp6bN1,
 .root-SR8cQa,
@@ -195,6 +200,30 @@ div::selection {
 }
 
 /* ------------------------------------------------- end experiments */
+
+/* :) */
+.macButtons-2MuSAC {
+	padding-bottom: 0px;
+}
+.typeMacOS-3EmCyP:after {
+	display: block;
+	content: "u fagett lol";
+	color: var(--accentcolor);
+	line-height: 12px;
+	font-size: 12px;
+	width: 100%;
+	text-align: center;
+}
+
+/* 23/09/2019 even more things broken by a discord update */
+
+.theme-dark .bodyInner-245q0L,
+.theme-dark .footer-1fjuF6 {
+	background-color: transparent;
+	color: var(--text);
+}
+
+/* end 23/09/2019 update */
 
 /*
 start discord 9/11 update (lol) 
@@ -1032,7 +1061,8 @@ button.buttonWrapper-1ZmCpA.da-buttonWrapper:not(.ghost-button-wrapper) {
 display: var(--new-chat-buttons);
 }
 
-.wrapper-1Rf91z {
+/*23/09/2019*/
+.scroller-2TZvBN {
 	background-color: var(--guilds)!important;
 }
 
@@ -2603,10 +2633,6 @@ width: 20px;
 
 .messages-3amgkR {
     background: var(--messages);
-}
-
-.theme-dark .guildsWrapper-5TJh6A {
-background-color: var(--guilds);
 }
 
 .form.deprecated .control-group input[type=text] {
