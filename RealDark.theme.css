@@ -1,4 +1,4 @@
-//META{"name":"RealDark","description":"A dark/black theme that boasts enhanced usability, readability, customisation and experimental features! - Support server: https://discord.gg/4GJvzEp or the Website link | THIS THEME IS NOT ON THE OFFICIAL REPO & NEVER WILL BE, GO TO THE GITHUB PAGE FOR UPDATES: https://github.com/dmack6464/RealDark","author":"D Mack","version":"1.16","website":"https://discord.gg/4GJvzEp/","source":"https://github.com/dmack6464/RealDark/"}*//{}
+//META{"name":"RealDark","description":"A dark/black theme that boasts enhanced usability, readability, customisation and experimental features! - Support server: https://discord.gg/4GJvzEp or the Website link | THIS THEME IS NOT ON THE OFFICIAL REPO, GO TO THE GITHUB PAGE FOR UPDATES: https://github.com/dmack6464/RealDark","author":"D Mack","version":"1.18","website":"https://discord.gg/4GJvzEp/","source":"https://github.com/dmack6464/RealDark/"}*//{}
 /*----------
 
 ----------*/
@@ -92,6 +92,21 @@ No thanks to the BetterDiscord2 support staff. it was one motherfucking line of 
 	--background-tertiary: var(--shade2); /* idk what effect this will have at all tbh */
 }
 
+/*
+attempting to re-enable disabled interaction areas.
+you cant fucking tell me what to do!
+
+it also fucks with devtools' select element tool.
+you dont fuck with the devtools.
+*/
+
+.clickOverride-1J40_l,
+.disableInteraction-_YeVcv,
+.da-clickOverride,
+.da-disableInteraction {
+	display: none!important;
+}
+
 /* some vars i found in devtools for future ref
 
 .theme-dark {
@@ -183,7 +198,7 @@ div::selection {
 .theme-dark .menu-Sp6bN1,
 .root-SR8cQa,
 .newMessagesBar-mujexs,
-.theme-dark .jumpToPresentBar-9P20AM,
+.theme-dark .jumpToPresentBar-9P20AM:not(:hover),
 .container-VSDcQc,
 .popout-2iWAc-,
 .theme-dark .messagesPopoutWrap-1MQ1bW,
@@ -195,11 +210,104 @@ div::selection {
 .popoutInvert-3UdKhn:not(.popoutBottom-1YbShG).popoutTop-3uu9vG,
 .popoutInvert-3UdKhn:not(.popoutBottom-1YbShG).popoutTopRight-3BzFIE,
 .theme-dark.contextMenu-HLZMGh,
+.theme-dark .modal-yWgWj-,
+.theme-dark .autocomplete-1vrmpx,
 .toast {
 	backdrop-filter:blur(var(--background-blur));
 }
 
 /* ------------------------------------------------- end experiments */
+
+
+/* im sad
+.guilds-1SWlCJ .listItem-2P_4kh:nth-child(1):not(.bd-guild) {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+*/
+
+/* user mention autocomplete */
+/* yes im gonna start commenting what parts of my css do now */
+
+.contentTitle-2tG_sM {
+	text-transform:none;
+	font-size: 16px;
+}
+
+.theme-dark .description-11DmNu,
+.theme-dark .descriptionUsername-J_75O8,
+.theme-dark .descriptionDiscriminator-3vUOCc {
+	font-family: Consolas,Liberation Mono,Menlo,Courier,monospace;
+	font-size: 100%; /* force default for both */
+}
+
+.theme-dark .description-11DmNu,
+.theme-dark .descriptionUsername-J_75O8 {
+	color: var(--links);
+}
+.theme-dark .descriptionDiscriminator-3vUOCc {
+	color: var(--accentcolor2);
+}
+
+.marginLeft8-1YseBe {
+	flex:unset!important;
+}
+
+.theme-dark .contentTitle-2tG_sM {
+	color: var(--accentcolor2);
+}
+
+.theme-dark .autocomplete-1vrmpx,
+.selector-2IcQBU {
+	border-radius: 0px;
+}
+
+/* messageloggerv2 */
+.theme-dark .modal-yWgWj- {
+	background-color: var(--popup);
+	border-radius: 0px;
+}
+.theme-dark .footer-3rDWdC {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	background-color: var(--popup);
+	border-top: 1px solid var(--borders);
+}
+img.avatar-VxgULZ {
+	border-radius: var(--icon-rounding)!important;
+}
+
+.theme-dark .messagesPopout-24nkyi {
+	background-color: transparent;
+}
+
+/* interesting idea i saw from some other theme that I decided to try and replicate */
+.form-2fGMdU {
+	margin: 0;
+}
+
+.theme-dark .jumpToPresentBar-9P20AM {
+	left: 40px;
+}
+
+.theme-light .bf-toolbar:hover .bf-arrow,
+.bf-toolbar .bf-arrow {
+	right: unset;
+	left: 5px;
+}
+.bf-toolbar {
+	right: unset;
+	left: 0;
+}
+
+.channelTextArea-rNsIhG {
+	padding-top: 5px;
+	padding-bottom: 4px;
+	border:none;
+	background-color: var(--textboxcolour);
+}
+
 
 /* :) */
 .macButtons-2MuSAC {
@@ -213,6 +321,224 @@ div::selection {
 	font-size: 12px;
 	width: 100%;
 	text-align: center;
+}
+
+
+/*
+	fixed radial status snippet, feel free to use in your theme!
+	author: dmack6464
+	note that this snippet uses --icon-rounding for dynamic border radius
+*/
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Idle"] svg rect,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Online"] svg rect,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Do Not Disturb"] svg rect {
+	display: none;
+}
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Idle"]:before {
+	position: absolute;
+	content: "";
+	top: -1px;
+	left: -1px;
+	height: 32px;
+	width: 32px;
+	border: 1px solid #ff4;
+	border-radius: var(--icon-rounding);
+}
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Online"]:before {
+	position: absolute;
+	content: "";
+	top: -1px;
+	left: -1px;
+	height: 32px;
+	width: 32px;
+	border: 1px solid #4f4;
+	border-radius: var(--icon-rounding);
+}
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Do Not Disturb"]:before {
+	position: absolute;
+	content: "";
+	top: -1px;
+	left: -1px;
+	height: 32px;
+	width: 32px;
+	border: 1px solid #f44;
+	border-radius: var(--icon-rounding);
+}
+
+
+/*
+    fixed radial status snippet, feel free to use in your theme!
+    author: dmack6464
+    thanks to 235302947058089984 for making the online via mobile status work,
+    as well as highlighting the need to remove masks (commented at bottom).
+    ...and the partial foreign language support.
+*/
+.avatar-3uk_u9 .wrapper-3t9DeA svg rect {
+    display: none;
+}
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Idle"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Inaktiv"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Abwesend"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Ausente"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Inactif"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="U mirovanju"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Inattivo"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Pasitraukęs"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Tétlen"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Inactief"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Zaraz wracam"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Inactiv"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Toimeton"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Chờ"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Boşta"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Nečinný"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Αδρανής"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Не се използва"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Не активен"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Відійшов"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="ไม่อยู่"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="闲置"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="退席中"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="閒置"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="자리비움"]:before {
+    position: absolute;
+    content: "";
+    top: -2px;
+    left: -2px;
+    height: 32px;
+    width: 32px;
+    border: 2px solid #ff4;
+    border-radius: var(--icon-rounding);
+}
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Online"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Conectado"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="En ligne"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Na mreži"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Prisijungęs"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Elérhető"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Pålogget"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Dostępny"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Disponível"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Paikalla"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Trực tuyến"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Çevrimiçi"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Συνδεδεμένος"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="На линия"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="В сети"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="В мережі"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="ออนไลน์"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="在线"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="オンライン"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="線上"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="온라인"]:before {
+    position: absolute;
+    content: "";
+    top: -2px;
+    left: -2px;
+    height: 32px;
+    width: 32px;
+    border: 2px solid #4f4;
+    border-radius: var(--icon-rounding);
+}
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Do Not Disturb"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Vil ikke forstyrres"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Bitte nicht stören"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="No molestar"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Ne pas déranger"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Ne uznemiravaj"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Non disturbare"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Netrukdyti"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Niet storen"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Ikke forstyrr"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Nie przeszkadzać"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Elfoglalt"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Não perturbar"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Nu deranja"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Älä häiritse"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Stör ej"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Vui Lòng Không Làm Phiền"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Rahatsız Etmeyin"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Nerušit"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Μην ενοχλείτε"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Не ме безпокой"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Не беспокоить"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Не турбувати"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="ห้ามรบกวน"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="请勿打扰"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="取り込み中"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="請勿打擾"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="다른 용무 중"]:before {
+    position: absolute;
+    content: "";
+    top: -2px;
+    left: -2px;
+    height: 32px;
+    width: 32px;
+    border: 2px solid #f44;
+    border-radius: var(--icon-rounding);
+}
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Online via mobile"]:before {
+    position: absolute;
+    content: "";
+    top: -2px;
+    left: -2px;
+    height: 32px;
+    width: 32px;
+    border: 2px solid #f0f !important;
+    border-radius: var(--icon-rounding);
+}
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Streaming"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Streamer"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Transmitiendo"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="En direct"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="In diretta"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Transliuojama"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Közvetítés"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Streamt"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Strømmer"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Streamowanie"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Transmitindo"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Transmite live"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Striimaa"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Streamar"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Đang stream"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Yayın Yapıyor"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Streamuje"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Ζωντανά"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Стрийминг"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Стримит"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Трансляція"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="ถ่ายทอดสด"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="正在直播"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="配信"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="直播中"]:before,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="配信"]:before {
+    position: absolute;
+    content: "";
+    top: -2px;
+    left: -2px;
+    height: 32px;
+    width: 32px;
+    border: 2px solid #593695;
+    border-radius: var(--icon-rounding);
+}
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Offline"]:before {
+    position: absolute;
+    content: "";
+    top: -2px;
+    left: -2px;
+    height: 32px;
+    width: 32px;
+    border: 2px solid #778;
+    border-radius: var(--icon-rounding);
+}
+/* Code needed to be able to change the Border-Radius of the Member List Avatars */
+.avatar-3uk_u9 .wrapper-3t9DeA foreignObject[mask] {
+    mask: none;
+}
+/* Change Member List Avatar Border-Radius */
+.avatar-3uk_u9 .avatar-VxgULZ {
+    border-radius: var(--icon-rounding);
 }
 
 /* 23/09/2019 even more things broken by a discord update */
@@ -1057,9 +1383,26 @@ header div[aria-label="Level 3"] div:before {
 }
 
 /* :nth-child(2) */
-button.buttonWrapper-1ZmCpA.da-buttonWrapper:not(.ghost-button-wrapper) {
+/* attempting manual overrides for plugins, not perfect in the slightest */
+button.buttonWrapper-1ZmCpA.da-buttonWrapper {
 display: var(--new-chat-buttons);
 }
+.buttons-205you .ghost-button-wrapper,
+.buttons-205you .embed-button-wrapper,
+.buttons-205you button[aria-label="Instant Delete"] {
+	display: flex!important;
+	flex-flow: column;
+}
+
+.buttons-205you button[aria-label="Instant Delete"].active-23Nm0T:after {
+	content:"Active";
+	color: var(--links);
+	font-family: Consolas,Liberation Mono,Menlo,Courier,monospace;
+	font-size: 10px;
+	bottom: 0;
+	left: 0;
+}
+
 
 /*23/09/2019*/
 .scroller-2TZvBN {
@@ -1872,14 +2215,15 @@ div.wrapper-232cHJ.badge-36LyGI.da-wrapper.da-badge {
 }
 
 .channelTextArea-rNsIhG {
-	margin-bottom:9px;
+	margin-bottom:0px;
 }
 
 .typing-2GQL18 {
-    top: -2px;
+    top: -9px;
     padding: 0 4px;
     /*background: rgba(38,38,38,0.85) !important;*/
     background: transparent !important;
+    pointer-events: none;
 }
 
 .theme-dark .divider-3gKybi.dividerRed-MKoLlr .dividerContent-2L12VI:after,
