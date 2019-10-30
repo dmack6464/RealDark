@@ -6,7 +6,7 @@ Adding your own window title<br>
 Optionally hiding Spotify Premium elements<br>
 Hiding your email in settings, unless you hover over it<br>
 Optional rounded or square icons<br>
-(Advanced) Blurred (or glass) popup backgrounds!<br>
+(Advanced) Blurred (or glass) popup backgrounds! SEE THEME COMMENTS FOR INSTRUCTIONS<br>
 Removed animations to increase performance
 ## fixed Discord bugs being:
 User popouts being unusable on medium-small screens<br>
