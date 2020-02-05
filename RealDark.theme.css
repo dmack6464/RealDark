@@ -1,7 +1,12 @@
-//META{"name":"RealDark","description":"A dark/black theme that boasts enhanced usability, readability, customisation and experimental features! - Support server: https://discord.gg/4GJvzEp or the Website link | THIS THEME IS NOT ON THE OFFICIAL REPO, GO TO THE GITHUB PAGE FOR UPDATES: https://github.com/dmack6464/RealDark","author":"D Mack","version":"1.18","website":"https://discord.gg/4GJvzEp/","source":"https://github.com/dmack6464/RealDark/"}*//{}
-/*----------
+/**
+ * @name RealDark
+ * @author D Mack (dmack6464)
+ * @version 1.19
+ * @description A dark/black theme that boasts enhanced usability, readability, customisation and experimental features!
+ * @source https://github.com/dmack6464/RealDark/
+ * @website https://discord.gg/4GJvzEp/
+*/
 
-----------*/
 /*The Configurator, change the variables to whatever you want.*/
 :root {
 
@@ -89,7 +94,14 @@ No thanks to the BetterDiscord2 support staff. it was one motherfucking line of 
 	/*23/09/2019 quickfix*/
 	--background-primary: var(--main);
 	--background-secondary: var(--sidebars);
+	--background-secondary-alt: var(--shade0);
 	--background-tertiary: var(--shade2); /* idk what effect this will have at all tbh */
+}
+
+/* guild scroller hack mainly for me to make discord usable on my laptop */
+
+.scrollerWrap-1IAIlv {
+	width:70px;
 }
 
 /*
@@ -227,6 +239,65 @@ div::selection {
 }
 */
 
+/* february 2020 update START */
+
+/* message toolbar fixing */
+.wrapper-2aW0bm {
+	background-color: transparent;
+}
+.button-1ZiXG9 {
+	color: var(--accentcolor2);
+	padding: 0px;
+}
+
+.emojiButton-jE9tXC,
+.separator-42rNt0 {
+	display: none;
+}
+
+.channelTextArea-2VhZ6z {
+	border-radius: 0px;
+}
+
+.scrollableContainer-2NUZem {
+	background-color: var(--textboxcolour);
+	border-radius: 0px;
+}
+
+.channel-2QD9_O[href="/store"] {
+	display: none;
+}
+
+/*svg[name="Nova_AddReactionAlt"] path:nth-of-type(1) {
+	display: none;
+	lol
+}*/
+
+/* february 2020 update END */
+
+/* remove animation for member list loading again */
+.multiplePlaceholder-M9zbu6, .placeholder-3KRNN9 {
+	animation: none;
+	-webkit-animation: none;
+}
+
+/* remove border radius for member list loading, as well as some colour additions cos why not */
+.placeholderAvatar-damqh6 {
+	background: var(--accentcolor);
+	border-radius: 0px;
+}
+.memberGroupsPlaceholder-3mwPub {
+	animation: none!important;
+	border-radius: 0px!important;
+	background: var(--text)!important;
+}
+.mulitplePlaceholderUsername-pogq9I,
+.placeholderUsername-2B_OA9 {
+	border-radius: 0px;
+	background: var(--text);
+}
+
+
 /* top left corner of the guild dropdown/channel area */
 .sidebar-2K8pFh {
 	border-radius: 0px!important;
@@ -295,6 +366,8 @@ img.avatar-VxgULZ {
 /* interesting idea i saw from some other theme that I decided to try and replicate */
 .form-2fGMdU {
 	margin: 0;
+	/* 2020 update */
+	padding: 0;
 }
 
 .theme-dark .jumpToPresentBar-9P20AM {
@@ -314,8 +387,8 @@ img.avatar-VxgULZ {
 .channelTextArea-rNsIhG {
 	padding-top: 5px;
 	padding-bottom: 4px;
-	border:none;
-	background-color: var(--textboxcolour);
+	/*border:none;*/
+	background-color: var(--shade0);
 }
 
 
@@ -983,8 +1056,8 @@ header div[aria-label="Level 3"] div:before {
     overflow: unset;
 }
 
-.theme-dark .timestampCozy-2hLAPV,
-.theme-dark.platform-win .timestampCozy-2hLAPV {
+.theme-dark .timestampCozy-1HNQR2,
+.theme-dark.platform-win .timestampCozy-1HNQR2 {
 	color: var(--timestamp);
 	font-weight: 600;
 }
@@ -1008,12 +1081,6 @@ header div[aria-label="Level 3"] div:before {
 .popout-2iWAc- {
 	border-radius: 0px;
 }
-
-/*
-.scrollerWrap-1IAIlv {
-	width:70px;
-}
-*/
 
 .subtitle-2yP_Eh {
 	text-transform: none;
@@ -1133,21 +1200,23 @@ header div[aria-label="Level 3"] div:before {
 	color: var(--text);
 }
 
-.attachButton-1UjEWA {
+.attachButton-2WznTc {
 	padding: 6px 0px 6px 0px;
 }
 
-.attachButton-1UjEWA div {
+.attachButton-2WznTc div {
 	display: none;
 }
 
-.attachButton-1UjEWA:before {
+.attachButton-2WznTc:before {
 	content:"Att. File";
 	color: var(--text);
 	border-right: 1px solid var(--accentcolor);
+	/* 2020 update */
+	width: 40px;
 }
 
-.attachButton-1UjEWA:hover:before {
+.attachButton-2WznTc:hover:before {
 	color: var(--links);
 }
 
@@ -2072,6 +2141,10 @@ img[src="/assets/8d8f815f3d81a33b1e70ec7c22e1b6fe.png"] + div:before {content:""
     width: auto;
 }
 
+.info-1VyQPT {
+	width: 150px;
+}
+
 .markup-2BOw-j code.inline {
 	border-radius: 0px;
 }
@@ -2327,16 +2400,6 @@ div.wrapper-232cHJ.badge-36LyGI.da-wrapper.da-badge {
 
 .spinner-pulsing-ellipsis .spinner-item {
 	border-radius:0px;
-}
-
-.memberGroupsPlaceholder-3mwPub, .placeholderAvatar-uzH8f6, .placeholderUsername-236yYU {
-	animation: none!important;
-	background-color:var(--shade1)!important;
-	background:var(--shade1)!important;
-	border-radius: 0px!important;
-}
-.placeholder-oNR4zO {
-	animation: none;
 }
 
 .wanderingCubesItem-WPXqao, .spinner-wandering-cubes .spinner-item {
