@@ -1,7 +1,7 @@
 [dmackserv]: https://discord.gg/4GJvzEp
 # RealDark
 ## [Support Server][dmackserv]<br>
-## A BetterDiscord theme which has some useful and unique features, including:
+## A BetterDiscord theme turned into a Powercord theme which has some useful and unique features, including:
 Adding your own window title<br>
 Optionally hiding Spotify Premium elements<br>
 Hiding your email in settings, unless you hover over it<br>
