@@ -1,52 +1,38 @@
 /**
  * @name RealDark
  * @author D Mack (dmack6464)
- * @version 2.0
+ * @version 2.1
  * @description A dark/black theme that boasts enhanced usability, readability, customisation and experimental features!
  * @source https://github.com/dmack6464/RealDark/
  * @website https://discord.gg/pB2SmhC/
 */
 
-/*The Configurator, change the variables to whatever you want.*/
 :root {
+	/* refer to RealDarkConfiguration.theme.css for referenced variables. */
+	--TSCompatREADME:"below are technical settings, do not override";
 
-	--ThemeSettings:"This theme is mostly compatible with ThemeSettings.";
-
-	--title:"RealDark"; /* title bar text */
-	--title-align:left; /* Options: center, left */
-	--icon-rounding:0%; /* icon rounding: 0% for none, 50% for completely round icons */
-
-/* mention settings */
-    --background-mentioned:rgba(50,50,120, 0.20); /* mention message background colour */
-    --mentionmark:#5555FF; /* mention marker colour, may be used as a second/third accent in future */
-
-/* regular settings */
-	--background-secondary:#09090D;
-    --background-primary:#030307;
-    --background-tertiary:#1d1d21; /* shade colour 0 */
-    --shade1:#18181c; /* shade colour 1 */
-    --shade1a:#121216; /* shade colour 1a */
-    --shade2:#0f0f14; /* shade colour 2 */
-    --text:#DDDDDD;    /*text rgb(255,255,250) var(--text)*/
-    --text2:#909094; /* born out of necessity */
-    --links:#00ffff; /* link highlight */
-    --accentcolor:#3070ff; 
-    --accentcolor2:#00a0ff; 
-    --textboxcolour:var(--shade1); /* might remove */
-    --font:'Whitney'; /* Default is Whitney */
-
-    --titlebar:var(--shade1a); /* titlebar colour */
-
-    --TSCompatREADME:"below are technical settings, do not override";
+	--background-secondary:var(--RDbackground-secondary);
+    --background-primary:var(--RDbackground-primary);
+    --background-tertiary:var(--RDbackground-tertiary); /* shade colour 0 */
 
     /* Discord variable overrides */
     --background-mentioned-hover:var(--background-mentioned);
     --channels-default:var(--text);
     --text-muted:var(--text);
     --deprecated-card-editable-bg:var(--background-tertiary);
+    --background-accent:var(--accentcolor);
+    --background-modifier-selected:var(--shade1);
+    --background-modifier-hover:var(--shade1a);
 }
 
 /* major functionality changing stuff goes near the top */
+
+/* config warning */
+.channelTextArea-rNsIhG:before {
+	display: var(--disableWarning);
+	color: red;
+	content: "RealDark requires RealDarkConfiguration.theme.css, which appears to be missing!!!";
+}
 
 /* text selection, text highlight hack */
 
@@ -115,13 +101,90 @@ div[style*="color: rgb(0, 230, 33);"] {
 	animation: rainbow 0.5s infinite linear;
 }
 
+nothing {
+	backdrop-filter:blur(var(--background-blur));
+}
+
+/* ------------ new additions for 2.1 that aren't extending on existing ones */
+
+/* classic RealDark search */
+.searchBar-3dMhjb {
+	border-radius: 0px;
+	background-color: var(--shade1);
+	border-bottom: 2px solid var(--textBoxUnderLine);
+}
+
+
+/* mentions: recolouring to accent colour */
+.mention-1f5kbO, /* guild list/channel list top/bottom auto scroll things */
+.base-PmTxvP /* amount of guild mentions/guild mention counter */ {
+	background-color: var(--accentcolor)!important /* important is required for the guild colour as its an inline property */
+}
+
+/* guild list / server list button modifications */
+.platform-win .scroller-2TZvBN {
+	padding-top: 0px;
+}
+/* Home button (dms) */
+.platform-win .scroller-2TZvBN:nth-child(2) > .tutorialContainer-1v44GL {
+	top: 0;
+	z-index: 999;
+	position: sticky;
+	background-color: var(--background-tertiary);
+}
+/* tile colour override */
+.tutorialContainer-1v44GL .childWrapper-anI2G9,
+.tutorialContainer-1v44GL .wrapper-1BJsBx.selected-bZ3Lue .childWrapper-anI2G9,
+.tutorialContainer-1v44GL .wrapper-1BJsBx:hover .childWrapper-anI2G9 {
+	background-color: var(--background-tertiary);
+	color: var(--accentcolor2);
+}
+/* Add a Server button */
+.platform-win .scroller-2TZvBN:nth-child(2) > .tutorialContainer-SGrQ1h {
+	bottom: 0px;
+	padding: 3px 0px 2px 0px;
+	position: sticky;
+	background-color: var(--background-tertiary);
+}
+/* tile colour override */
+.tutorialContainer-SGrQ1h .circleIconButton-jET_ig,
+.tutorialContainer-SGrQ1h .circleIconButton-jET_ig.selected-ugP_am {
+	background-color: var(--background-tertiary);
+	color: var(--accentcolor2);
+}
+.tutorialContainer-SGrQ1h .listItem-2P_4kh.da-listItem {
+	margin: 0px;
+}
+/* adjusting the top/bottom new mention auto scroll things, as they are now in the way */
+.unreadMentionsIndicatorTop-gA6RCh {
+	top: 48px;
+}
+.unreadMentionsIndicatorBottom-BXS58x {
+	bottom: 53px;
+}
+
 /* main screen, top and bottom bars modifications */
 .header-2o-2hj,
 .container-1r6BKw.themed-ANHk51,
 .searchBar-6Kv8R2,
-.panels-j1Uci_ {
+.panels-j1Uci_,
+.header-2V-4Sw /* 2.1 */ {
 	background: var(--background-tertiary);
 }
+
+/* top bar icon colours */
+.container-1r6BKw path[fill="currentColor"],
+.theme-dark .icon-1_QxNX path[fill="currentColor"] {
+	fill:var(--accentcolor);
+}
+/* bottom left user utilities icon colours */
+.icon-2doZ3q,
+.iconContainer-2ZxvJk,
+.button-14-BFJ {
+	color: var(--accentcolor);
+}
+
+/* ------------------------------ end 2.1 i think */
 
 /* send message box */
 .form-2fGMdU {
@@ -228,6 +291,10 @@ div[style*="color: rgb(0, 230, 33);"] {
 
 /* profile popout modifications */
 
+.role-2irmRk /* 2.1 */ {
+	border-radius: 0px;
+}
+
 .userPopout-3XzG_A .headerNormal-T_seeN {
 	background-color: var(--shade1);
 }
@@ -240,13 +307,8 @@ div[style*="color: rgb(0, 230, 33);"] {
 
 
 /* user settings, modify appearance of My Account header */
-.theme-dark .userSettingsAccount-2eMFVR div:nth-child(2) > div:nth-child(1) > .viewBody-2Qz-jg {margin-top:24px;}
-.theme-dark .userSettingsAccount-2eMFVR div:nth-child(2) > div > .viewBody-2Qz-jg {font-weight: 500;}
-.theme-dark .userSettingsAccount-2eMFVR div:nth-child(2) > div:nth-child(2) > .viewBody-2Qz-jg {filter: blur(8px);}
-.theme-dark .userSettingsAccount-2eMFVR div:nth-child(2) > div:nth-child(2) > .viewBody-2Qz-jg:hover {filter: blur(0px);}
-.theme-dark .userSettingsAccount-2eMFVR div:nth-child(2) > div:nth-child(1) > .h5-18_1nd {display: none;}
-.theme-dark .userSettingsAccount-2eMFVR div:nth-child(2) > div:nth-child(2) > .h5-18_1nd {display: none;}
 
+/* removed due to layout changes */
 
 /* User Settings and Server Settings layout midification */
 
@@ -307,8 +369,8 @@ div[style*="color: rgb(0, 230, 33);"] {
 foreignObject {
 	mask: none;
 }
+.base-PmTxvP,
 .bar-30k2ka,
-.searchBar-3dMhjb,
 .item-2hkk8m,
 .unread-3zKkbm,
 .searchResultMessage-1fxgXh.hit-1fVM9e,
@@ -380,9 +442,12 @@ foreignObject {
 /* Removing ellipsis or at least relaxing it */
 .name-3YKhmS,
 .header-2RyJ0Y,
-.container-2ax-kl {
+.container-2ax-kl,
+.name-1jkAdW, /* 2.1, guild/server name */
+.overflow-WK9Ogt /* also 2.1 */ {
 	text-overflow: unset;
-	white-space: unset;
+	white-space: break-spaces;
+	overflow-wrap: break-word;
 }
 
 /* mention highlight recolour */
@@ -621,21 +686,28 @@ foreignObject {
 }
 
 /* channel list category modification */
-.wrapper-CU3qI5 svg {
+.wrapper-CU3qI5 svg /* keeping for backwards compat maybe..? */ {
 	display: none;
 }
-.wrapper-CU3qI5:not(.da-collapsed):before {
+.addButtonIcon-2CbG1X, /* new */
+.wrapper-PY0fhH div svg {
+	display: none;
+}
+.wrapper-PY0fhH div[aria-expanded="true"]:before {
 	font-family: Consolas,Liberation Mono,Menlo,Courier,monospace;
 	font-size: 20px;
 	width: auto;
 	content:"-";
 }
-.wrapper-CU3qI5:before,
+.wrapper-PY0fhH div[aria-expanded="false"]:before,
 button[aria-label="Create Channel"] div:before {
 	font-family: Consolas,Liberation Mono,Menlo,Courier,monospace;
 	font-size: 20px;
 	width: auto;
-	content: "+"
+	content: "+";
+}
+button[aria-label="Create Channel"] {
+	top: -2px;
 }
 
 /* message list / messages list */
@@ -778,7 +850,10 @@ img[src="/assets/edbbf6107b2cd4334d582b26e1ac786d.png"] + div:before {content:""
 img[src="/assets/5be6cc17e596c02e7506f2776cfb1622.png"] + div:before {content:"";height:46px;width:262px;background:#1e71ad;position:absolute;margin-left:-38px}
 img[src="/assets/f0655521c19c08c4ea4e508044ec7d8c.png"] + div:before {content:"";height:46px;width:262px;background:#064c12;position:absolute;margin-left:-38px}
 img[src="/assets/8d8f815f3d81a33b1e70ec7c22e1b6fe.png"] + div:before {content:"";height:46px;width:262px;background:#0f176f;position:absolute;margin-left:-38px}
-
+/* 2.1 */
+img[src="/assets/0d44ba28e39303de3832db580a252456.png"] + div:before {content:"";height:46px;width:262px;background:#397217;position:absolute;margin-left:-38px} /* xbox */
+img[src="/assets/449cca50c1452b4ace3cbe9bc5ae0fd6.png"] + div:before {content:"";height:46px;width:262px;background:#801010;position:absolute;margin-left:-38px} /* yt */
+img[src="/assets/5d69e29f0d71aaa04ed9725100199b4e.png"] + div:before {content:"";height:46px;width:262px;background:#0050af;position:absolute;margin-left:-38px} /* github uwu (placeholder colour lol) */
 /* REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE FUCK YOU DISCORD FOR MAKING ME PUT THIS SHIT HERE */
 .scrollerThemed-2oenus.themeDark-2cjlUp.scrollerTrack-1ZIpsv>.scroller-2FKFPG::-webkit-scrollbar-track,
 .scrollerThemed-2oenus.themeDark-2cjlUp.scrollerTrack-1ZIpsv>.scrollerStore-390omS::-webkit-scrollbar-track,

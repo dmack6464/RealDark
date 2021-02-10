@@ -1,0 +1,59 @@
+/**
+ * @name RealDark Annoyances
+ * @author D Mack (dmack6464)
+ * @version 2.1
+ * @description Optional addition to RealDark (or any?) theme that attempts to remove some of Discord's annoying "features".
+ * @source https://github.com/dmack6464/RealDark/
+ * @website https://discord.gg/pB2SmhC/
+*/
+
+/* refer to RealDarkConfiguration.theme.css for referenced variables. */
+
+/* personal hacks */
+/*
+#pluginNotice {
+	height: auto;
+	display: none;
+}
+*/
+/* hacks end */
+
+/* config warning */
+.channelTextArea-rNsIhG:before {
+	display: var(--disableWarning);
+	color: red;
+	content: "RealDark requires RealDarkConfiguration.theme.css, which appears to be missing!!!";
+}
+
+/* Explore Public Servers button */
+.platform-win .scroller-2TZvBN:nth-child(2) > .listItem-2P_4kh {
+	display: var(--explorePublicServers);
+}
+
+/* fuck the emoji: message reactions */
+.wrapper-2aW0bm div:first-child, /* message hover popup */ {
+	display: var(--reactionOptionsInChat);
+}
+.wrapper-3_530D /* context menu header */ {
+	display: var(--reactionOptionsInRightClickMenu);
+}
+
+/* gif button in message send textbox, doesnt work with languages other than English*/
+.buttons-3JBrkn button[aria-label="Open GIF picker"] {
+	display: var(--send-gif-button);
+}
+
+
+
+/* attempting to remove nitro nagging */
+[href="/store"], /* DM list, maybe more? */
+.buttons-3JBrkn > button /* message send textbox */ {
+	display: var(--nitro-nagging);
+}
+
+
+/* spotify listening party invite hide */
+.invite-18yqGF, /* message */
+.listeningActionsUserPopout-Ga2V_N .buttonSize-2Pmk-w:not(:first-child) /* user popout */ {
+	display: var(--spotifyPremiumOptions);
+}

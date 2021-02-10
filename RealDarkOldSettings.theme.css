@@ -1,0 +1,48 @@
+/**
+ * @name RealDark OldSettings
+ * @author D Mack (dmack6464)
+ * @version 2.1
+ * @description Optional addition to RealDark (or any?) theme that attempts to add a window around the User Settings window.
+ * @source https://github.com/dmack6464/RealDark/
+ * @website https://discord.gg/pB2SmhC/
+*/
+
+/* refer to RealDarkConfiguration.theme.css for referenced variables. */
+
+/* config warning */
+.channelTextArea-rNsIhG:before {
+	display: var(--disableWarning);
+	color: red;
+	content: "RealDark requires RealDarkConfiguration.theme.css, which appears to be missing!!!";
+}
+
+.theme-dark .layer-3QrUeG,
+.theme-dark .layers-3iHuyZ {
+	background: transparent;
+}
+.theme-dark .layer-3QrUeG {
+	transform: none !important;
+	opacity: 1!important;
+}
+
+#user-settings {
+	width:90%;
+	height: 90%;
+	margin: auto;
+	padding:0;
+	border:2px solid var(--background-tertiary);
+	background:var(--background-tertiary);
+	opacity: 1!important;
+	z-index: 999;
+}
+
+#user-settings:before {
+	content:"User Settings";
+	background-color: var(--shade1a);
+	color: var(--text);
+	opacity: .6;
+	z-index: 1000;
+	font-weight: 700;
+	padding: 2px 0px 3px 5px;
+	text-align: var(--title-align);
+}

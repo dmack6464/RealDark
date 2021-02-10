@@ -1,0 +1,83 @@
+/**
+ * @name RealDark TextBox Buttons
+ * @author D Mack (dmack6464)
+ * @version 2.1
+ * @description Optional addition to RealDark (or any?) theme that attempts to replace the TextBox icon buttons with caption buttons.
+ * @source https://github.com/dmack6464/RealDark/
+ * @website https://discord.gg/pB2SmhC/
+*/
+
+/* refer to RealDarkConfiguration.theme.css for referenced variables. */
+
+/* config warning */
+.channelTextArea-rNsIhG:before {
+	display: var(--disableWarning);
+	color: red;
+	content: "RealDark requires RealDarkConfiguration.theme.css, which appears to be missing!!!";
+}
+
+/* This snippet was taken directly from RealDark 1.20 without modifications. */
+
+.attachButton-2WznTc {
+	padding: 6px 0px 6px 0px;
+}
+
+.attachButton-2WznTc div {
+	display: none;
+}
+
+.attachButton-2WznTc:before {
+	content:"Att. File";
+	color: var(--text);
+	border-right: 1px solid var(--accentcolor);
+	/* 2020 update */
+	width: 40px;
+}
+
+.attachButton-2WznTc:hover:before {
+	color: var(--links);
+}
+
+.button-2vd_v_ {
+	padding: 6px 0px 6px 0px;
+}
+
+.buttons-205you {
+	padding-right:0px;
+}
+
+.emojiButtonNormal-TdumYh,
+.da-emojiButtonHovered,
+.emojiButtonHovered-1rWNal {
+	opacity: 1;
+	width: 50px!important;
+}
+
+.theme-dark .emojiButtonNormal-TdumYh div,
+.emojiButton-3uL3Aw div {
+	display: none;
+}
+
+.theme-dark .emojiButtonNormal-TdumYh:not(.emojiButtonHovered-1rWNal):before,
+.emojiButton-3uL3Aw:not(.emojiButtonHovered-1rWNal):before {
+	content:"Send Emote";
+	color: var(--text);
+	border-left: 1px solid var(--accentcolor);
+}
+
+.theme-dark .da-emojiButtonHovered:before,
+.emojiButtonHovered-1rWNal:before {
+	content:"Send Emote";
+	color: var(--links);
+	border-left: 1px solid var(--accentcolor);
+}
+
+.theme-dark .attachButtonPlus-rUdX-B {
+	fill: var(--accentcolor);
+	opacity: 1;
+}
+
+.button-s03oPN {
+	color: var(--accentcolor)!important;
+	opacity: 1;
+}
