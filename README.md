@@ -3,7 +3,7 @@
 ## [Support Server][dmackserv]<br>
 ## A BetterDiscord dark/black theme that boasts enhanced usability, readability, customisation and experimental features, which include...
 Adding your own window title<br>
-Optional reloval of Spotify Premium elements<br>
+Optional removal of Spotify Premium elements<br>
 Optional rounded or square icons<br>
 Blurred (or glass) popup backgrounds! (currently being redone)<br>
 ## fixed Discord bugs being:
