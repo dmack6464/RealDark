@@ -1,13 +1,11 @@
 [dmackserv]: https://discord.gg/4GJvzEp
 # RealDark
 ## [Support Server][dmackserv]<br>
-## A BetterDiscord theme which has some useful and unique features, including:
+## A BetterDiscord dark/black theme that boasts enhanced usability, readability, customisation and experimental features, which include...
 Adding your own window title<br>
-Optionally hiding Spotify Premium elements<br>
-Hiding your email in settings, unless you hover over it<br>
+Optional reloval of Spotify Premium elements<br>
 Optional rounded or square icons<br>
-(Advanced) Blurred (or glass) popup backgrounds! SEE THEME COMMENTS FOR INSTRUCTIONS<br>
-Removed animations to increase performance
+Blurred (or glass) popup backgrounds! (currently being redone)<br>
 ## fixed Discord bugs being:
 User popouts being unusable on medium-small screens<br>
 Many roles making user popouts unusable<br>
@@ -17,4 +15,4 @@ Connecting screen being boring
 <p align="center"><img src="./img/2.png" alt="RealDark Example"></p>
 <p align="center"><img src="./img/3.png" alt="RealDark Example"></p>
 <p align="center"><img src="./img/5.png" alt="RealDark Example"></p>
-<br>theme repo, more like cuck repo 🤡🌎 #roasted
+<br>Currently not available on the official repo.
