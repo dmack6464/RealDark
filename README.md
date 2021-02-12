@@ -1,4 +1,4 @@
-[dmackserv]: https://discord.gg/4GJvzEp
+[dmackserv]: https://discord.gg/pB2SmhC
 # RealDark
 ## [Support Server][dmackserv]<br>
 ## A BetterDiscord dark/black theme that boasts enhanced usability, readability, customisation and experimental features, which include...
