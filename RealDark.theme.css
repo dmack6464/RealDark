@@ -974,7 +974,7 @@ img[src="/assets/5d69e29f0d71aaa04ed9725100199b4e.png"] + div:before {content:""
 /* scrollbars, but revamped! */
 
 .platform-win .scroller-2TZvBN:not(:hover)::-webkit-scrollbar,
-.scrollableContainer-2NUZem::webkit-scrollbar /* this seems to not hide the scrollbar when there is an overflow... win..? */ {
+.scrollableContainer-2NUZem::-webkit-scrollbar /* this seems to not hide the scrollbar when there is an overflow... win..? */ {
 	width: 0px!important; /* completely hide the scrollbar when not scrolling the guild/channel list */
 }
 
