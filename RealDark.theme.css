@@ -1,11 +1,14 @@
 /**
  * @name RealDark
  * @author D Mack (dmack6464)
- * @version 2.1
+ * @version 2.2
  * @description A dark/black theme that boasts enhanced usability, readability, customisation and experimental features!
  * @source https://github.com/dmack6464/RealDark/
  * @website https://discord.gg/pB2SmhC/
 */
+
+/* RealDark began as a mod for another theme back in mid 2018,
+   since then I made the theme into its' own thing and have been improving and optimising it since. */
 
 :root {
 	/* refer to RealDarkConfiguration.theme.css for referenced variables. */
@@ -23,6 +26,8 @@
     --background-accent:var(--accentcolor);
     --background-modifier-selected:var(--shade1);
     --background-modifier-hover:var(--shade1a);
+    --deprecated-quickswitcher-input-background:var(--background-tertiary);
+    --text-link:var(--links);
 }
 
 /* major functionality changing stuff goes near the top */
@@ -39,8 +44,8 @@
 body, div,
 body::selection,
 div::selection {
-	user-select: auto;
-    -webkit-user-select: auto;
+	user-select: auto!important;
+    -webkit-user-select: auto!important;
 }
 
 *::selection {
@@ -83,6 +88,28 @@ div::selection {
 	display: none!important;
 }
 
+@keyframes flicker {
+  0% {
+  	padding-left: 4px;
+  	color: var(--accentcolor2);
+  	animation-timing-function: steps(1, end);
+  }
+  50% {
+  	padding-right: 4px;
+  	color: var(--links);
+  	animation-timing-function: steps(1, end);
+  }
+  100% {}
+}
+
+.preview-2nSL_2:after {
+	display: block;
+	font-family: var(--secondaryFont);
+	text-align: center;
+	content: var(--title);
+	animation: flicker 0.06s infinite backwards;
+}
+
 /* stupid #00e621 colour hack */
 @keyframes rainbow {
   from {
@@ -101,16 +128,72 @@ div[style*="color: rgb(0, 230, 33);"] {
 	animation: rainbow 0.5s infinite linear;
 }
 
-nothing {
+
+/* experimenting with backdrop blur */
+.jumpToPresentBar-G1R9s6,
+.root-SR8cQa,
+.theme-dark .autocomplete-1vrmpx
+/*,.menu-3sdvDG*/ {
 	backdrop-filter:blur(var(--background-blur));
+}
+/*.menu-3sdvDG*/
+.theme-dark .autocomplete-1vrmpx {
+	background-color: var(--shadeTransparent);
+}
+.root-SR8cQa {
+	background-color: transparent;
+}
+
+/* fixes for either deprecated or derpy discord items, hopefully i can soon remove */
+/* why, discord.. */
+.theme-light .focusLock-Ns3yie * {
+	background: var(--shade2)!important;
+	background-color: var(--shade2)!important;
+	color: var(--text);
 }
 
 /* ------------ new additions for 2.1 that aren't extending on existing ones */
 
+.theme-dark .children-19S4PO:after, /* top bar weird gradient fix */{
+	background: unset;
+	border-left: 2px solid var(--accentcolor2);
+}
+
+.theme-dark .selected-1Tbx07 { /* @mention autocomplete list button hover */
+	background-color: var(--shadeHighlight);
+}
+
+.noChannel-3LgMRp:before {
+	position: relative;
+	font-size: 20px;
+	animation: flicker 0.06s infinite backwards;
+	display: block;
+	font-family: var(--secondaryFont);
+	text-align: center;
+	content: "ooh shit someone fucked up for realz";
+
+}
+
+.theme-dark .root-1gCeng { /* "change username" dialog */
+	background-color: var(--shade1);
+}
+
+.theme-dark .footer-2gL1pp { /* "change username" footer */
+	background-color: var(--background-tertiary);
+}
+
+.jumpToPresentBar-G1R9s6 {
+	background-color: var(--shadeTransparent);
+}
+
+.lookFilled-1Gx00P.colorGreen-29iAKY /* join server button from chat invite */ {
+	background-color: var(--shadeHighlight);
+}
+
 /* classic RealDark search */
 .searchBar-3dMhjb {
 	border-radius: 0px;
-	background-color: var(--shade1);
+	background-color: var(--shadeHighlight);
 	border-bottom: 2px solid var(--textBoxUnderLine);
 }
 
@@ -122,6 +205,17 @@ nothing {
 }
 
 /* guild list / server list button modifications */
+
+/* first up, if it  exists, we make "explore public servers" button look the part */
+.scroller-2TZvBN:nth-last-child(2) > .listItem-2P_4kh .circleIconButton-jET_ig, /* this was a pain in the ass to select for some reason */
+.scroller-2TZvBN > .listItem-2P_4kh:nth-last-child(2) /* thanks, powercord support */ {
+	background-color: var(--background-tertiary);
+	color: var(--accentcolor2);
+	margin: 0;
+}
+
+/* and then the other 2 buttons */
+
 .platform-win .scroller-2TZvBN {
 	padding-top: 0px;
 }
@@ -134,10 +228,13 @@ nothing {
 }
 /* tile colour override */
 .tutorialContainer-1v44GL .childWrapper-anI2G9,
-.tutorialContainer-1v44GL .wrapper-1BJsBx.selected-bZ3Lue .childWrapper-anI2G9,
 .tutorialContainer-1v44GL .wrapper-1BJsBx:hover .childWrapper-anI2G9 {
 	background-color: var(--background-tertiary);
 	color: var(--accentcolor2);
+}
+.tutorialContainer-1v44GL .wrapper-1BJsBx.selected-bZ3Lue .childWrapper-anI2G9 {
+	background-color: var(--background-tertiary);
+	color: var(--links);
 }
 /* Add a Server button */
 .platform-win .scroller-2TZvBN:nth-child(2) > .tutorialContainer-SGrQ1h {
@@ -147,12 +244,14 @@ nothing {
 	background-color: var(--background-tertiary);
 }
 /* tile colour override */
-.tutorialContainer-SGrQ1h .circleIconButton-jET_ig,
-.tutorialContainer-SGrQ1h .circleIconButton-jET_ig.selected-ugP_am {
+.tutorialContainer-SGrQ1h .circleIconButton-jET_ig {
 	background-color: var(--background-tertiary);
 	color: var(--accentcolor2);
 }
-.tutorialContainer-SGrQ1h .listItem-2P_4kh.da-listItem {
+.tutorialContainer-SGrQ1h .circleIconButton-jET_ig.selected-ugP_am {
+	color: var(--links);
+}
+.tutorialContainer-SGrQ1h .listItem-2P_4kh {
 	margin: 0px;
 }
 /* adjusting the top/bottom new mention auto scroll things, as they are now in the way */
@@ -189,6 +288,7 @@ nothing {
 /* send message box */
 .form-2fGMdU {
 	padding: 0px;
+	margin: 0px; /* for some unknown reason, discord set margin-bottom to -8 !! */
 }
 .base-gE7OpD {
 	bottom:-4px;
@@ -367,12 +467,12 @@ nothing {
 
 /* border radius, shadows, border */
 foreignObject {
-	mask: none;
+	mask: none!important;
 }
 .base-PmTxvP,
 .bar-30k2ka,
 .item-2hkk8m,
-.unread-3zKkbm,
+.unread-2lAfLh,
 .searchResultMessage-1fxgXh.hit-1fVM9e,
 .attachment-33OFj0,
 .userSettingsAccount-2eMFVR .userInfoEditing-1CEzdT,
@@ -380,17 +480,26 @@ foreignObject {
 .hljs, /* code block */
 .userPopout-3XzG_A ,/* profile popout */
 .scrollableContainer-2NUZem, /* text box */
-.channelTextArea-rNsIhG /* text nox v2 */ {
+.channelTextArea-rNsIhG, /* text nox v2 */
+.input-2VB9rf, /* ctrl+k text area */
+.content-1x5b-n, /* channel buttons */
+.lookFilled-1Gx00P.colorGreen-29iAKY, /* join server (invite) button */
+.jumpToPresentBar-G1R9s6,
+.theme-dark .selected-1Tbx07, /* @mention list autocomplete button */
+.theme-dark .autocomplete-1vrmpx /* @mention list dialog area */ {
 	box-shadow: none!important;
 	webkit-box-shadow:none!important;
 	border-radius: 0px!important;
 	border: none!important;
 }
+.iconInactive-98JN5i, /* mutual servers/friends */
 .wrapper-3t9DeA img,
 .contents-2mQqc9 img, /* avatar border radius */
 .wrapper-1BJsBx img,
-.acronym-2mOFsV /* guilds in guild list without set icon */,
-.avatarUploaderInner-3UNxY3 /* guild settings */ {
+.acronym-2mOFsV, /* guilds in guild list without set icon */
+.avatarUploaderInner-3UNxY3, /* guild settings */
+.iconActiveLarge-2nzn9z, /* server invite guild/server icon */
+.roleCircle-3xAZ1j {
 	border-radius: var(--icon-rounding);
 }
 
@@ -398,7 +507,8 @@ foreignObject {
 .header-2RyJ0Y,
 .h2-2gWE-o,
 .container-2ax-kl,
-.bar-30k2ka {
+.bar-30k2ka,
+.contentTitle-2tG_sM {
 	text-transform: none!important;
 }
 
@@ -412,7 +522,8 @@ foreignObject {
 /* sub-headers new font size */
 .container-2ax-kl,
 .bar-30k2ka,
-.content-1o0f9g /* messages divider, new day */ {
+.content-1o0f9g, /* messages divider, new day */
+.contentTitle-2tG_sM {
 	font-size: 15px;
 }
 
@@ -426,7 +537,7 @@ foreignObject {
 
 
 .container-2ax-kl /* taken from v1 and adapted for v2 */ {
-	font-family: Consolas,Liberation Mono,Menlo,Courier,monospace;
+	font-family: var(--secondaryFont);
 	background-color: var(--shade2);
 	padding-top: 2px;
 	margin-top: 18px;
@@ -681,8 +792,12 @@ foreignObject {
 
 /* channel list */
 
-.unread-3zKkbm /* change colour of unread markers */ {
-	background-color: var(--links);
+.unread-2lAfLh /* change colour of unread markers */ {
+	background-color: var(--accentcolor2);
+	width: 3px;
+	height: calc(100% - 2px);
+	margin: 0;
+	top: 1px;
 }
 
 /* channel list category modification */
@@ -694,14 +809,14 @@ foreignObject {
 	display: none;
 }
 .wrapper-PY0fhH div[aria-expanded="true"]:before {
-	font-family: Consolas,Liberation Mono,Menlo,Courier,monospace;
+	font-family: var(--secondaryFont);
 	font-size: 20px;
 	width: auto;
 	content:"-";
 }
 .wrapper-PY0fhH div[aria-expanded="false"]:before,
 button[aria-label="Create Channel"] div:before {
-	font-family: Consolas,Liberation Mono,Menlo,Courier,monospace;
+	font-family: var(--secondaryFont);
 	font-size: 20px;
 	width: auto;
 	content: "+";
@@ -724,18 +839,18 @@ button[aria-label="Create Channel"] {
 
 /* copypaste from v1 here lol */
 
-.userSettingsAccount-2eMFVR.da-userSettingsAccount {
+.profile-1eT9hT {
   position: relative;
 }
 
-.userSettingsAccount-2eMFVR.da-userSettingsAccount:before {
+.profile-1eT9hT:before {
   content: "";
   position: absolute;
   top: -10px;
   left: -3px;
   
 }
-.userSettingsAccount-2eMFVR.da-userSettingsAccount:before {
+.profile-1eT9hT:before {
   right: -3px;
   height: 1px;
   background: linear-gradient(to right, transparent, #d70070, #9c4e97, #0035a9, transparent);
@@ -854,57 +969,53 @@ img[src="/assets/8d8f815f3d81a33b1e70ec7c22e1b6fe.png"] + div:before {content:""
 img[src="/assets/0d44ba28e39303de3832db580a252456.png"] + div:before {content:"";height:46px;width:262px;background:#397217;position:absolute;margin-left:-38px} /* xbox */
 img[src="/assets/449cca50c1452b4ace3cbe9bc5ae0fd6.png"] + div:before {content:"";height:46px;width:262px;background:#801010;position:absolute;margin-left:-38px} /* yt */
 img[src="/assets/5d69e29f0d71aaa04ed9725100199b4e.png"] + div:before {content:"";height:46px;width:262px;background:#0050af;position:absolute;margin-left:-38px} /* github uwu (placeholder colour lol) */
-/* REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE FUCK YOU DISCORD FOR MAKING ME PUT THIS SHIT HERE */
-.scrollerThemed-2oenus.themeDark-2cjlUp.scrollerTrack-1ZIpsv>.scroller-2FKFPG::-webkit-scrollbar-track,
-.scrollerThemed-2oenus.themeDark-2cjlUp.scrollerTrack-1ZIpsv>.scrollerStore-390omS::-webkit-scrollbar-track,
-.theme-dark .scrollerWrap-2lJEkd.scrollerTrack-1ZIpsv>.scroller-2FKFPG::-webkit-scrollbar-track,
-.theme-dark .scrollerWrap-2lJEkd.scrollerTrack-1ZIpsv>.scrollerStore-390omS::-webkit-scrollbar-track,
-.theme-light .scrollerThemed-2oenus.themeDark-2cjlUp.scrollerTrack-1ZIpsv>.scroller-2FKFPG::-webkit-scrollbar-track,
-.theme-light .scrollerThemed-2oenus.themeDark-2cjlUp.scrollerTrack-1ZIpsv>.scrollerStore-390omS::-webkit-scrollbar-track {
-	background-color: transparent;
+
+
+/* scrollbars, but revamped! */
+
+.platform-win .scroller-2TZvBN:not(:hover)::-webkit-scrollbar,
+.scrollableContainer-2NUZem::webkit-scrollbar /* this seems to not hide the scrollbar when there is an overflow... win..? */ {
+	width: 0px!important; /* completely hide the scrollbar when not scrolling the guild/channel list */
 }
 
-/*Scrollbars*/
-::-webkit-scrollbar-corner {background-color: transparent;}
-::-webkit-scrollbar {width: 6px !important;height: 8px !important;}
-::-webkit-scrollbar-track:active{background-color: #2a2a2a !important;}
-*:not(:hover)::-webkit-scrollbar-thumb { background: transparent !important; border: 0px solid transparent !important; }
-::-webkit-scrollbar-button {display: none !important;}
-::-webkit-scrollbar-track {background-color: transparent; border:6px;}
-::-webkit-scrollbar-track:hover {background-color: #111111; border:6px;}
-::-webkit-scrollbar-track:active {background-color: #111111; border:6px !important;}
-::-webkit-scrollbar-thumb {background:  #222222 !important;border: transparent !important;}
-
-/* Changes all scroll bars */
+::-webkit-scrollbar,
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+	all:unset!important; /* we remove *all* of Discord's scrollbar styling! as I finally sort of know wtf I'm doing... */
+}
 ::-webkit-scrollbar {
-    width: 6px !important;
-    height: 8px !important;
+	height: 16px!important;
+	width: 8px!important;
 }
-/* Border and colour of the scrollbar thumb  */
+::-webkit-scrollbar-button:decrement:end,
+::-webkit-scrollbar-button:increment:start {
+	display: none!important;
+}
+::-webkit-scrollbar-button:vertical {
+	height: 0px!important; /* scrollbar placeholder, do something with it if you wish... */
+}
+::-webkit-scrollbar-track {
+	background-color: var(--shade1a)!important;
+}
 ::-webkit-scrollbar-thumb {
-    overflow: auto !important ;
-    border-radius: 0px !important ;  /* 0px for box style */
-    background-color: #303030 !important;
-    border-color: transparent !important;
+	background-color:  var(--background-tertiary)!important;
+	border:1px solid var(--shadeHighlight)!important;
 }
-/* Changes the background colour of the scroll bars and servers. */
-::-webkit-scrollbar-track-piece, .guilds-wrapper {
-    background-color: transparent !important;
-    border: none !important;
-}
-/* This will change the colour when you hover over any scroll bar. */ 
 ::-webkit-scrollbar-thumb:hover {
-    background: #505050 !important; 
-    border-color:transparent !important;
+	background-color:  var(--shadeHighlight)!important;
 }
-/* This will change the colour when you click and drag any scroll bar */
 ::-webkit-scrollbar-thumb:active {
-    background: #707070 !important;
-    border-color: transparent !important;
+	background-color:  var(--accentcolor2)!important;
 }
-.scrollerFade-1Ijw5y .scroller-2FKFPG::-webkit-scrollbar-thumb, .scrollerFade-1Ijw5y .scroller-2FKFPG::-webkit-scrollbar-track {
-    visibility: visible; !important; 
+*:not(:hover)::-webkit-scrollbar-thumb {
+	background-color: transparent!important;
 }
+
+
 
 /*
 

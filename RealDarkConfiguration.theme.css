@@ -1,7 +1,7 @@
 /**
  * @name RealDark Configuration
  * @author D Mack (dmack6464)
- * @version 2.1
+ * @version 2.2
  * @description RealDark REQUIRED configuration file for any and all other RealDark theme files. I recommend using ThemeSettings by DevilBro if you're not familiar with CSS.
  * @source https://github.com/dmack6464/RealDark/
  * @website https://discord.gg/pB2SmhC/
@@ -24,6 +24,8 @@
     --RDbackground-secondary:#09090D;
     --RDbackground-primary:#030307;
     --RDbackground-tertiary:#222226; /* shade colour 0 */
+    --shadeHighlight:#303034; /* new shade for a a few new items */
+    --shadeTransparent:#202024a0; /* first rgba hex now its officially supported */
     --shade1:#18181c; /* shade colour 1 */
     --shade1a:#121216; /* shade colour 1a */
     --shade2:#0f0f14; /* shade colour 2 */
@@ -34,8 +36,9 @@
     --accentcolor2:#00a0ff; 
     --textboxcolour:var(--shade1); /* might remove */
     --textBoxUnderLine:#404044; /* re-added for RealDark classic styling */
-    --background-blur:1px;
+    --background-blur:1.5px;
     --font:'Whitney'; /* Default is Whitney */
+    --secondaryFont:Consolas,Liberation Mono,Menlo,Courier,monospace; /* defined here now to save space */
 
     --titlebar:var(--shade1); /* titlebar colour */
 
@@ -46,7 +49,7 @@
     --nitro-nagging:none;
     --spotifyPremiumOptions:none; /* this will also affect messages with Spotify listening parties, which will appear as empty messages. */
     --reactionOptionsInRightClickMenu:none; /* message reactions in the right-click dialog. */
-    --reactionOptionsInChat:none; /* message reaction button next to the Reply button. */
+    --reactionOptionsInChat:flex; /* message reaction button next to the Reply button. */
     --explorePublicServers:none; /* the Explore Public Servers button at the bottom of the server/guild list. */
 
     --disableWarning:none; /* leave this setting alone */
