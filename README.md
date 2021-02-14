@@ -6,10 +6,7 @@ Adding your own window title<br>
 Optional removal of Spotify Premium elements<br>
 Optional rounded or square icons<br>
 Blurred (or glass) popup backgrounds! (currently being redone)<br>
-## fixed Discord bugs being:
-User popouts being unusable on medium-small screens<br>
-Many roles making user popouts unusable<br>
-Connecting screen being boring
+...and much more!! (official powercord support coming soon)<br>
 <p align="center"><img src="./img/1.png" alt="RealDark Example"></p>
 <p align="center"><img src="./img/2.png" alt="RealDark Example"></p>
 <p align="center"><img src="./img/3.png" alt="RealDark Example"></p>
