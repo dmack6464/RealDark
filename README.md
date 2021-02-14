@@ -15,4 +15,6 @@ Connecting screen being boring
 <p align="center"><img src="./img/2.png" alt="RealDark Example"></p>
 <p align="center"><img src="./img/3.png" alt="RealDark Example"></p>
 <p align="center"><img src="./img/5.png" alt="RealDark Example"></p>
+<p align="center"><img src="./img/8.png" alt="RealDark Example"></p>
+<p align="center"><img src="./img/9.png" alt="RealDark Example"></p>
 <br>Currently not available on the official repo.
