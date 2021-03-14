@@ -1,0 +1,8 @@
+{
+    "name": "RealDark Configuration",
+    "description": "RealDark REQUIRED configuration file for any and all other RealDark theme files.",
+    "version": "2.2",
+    "author": "D Mack (dmack6464)",
+    "theme": "RealDarkConfiguration.css",
+    "license": "MIT"
+}
