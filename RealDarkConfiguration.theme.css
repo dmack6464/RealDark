@@ -50,7 +50,7 @@
     --spotifyPremiumOptions:none; /* this will also affect messages with Spotify listening parties, which will appear as empty messages. */
     --reactionOptionsInRightClickMenu:none; /* message reactions in the right-click dialog. */
     --reactionOptionsInChat:flex; /* message reaction button next to the Reply button. */
-    --explorePublicServers:none; /* the Explore Public Servers button at the bottom of the server/guild list. */
+    --explorePublicServers:flex; /* the Explore Public Servers button at the bottom of the server/guild list. */
 
     --disableWarning:none; /* leave this setting alone */
 }
