@@ -1,7 +1,7 @@
 /**
  * @name RealDark Annoyances
  * @author D Mack (dmack6464)
- * @version 2.3
+ * @version 2.4
  * @description Optional addition to RealDark (or any?) theme that attempts to remove some of Discord's annoying "features".
  * @source https://github.com/dmack6464/RealDark/
  * @website https://discord.gg/pB2SmhC/
@@ -22,7 +22,7 @@
 .channelTextArea-rNsIhG:before {
 	display: var(--disableWarning);
 	color: red;
-	content: "RealDark requires RealDarkConfiguration.theme.css, which appears to be missing!!!";
+	content: "RealDark requires RealDarkConfiguration(.theme).css, which appears to be missing!!!";
 }
 
 /* Explore Public Servers button */
@@ -54,6 +54,6 @@
 
 /* spotify listening party invite hide */
 .invite-18yqGF, /* message */
-.listeningActionsUserPopout-Ga2V_N .buttonSize-2Pmk-w:not(:first-child) /* user popout */ {
+.horizontal-3fI3M->:not(:first-child) /* user popout */ {
 	display: var(--spotifyPremiumOptions);
 }
