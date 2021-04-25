@@ -1,7 +1,7 @@
 /**
  * @name RealDark Configuration
  * @author D Mack (dmack6464)
- * @version 2.3
+ * @version 2.5
  * @description RealDark REQUIRED configuration file for any and all other RealDark theme files. I recommend using ThemeSettings by DevilBro if you're not familiar with CSS.
  * @source https://github.com/dmack6464/RealDark/
  * @website https://discord.gg/pB2SmhC/
@@ -17,30 +17,33 @@
     --icon-rounding:0%; /* icon rounding: 0% for none, 50% for completely round icons */
 
 /* mention settings */
-    --background-mentioned:rgba(50,50,120, 0.20); /* mention message background colour */
-    --mentionmark:#5555FF; /* mention marker colour, may be used as a second/third accent in future */
+    --background-mentioned:#32327833; /* mention message background colour, #32327833 default */
+    --mentionmark:#5555FF; /* mention marker colour, may be used as a second/third accent in future, #5555ff fefault */
 
 /* regular settings */
-    --RDbackground-secondary:#09090D;
-    --RDbackground-primary:#030307;
-    --RDbackground-tertiary:#222226; /* shade colour 0 */
-    --shadeHighlight:#303034; /* new shade for a a few new items */
-    --shadeTransparent:#202024a0; /* first rgba hex now its officially supported */
-    --shade1:#18181c; /* shade colour 1 */
-    --shade1a:#121216; /* shade colour 1a */
-    --shade2:#0f0f14; /* shade colour 2 */
+    --RDbackground-primary:#030307; /* --main, #030307 default */
+    --shadeHighlight:#303034; /* new shade for a a few new items, #303034 default */
+    --RDbackground-tertiary:#222226; /* shade colour 0, #222226 default */
+    --shadeTransparent:#202024a0; /* first rgba hex now its officially supported, #202024a0 default */
+    --shade1:#18181c; /* shade colour 1, #18181c default */
+    --shade1a:#121216; /* shade colour 1a, #121216 default */
+    --shade2:#0f0f14; /* shade colour 2, #0f0f14 default */
+    --RDbackground-secondary:#09090D; /* shade colour 3, #09090d default */
     --text:#DDDDDD;    /*text rgb(255,255,250) var(--text)*/
-    --text2:#909094; /* born out of necessity */
-    --links:#00ffff; /* link highlight */
-    --accentcolor:#3070ff; 
-    --accentcolor2:#00a0ff; 
-    --textboxcolour:var(--shade1); /* might remove */
-    --textBoxUnderLine:#404044; /* re-added for RealDark classic styling */
-    --background-blur:1.5px;
+    --text2:#889; /* secondary text colour, #090994 old default, #889 current default */
+    --textWarning:#f82; /* may be used for things other than text, #d4f is cool, but #f82 is default */
+    --textDanger:#f30; /* may be used for things other than text, #41a and #f44 is cool, but #f30 is default */
+    --links:#0ff; /* link highlight, #0ff default */
+    --accentColour:#3070ff; /* #3070ff default */
+    --accentColour2:#00a0ff; /* mainly intended to be the hover colour of elements originally coloured with accentColour, #00a0ff default */
+    --textboxcolour:var(--shade1); /* shade1 default */
+    --textBoxUnderLine:#404044; /* re-added for RealDark classic styling, #040444 default */
+    --background-blur:1.5px; /* 1.5px default */
     --font:'Whitney'; /* Default is Whitney */
-    --secondaryFont:Consolas,Liberation Mono,Menlo,Courier,monospace; /* defined here now to save space */
+    --secondaryFont:Consolas,Liberation Mono,Menlo,Courier,monospace; /* defined here now to save space, Consolas default */
 
     --titlebar:var(--shade1); /* titlebar colour */
+    --memberChannelList:var(--RDbackground-secondary); /* background-secondary default */
 
     ----------------------:"RealDark Annoyances Configuration"; /* ================================================== */
     --How_to_Use:"flex = disable, none = enable"; /* This theme is compatible with ThemeSettings. */
@@ -52,5 +55,7 @@
     --reactionOptionsInChat:flex; /* message reaction button next to the Reply button. */
     --explorePublicServers:flex; /* the Explore Public Servers button at the bottom of the server/guild list. */
 
-    --disableWarning:none; /* leave this setting alone */
+    --disableWarning:none; /* leave these settings alone */
+    /* compatibility with <2.5 */
+    --accentcolor:var(--accentColour);--accentcolor2:var(--accentColour2);
 }

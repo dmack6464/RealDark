@@ -1,7 +1,7 @@
 /**
  * @name RealDark
  * @author D Mack (dmack6464)
- * @version 2.4
+ * @version 2.5
  * @description A dark/black theme that boasts enhanced usability, readability, customisation and experimental features!
  * @source https://github.com/dmack6464/RealDark/
  * @website https://discord.gg/pB2SmhC/
@@ -10,7 +10,7 @@
 /* RealDark began as a mod for another theme back in mid 2018,
    since then I made the theme into its' own thing and have been improving and optimising it since. */
 
-:root {
+:root /* autoconfiguration of discord vars, RadialStatus */ {
 	/* refer to RealDarkConfiguration.theme.css for referenced variables. */
 	--TSCompatREADME:"below are technical settings, do not override";
 
@@ -21,15 +21,23 @@
 	/* Discord variable overrides */
 	--background-mentioned-hover:var(--background-mentioned);
 	--channels-default:var(--text);
-	--text-muted:var(--text);
+	/*--text-muted:var(--text);*/
 	--deprecated-card-editable-bg:var(--background-tertiary);
-	--background-accent:var(--accentcolor);
+	--background-accent:var(--accentColour);
 	--background-modifier-selected:var(--shade1);
 	--background-modifier-hover:var(--shade1a);
+	--background-message-hover:var(--shade2);
 	--deprecated-quickswitcher-input-background:var(--background-tertiary);
 	--text-link:var(--links);
 	--background-floating:var(--shade1a); /* default is shade1a, changed to shadeTransparent for an experiment */
 	--background-secondary-alt:var(--shade1);
+	--header-primary:var(--text);
+	--text-normal:var(--text);
+
+	/* trialing text2 again */
+	--text-muted:var(--text2);
+	--interactive-muted:var(--text2);
+	--header-secondary:var(--text2);
 
 	/* custom configuration for RadialStatus 1.0.0 by Gibbu#1211 */
 	--rs-small-spacing: 0px!important;  /* spacing between avatar and status */
@@ -86,19 +94,10 @@ div::selection {
 	width: 100%;
 }
 
-/* attempting to re-enable disabled interaction areas.
-(idk what this is tbh */
-.clickOverride-1J40_l,
-.disableInteraction-_YeVcv,
-.da-clickOverride,
-.da-disableInteraction {
-	display: none!important;
-}
-
 @keyframes flicker {
   0% {
   	padding-left: 4px;
-  	color: var(--accentcolor2);
+  	color: var(--accentColour2);
   	animation-timing-function: steps(1, end);
   }
   50% {
@@ -135,25 +134,32 @@ div[style*="color: rgb(0, 230, 33);"] {
 	animation: rainbow 0.5s infinite linear;
 }
 
-
 /* experimenting with backdrop blur */
 .jumpToPresentBar-G1R9s6,
 .root-SR8cQa,
 .theme-dark .autocomplete-1vrmpx,
 /*,.menu-3sdvDG*/
-.tooltip-2QfLtc /* all tooltips */ {
+.tooltip-2QfLtc, /* all tooltips */
+.newMessagesBar-265mhP /* channel message area, "xx new messages since xx:xx" */ {
 	backdrop-filter:blur(var(--background-blur));
 }
 /*.menu-3sdvDG*/
 .theme-dark .autocomplete-1vrmpx,
-.theme-dark .tooltipPrimary-1d1ph4 /* all tooltips */ {
+.theme-dark .tooltipPrimary-1d1ph4, /* all tooltips */
+.mention,
+.newMessagesBar-265mhP /* channel message area, "xx new messages since xx:xx" */ {
 	background-color: var(--shadeTransparent);
 }
 .root-SR8cQa {
 	background-color: transparent;
 }
 
+.noUserDrag-5Mb43F /* enable people to drag/drop stuff on desktop, creating shortcuts!! */ {
+    -webkit-user-drag: element;
+}
+
 /* fixes for either deprecated or derpy discord items, hopefully i can soon remove */
+
 /* why, discord..  (light theme objects) */
 .theme-light .focusLock-Ns3yie * {
 	background: var(--shade2)!important;
@@ -190,28 +196,133 @@ div[style*="color: rgb(0, 230, 33);"] {
   z-index: unset;
 }
 
-/* ------------ 2.4 stuff */
+/* ------------ 2.5 stuff */
 
-
-
-.closeButton-1tv5uR /* settings area close button */ {
+/* experimental selectors that provides its context in how it selects shit */
+[class*="activityUserPopout-"] button,
+[class*="activityProfile-"] button {
 	background-color: var(--shade1);
 }
-.theme-dark .closeButton-1tv5uR:hover {
+[class*="activityUserPopout-"] button:hover,
+[class*="activityProfile-"] button:hover {
 	background-color: var(--shadeHighlight);
 }
 
-.textContainer-C0szpm /* code file preview, upper */ {
-	background-color: var(--background-secondary);
+
+.message-2qnXI6:hover {
+	background-color: var(--background-message-hover);
 }
 
-.footer-2yA7Ep /* code file preview, lower */ {
-	background-color: var(--shade2);
+/* universal caption buttons */
+.theme-dark .lookFilled-1Gx00P.colorBrand-3pXr91,
+.button-1YfofB.buttonColor-7qQbGO.buttonActive-3FrkXp /* Video Streaming, bottom left buttons */ {
+    background-color:var(--accentColour);
 }
-
-.theme-dark .inset-3sAvek /* friend list "Active Now", game name box */ {
+.theme-dark .lookFilled-1Gx00P.colorBrand-3pXr91:hover,
+.button-1YfofB.buttonColor-7qQbGO.buttonActive-3FrkXp:hover /* Video Streaming, bottom left buttons */ {
+    background-color:var(--accentColour2);
+}
+.theme-dark .lookFilled-1Gx00P.colorGreen-29iAKY,
+.theme-dark .lookFilled-1Gx00P.colorGrey-2DXtkV {
 	background-color: var(--shade1);
 }
+.theme-dark .lookFilled-1Gx00P.colorGreen-29iAKY:hover,
+.theme-dark .lookFilled-1Gx00P.colorGrey-2DXtkV:hover {
+	background-color: var(--shadeHighlight);
+}
+
+/* custom selectors for unread messages divider */
+.isUnread-3Ef-o9 /* 1px divider */ {
+	border-color: var(--accentColour);
+}
+.isUnread-3Ef-o9 .content-1o0f9g /* new date text */ {
+	color: var(--accentColour);
+}
+.isUnread-3Ef-o9 .unreadPill-2HyYtt /* pill text box */ {
+	background-color: var(--accentColour);
+	font-size:12px;
+}
+.isUnread-3Ef-o9 path /* attached to left of text */ {
+	color: var(--accentColour);
+	fill: var(--accentColour);
+}
+
+.mention {
+	color: var(--accentColour);
+}
+.mention:hover {
+	color: var(--accentColour2)!important;
+}
+
+.guildSeparator-33mFX6 /* Guild separator, line at top of guild list */ {
+    background-color:var(--accentColour);
+}
+
+.emojiButton-3uL3Aw /* channel text area, distance emoji/emote button from right side */ {
+	margin-right: 16px;
+}
+
+/* pending friend request action buttons */
+.actionButton-uPB8Fs {
+	color: var(--text);
+}
+.actionButton-uPB8Fs.actionAccept-LV-szU:hover {
+	color: var(--textWarning)!important;
+}
+
+.colorDefault-2K3EoJ.focused-3afm-j /* context menu buttons hover */ {
+	background-color: var(--background-tertiary);
+}
+
+/* dropdown menus */
+.css-gvi9bl-control,
+.css-6fzn47-control, /* focused */
+.css-rzbxvl-option, /* hover */
+.css-17e1tep-control /* some other state */ {
+	background-color: var(--background-tertiary);
+}
+.css-1yz4bi9-option /* available options */ {
+	background-color: var(--shade1a);
+}
+
+.lookLink-9FtZy-.colorLink-35jkBc:hover .contents-18-Yxp /* Reveal button in user settings > my account and maybe more? */ {
+	background-image:none;
+	text-decoration:underline;
+}
+
+.tipTitle-GL9qAt /* "Did you know" text. */ {
+	color:var(--accentColour);
+}
+
+/* beans additions ====== */
+
+/* Friend Notifications log button below home button */
+.friendsOnline-2JkivW {
+    color:var(--accentColour);
+}
+.label-2wRs_g:hover {
+    color:var(--accentColour2);
+}
+
+/* Two Factor Auth Typing */
+.userSettingsSecurity-3IYeMF .isEnabled-24g9qA {
+	color: var(--accentColour);
+}
+
+/* beans additions end ==== */
+
+/* ------------ 2.4 stuff */
+
+.tooltipContent-bqVLWK /* tooltip inner */ {
+	border: 1px solid var(--shadeHighlight);
+}
+
+/* experimental divider / bottom divider style intended for user settings */
+.h4-AQvcAz,
+.h5-18_1nd {
+	border-bottom: 1px solid var(--shadeHighlight);
+}
+
 
 .input-cIJ7To /* profile popout, "Message @user" text box */ {
 	background-color: var(--textboxcolour);
@@ -219,26 +330,11 @@ div[style*="color: rgb(0, 230, 33);"] {
 
 /* ------------ 2.3 stuff */
 
-.tooltipContent-bqVLWK /* tooltip inner */ {
-	border: 1px solid var(--shadeHighlight);
-}
-
 .uploadModal-2ifh8j .icon-kyxXVr:not(.image-2yrs5j) /* file upload dialog, icon */ {
 	filter: invert(0.80);
 }
 .theme-dark .uploadModal-2ifh8j /* file upload dialog primary colour */ {
 	background-color: var(--background-tertiary);
-}
-.theme-dark .footer-3mqk7D /* upload modal secondary colour */ {
-	background-color: var(--shade1);
-}
-
-.header-ykumBX {
-	background-color: var(--shade1);
-}
-
-.messageGroupWrapper-o-Zw7G /* Pinned Messages messages */ {
-	background-color: var(--shade2);
 }
 
 .theme-dark .option-96V44q.selected-rZcOL- /* guild message search buttons */ {
@@ -249,32 +345,20 @@ div[style*="color: rgb(0, 230, 33);"] {
 	display: none;
 }
 
-.protip-YaFfgO { /* user profile popout with riles, right click tip on bottom */
+.protip-YaFfgO { /* user profile popout with roles, right click tip on bottom */
 	display: none;
 }
-
-.container-3XJ8ns {
-	background-color: var(--shade1);
-}
-
 
 /* recolouring warnings, independent border radius */
 .colorStatusYellow-3sKKh2,
 .warning-3C2pOH,
 .warning-3C2pOH .icon-1jlFSw {
-	color: #d4f;
+	color: var(--textWarning);
 	background-color: var(--background-mentioned);
-	border-color:#d4f;
+	border-color:var(--textWarning);;
 	border-radius: 0px;
 }
 
-.container-_phMUq /* new server settings role manager @everyone */ {
-	background-color: var(--shade1);
-}
-
-.theme-dark .auditLog-3jNbM6 /* guild audit logs, log actions */ {
-	background-color: var(--shade1);
-}
 .theme-dark .headerExpanded-CUEwZ5 /* expanded log */ {
 	background-color: var(--background-tertiary);
 }
@@ -283,37 +367,11 @@ div[style*="color: rgb(0, 230, 33);"] {
 	border-left: 3px solid var(--radio-bar-accent-color)!important;
 }
 
-/* experimental divider / bottom divider style intended for user settings */
-.h4-AQvcAz,
-.h5-18_1nd {
-	border-bottom: 1px solid var(--shadeHighlight);
-}
-
-/* caption buttons! */
-
-.lookFilled-1Gx00P.colorGrey-2DXtkV /* grey button */ {
-	background-color: var(--shadeHighlight);
-}
-
-.lookFilled-1Gx00P.colorGreen-29iAKY /* join server button from chat invite (green button) */ {
-	background-color: var(--background-tertiary);
-}
-
-/* caption buttons hovered */
-
-.lookFilled-1Gx00P.colorBrand-3pXr91:hover {
-	background-color: var(--accentcolor2);
-}
-
 /* ------------ new additions for 2.1 that aren't extending on existing ones */
 
 .theme-dark .children-19S4PO:after /* top bar weird gradient fix */{
 	background: unset;
-	border-left: 2px solid var(--accentcolor2);
-}
-
-.theme-dark .selected-1Tbx07 { /* @mention autocomplete list button hover */
-	background-color: var(--shadeHighlight);
+	border-left: 2px solid var(--accentColour2);
 }
 
 .noChannel-3LgMRp:before {
@@ -325,10 +383,6 @@ div[style*="color: rgb(0, 230, 33);"] {
 	text-align: center;
 	content: "ooh shit someone fucked up for realz";
 
-}
-
-.theme-dark .root-1gCeng { /* "change username" dialog */
-	background-color: var(--shade1);
 }
 
 .theme-dark .footer-2gL1pp { /* "change username" footer */
@@ -347,11 +401,10 @@ div[style*="color: rgb(0, 230, 33);"] {
 	border-bottom: 2px solid var(--textBoxUnderLine);
 }
 
-
 /* mentions: recolouring to accent colour */
 .mention-1f5kbO, /* guild list/channel list top/bottom auto scroll things */
 .base-PmTxvP /* amount of guild mentions/guild mention counter */ {
-	background-color: var(--accentcolor)!important /* important is required for the guild colour as its an inline property */
+	background-color: var(--accentColour)!important; /* important is required for the guild colour as its an inline property */
 }
 
 /* guild list / server list button modifications */
@@ -361,7 +414,7 @@ div[style*="color: rgb(0, 230, 33);"] {
 .scroller-1Bvpku:nth-last-child(2) > .listItem-GuPuDH .circleIconButton-1QV--U, /* this was a pain in the ass to select for some reason */
 .scroller-1Bvpku > .listItem-GuPuDH:nth-last-child(2) /* thanks, powercord support */ {
     background-color: var(--background-tertiary);
-    color: var(--accentcolor);
+    color: var(--accentColour);
     margin: 0;
 }
 /* and then the other 2 buttons */
@@ -380,11 +433,11 @@ div[style*="color: rgb(0, 230, 33);"] {
 .tutorialContainer-2sGCg9 .childWrapper-anI2G9,
 .tutorialContainer-2sGCg9 .wrapper-1BJsBx:hover .childWrapper-anI2G9 {
     background-color: var(--background-tertiary);
-    color: var(--accentcolor);
+    color: var(--accentColour);
 }
 .tutorialContainer-2sGCg9 .wrapper-1BJsBx.selected-bZ3Lue .childWrapper-anI2G9 {
     background-color: var(--background-tertiary);
-    color: var(--links);
+    color: var(--accentColour2);
 }
 /* Add a Server button */
 .scroller-1Bvpku:nth-child(2) > .tutorialContainer-30WoTp {
@@ -396,10 +449,10 @@ div[style*="color: rgb(0, 230, 33);"] {
 /* tile colour override */
 .tutorialContainer-30WoTp .circleIconButton-1QV--U {
     background-color: var(--background-tertiary);
-    color: var(--accentcolor);
+    color: var(--accentColour);
 }
 .tutorialContainer-30WoTp .circleIconButton-1QV--U.selected-1JjBPm {
-    color: var(--links);
+    color: var(--accentColour2);
 }
 .tutorialContainer-30WoTp .listItem-GuPuDH {
     margin: 0px;
@@ -424,13 +477,13 @@ div[style*="color: rgb(0, 230, 33);"] {
 /* top bar icon colours */
 .container-1r6BKw path[fill="currentColor"],
 .theme-dark .icon-1_QxNX path[fill="currentColor"] {
-	fill:var(--accentcolor);
+	fill:var(--accentColour);
 }
 /* bottom left user utilities icon colours */
 .icon-2doZ3q,
 .iconContainer-2ZxvJk,
 .button-14-BFJ {
-	color: var(--accentcolor);
+	color: var(--accentColour);
 }
 
 /* ------------------------------ end 2.1 i think */
@@ -461,24 +514,7 @@ div[style*="color: rgb(0, 230, 33);"] {
 	opacity: 1;
 }
 
-/* guild list, guild folders modifications */
-
-.scroller-1Bvpku {
-	background-color: var(--shade2);
-}
-
-/* top left corner of the guild dropdown/channel area */
-.sidebar-2K8pFh {
-	border-radius: 0px!important;
-}
-
-/* attached file */
-
-.theme-dark .attachment-33OFj0 {
-	background-color: var(--shade1);
-}
-
-/* guild folders */
+/* guild folders / server folders */
 
 .theme-dark .expandedFolderBackground-1cujaW.hover-2ji_A7 {
 	background-color: var(--background-tertiary);
@@ -486,9 +522,9 @@ div[style*="color: rgb(0, 230, 33);"] {
 .theme-dark .expandedFolderBackground-1cujaW:not(.da-collapsed) {
 	border-radius: 0px;
 	background-color: var(--background-tertiary);
-	border-top: 2px solid var(--accentcolor);
-	border-left: 2px solid var(--accentcolor);
-	border-right: 2px solid var(--accentcolor);
+	border-top: 2px solid var(--accentColour);
+	border-left: 2px solid var(--accentColour);
+	border-right: 2px solid var(--accentColour);
 	width: 44px;
 }
 .theme-dark .expandedFolderBackground-1cujaW:not(.da-collapsed):after {
@@ -499,14 +535,14 @@ div[style*="color: rgb(0, 230, 33);"] {
 	height: 4px;
 	bottom: -4px;
 	left: -2px;
-	border-left: 2px solid var(--accentcolor);
-	border-right: 2px solid var(--accentcolor);
-	border-bottom: 2px solid var(--accentcolor);
+	border-left: 2px solid var(--accentColour);
+	border-right: 2px solid var(--accentColour);
+	border-bottom: 2px solid var(--accentColour);
 	background-color: var(--background-tertiary);
 }
 .expandedFolderIconWrapper-Huv7rA {
 	background-color: var(--background-tertiary);
-	border:2px solid var(--accentcolor);
+	border:2px solid var(--accentColour);
 	width: 44px;
 }
 .folderIconWrapper-1_bOZe {
@@ -517,55 +553,15 @@ div[style*="color: rgb(0, 230, 33);"] {
 }
 
 /* search box / search utility / search messages */
-
-.searchResult-9tQ1uo /* surrounding messages */ {
-	background-color: var(--shade2);
-}
 .searchResult-9tQ1uo:before, /* fading effect, incl :after */
 .searchResult-9tQ1uo:after {
 	background-image: none;
-}
-.theme-dark .container-3ayLPN, /* before search options */
-.searchHeader-2XoQg7 /* search results header */ {
-	background-color: var(--shade1);
 }
 .searchResultMessage-1fxgXh.hit-1fVM9e /* found messages */ {
 	background-color: var(--background-tertiary);
 }
 
-/* friends list / friend list modifications */
-
-.peopleColumn-29fq28 {
-	background-color: var(--background-secondary);
-}
-
-/* profile popout modifications */
-
-.role-2irmRk /* 2.1 */ {
-	border-radius: 0px;
-}
-
-.userPopout-3XzG_A .headerNormal-T_seeN {
-	background-color: var(--shade1);
-}
-.userPopout-3XzG_A > div:not(.headerNormal-T_seeN) {
-	background-color: var(--shade2);
-}
-.theme-dark .container-VSDcQc .sectionTag-pXyto9 > div /* add role */ {
-	background-color: var(--background-secondary);
-}
-
-
-/* user settings, modify appearance of My Account header */
-
-/* removed due to layout changes */
-
-/* User Settings and Server Settings layout midification */
-
-/* caption buttons */
-.lookFilled-1Gx00P.colorBrand-3pXr91 {
-	background-color: var(--accentcolor);
-}
+/* User Settings and Server Settings layout modification */
 
 /* user settings navigation */
 .sidebarRegion-VFTUkN,
@@ -578,7 +574,7 @@ div[style*="color: rgb(0, 230, 33);"] {
 	width: auto;
 }
 
-/* cool experimental User Settongs header */
+/* cool experimental User Settings header */
 .side-8zPYf6 .header-2RyJ0Y:first-child {
 	background-color: var(--background-tertiary);
 	top: 0px;
@@ -616,6 +612,10 @@ div[style*="color: rgb(0, 230, 33);"] {
 .contentWidth-xLB44s, .page-3njELR {
 	max-width: unset;
 }
+
+
+/* ==== MegaSelector Zone ==== */
+
 
 /* border radius, shadows, border */
 foreignObject {
@@ -684,12 +684,21 @@ foreignObject {
 .connection-1fbD7X, /* user settings > connections, connection box lower, main */
 .inner-2Y6JuD, /* user settings > connections, add connection button icons */
 .accountList-33MS45, /* user settings > connections, first panel where add connection buttons are */
-.container-3ayLPN /* guild message search context popup */ {
+.container-3ayLPN, /* guild message search context popup */
+.newMessagesBar-265mhP, /* channel message area, "xx new messages since xx:xx" at top */
+.searchBar-6Kv8R2 .searchBarComponent-32dTOx, /* dm list "find or start a conversation" box at top */
+.mention,
+.content-1Wq3SX, /* guild voice channels / vc, member hover */
+.roleDot-2bTP_S, .popoutRoleDot-1XPcoA, /* member list > member right click context menu > Roles dots */
+.css-1kj8ui-container > div, /* dropdown selector */
+.fieldList-21DyL8, /* user settings > my account, account details inner wrapper */
+.container-3auIfb, .input-rwLH4i, /* checkbox in noise supression area above user */
+.invite-18yqGF, .artwork-1vrmJ_ /* Spotify invite. */ {
 	box-shadow: none!important;
 	webkit-box-shadow:none!important;
 	border-radius: 0px!important;
 	border: none!important;
-	/*border: 1px solid var(--accentcolor2);*/ /* should be toggleable in devtools */
+	/*border: 1px solid var(--accentColour2);*/ /* should be toggleable in devtools */
 }
 .iconInactive-98JN5i, /* mutual servers/friends */
 .wrapper-3t9DeA img,
@@ -702,9 +711,14 @@ foreignObject {
 .border-Jn5IOt, /* direct vc speaking indicator */
 .overlay-39bWkM, /* direct vc speaking indicator? */
 .voiceAvatar-14IynY, /* direct vc profile pic */
-.avatar-SmRMf2.spotify-cover /* default Powercord plugin for Spotify, above logged in user in bottom left */ {
+.avatar-SmRMf2.spotify-cover, /* default Powercord plugin for Spotify, above logged in user in bottom left */
+.avatarSpeaking-2IGMRN, .avatar-3tNQiO /* vc avatars */ {
 	border-radius: var(--icon-rounding)!important/*required for spotify plugin*/;
 	/*border: 1px solid var(--links);*/ /* should be toggleable in devtools */
+}
+.role-2irmRk, /* profile popout, role colour dot */
+.sidebar-2K8pFh /* top left corner of the guild dropdown/channel area */ {
+	border-radius: 0px!important;
 }
 
 /* remove uppercase */
@@ -724,7 +738,8 @@ foreignObject {
 .header-13MUnb, /* ctrl + k menu, headers */
 .uploadModal-2ifh8j .inner-3nWsbo .comment-4IWttf .label-3aiqT2, /* file upload dialog comment prompt */
 .userInfoSectionHeader-CBvMDh, /* fullscreen user profile, "Note" header */
-.activityHeader-1PExlk /* fullscreen user profile, activity header */ {
+.activityHeader-1PExlk, /* fullscreen user profile, activity header */
+.unreadPill-2HyYtt /* unread messages divider */ {
 	text-transform: none!important;
 }
 
@@ -763,21 +778,111 @@ foreignObject {
 	text-align: center;
 }
 
+/* manually add shade highlight */
 
+.searchBar-6Kv8R2 .searchBarComponent-32dTOx, /* dm list "find or start a conversation" box at top */
+.button-14-BFJ.enabled-2cQ-u7:hover, /* bottom left mute/deafen/settings buttons */
+.botTagRegular-2HEhHi, /* Bot tag */
+.mention:hover,
+.topSectionPlaying-1J5E4n, /* user profile screen, activity background override */
+.theme-dark .selected-1Tbx07 /* @mention autocomplete list button hover */ {
+	background-color: var(--shadeHighlight);
+}
+
+/* manually add shade colour 1 */
+
+.closeButton-1tv5uR, /* settings area close button */
+.theme-dark .closeButton-1tv5uR:hover,
+.theme-dark .inset-3sAvek, /* friend list "Active Now", game name box */
+.theme-dark .footer-3mqk7D, /* upload modal secondary colour */
+.header-ykumBX,
+.container-3XJ8ns,
+.container-_phMUq, /* new server settings role manager @everyone */
+.theme-dark .auditLog-3jNbM6, /* guild audit logs, log actions */
+.theme-dark .root-1gCeng, /* "change username" dialog */
+.theme-dark .attachment-33OFj0, /* attached file */
+
+/* search box / search utility / search messages */
+.theme-dark .container-3ayLPN, /* before search options */
+.searchHeader-2XoQg7, /* search results header */
+
+/* profile popout modifications */
+.userPopout-3XzG_A .headerNormal-T_seeN {
+	background-color: var(--shade1);
+}
+
+/* manually add shade colour 2 */
+
+.messageGroupWrapper-o-Zw7G, /* Pinned Messages messages */
+.footer-2yA7Ep, /* code file preview, lower */
+
+/* guild list, guild folders modifications */
+.scroller-1Bvpku,
+
+/* search box / search utility / search messages */
+.searchResult-9tQ1uo, /* surrounding messages */
+
+/* friends list / friend list modifications */
+.userPopout-3XzG_A > div:not(.headerNormal-T_seeN) {
+	background-color: var(--shade2);
+}
+
+/* manually add shade colour 3 (--background-secondary) */
+
+.textContainer-C0szpm, /* code file preview, upper */
+
+/* friends list / friend list modifications */
+.peopleColumn-29fq28,
+.theme-dark .container-VSDcQc .sectionTag-pXyto9 > div /* add role */ {
+	background-color: var(--background-secondary);
+}
+
+/* manually add textWarning text colour */
+
+.colorBrand-ROmMP1, /* context menu, Discord blurple option text */
+.required-7sPBq3 /* required* star colour */ {
+	color: var(--textWarning);
+}
+
+/* manually add textDanger text colour */
+
+.strikethrough-1n4ekb, /* bottom left mute/deafen/settings */
+.colorDanger-2qLCe1, /* context menu, red text */
+.actionButton-uPB8Fs.actionDeny-de_uKj:hover, /* pending friend request, deny */
+.deny-3nAuT6, /* channel role permissions, deny */
+
+/* user settings > my account */
+.lookOutlined-3sRXeN.colorRed-1TFJan, /* Delete Account / Remove SMS Auth / associates */
+.theme-dark .lookLink-9FtZy-.colorPrimary-3b3xI6 /* Remove Button (next to edit) */ {
+    color:var(--textDanger)!important;
+}
+
+/* manually add textDanger background colour */
+
+.deny-3nAuT6.selected-2YhbGh, /* channel role permissions, deny selected */
+
+/* user settings > my account */
+.lookFilled-1Gx00P.colorRed-1TFJan, /* Disable account */
+.lookFilled-1Gx00P.colorRed-1TFJan:hover {
+	background-color: var(--textDanger);
+}
+
+/* optional channel / member list bg override */
+
+.scroller-1JbKMe, /* dm list */
+.members-1998pB, .members-1998pB>div, /* member list */
+.container-3w7J-x /* channel list */ {
+	background-color: var(--memberChannelList);
+}
 
 .container-2ax-kl /* taken from v1 and adapted for v2 (guild members hoist / channel categories) */ {
 	font-family: var(--secondaryFont);
 	background-color: var(--shade2);
-	padding-top: 2px;
-	margin-top: 18px;
 	height: auto;
-	padding-bottom: 2px;
-	margin-bottom: 18px;
+	margin:18px 0;
+	padding:2px 0;
 	line-height: 14px;
 }
-
-
-
 
 /* Removing ellipsis or at least relaxing it */
 .name-3YKhmS,
@@ -789,8 +894,8 @@ foreignObject {
 .activityName-1IaRLn, /* game activity... */
 .nameNormal-2lqVQK,
 .nameWrap-3Z4G_9, /* end game activity */
-.gameWrapper-1jIQAX .title-eS5yk3 /* own game activity in bottom left above profile */ {
-
+.gameWrapper-1jIQAX .title-eS5yk3, /* own game activity in bottom left above profile */
+.channelName-2YrOjO, .subtitle-3V1p2E /* channel name fix */ {
 	-webkit-box-orient: vertical;
 	white-space: normal;
 	overflow-wrap: break-word;
@@ -818,7 +923,10 @@ foreignObject {
 */
 .avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Idle"] svg rect,
 .avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Online"] svg rect,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Do Not Disturb"] svg rect {
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Do Not Disturb"] svg rect,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Online via mobile"] svg rect,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Streaming"] svg rect,
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Offline"] svg rect {
 	display: none;
 }
 .avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Idle"]:before {
@@ -841,129 +949,6 @@ foreignObject {
 	border: 1px solid #4f4;
 	border-radius: var(--icon-rounding);
 }
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Do Not Disturb"]:before {
-	position: absolute;
-	content: "";
-	top: -1px;
-	left: -1px;
-	height: 32px;
-	width: 32px;
-	border: 1px solid #f44;
-	border-radius: var(--icon-rounding);
-}
-
-
-/*
-	fixed radial status snippet, feel free to use in your theme!
-	author: dmack6464
-	thanks to 235302947058089984 for making the online via mobile status work,
-	as well as highlighting the need to remove masks (commented at bottom).
-	...and the partial foreign language support.
-*/
-.avatar-3uk_u9 .wrapper-3t9DeA svg rect {
-	display: none;
-}
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Idle"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Inaktiv"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Abwesend"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Ausente"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Inactif"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="U mirovanju"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Inattivo"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Pasitraukęs"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Tétlen"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Inactief"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Zaraz wracam"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Inactiv"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Toimeton"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Chờ"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Boşta"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Nečinný"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Αδρανής"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Не се използва"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Не активен"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Відійшов"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="ไม่อยู่"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="闲置"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="退席中"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="閒置"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="자리비움"]:before {
-	position: absolute;
-	content: "";
-	top: -2px;
-	left: -2px;
-	height: 32px;
-	width: 32px;
-	border: 2px solid #ff4;
-	border-radius: var(--icon-rounding);
-}
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Online"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Conectado"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="En ligne"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Na mreži"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Prisijungęs"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Elérhető"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Pålogget"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Dostępny"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Disponível"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Paikalla"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Trực tuyến"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Çevrimiçi"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Συνδεδεμένος"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="На линия"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="В сети"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="В мережі"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="ออนไลน์"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="在线"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="オンライン"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="線上"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="온라인"]:before {
-	position: absolute;
-	content: "";
-	top: -2px;
-	left: -2px;
-	height: 32px;
-	width: 32px;
-	border: 2px solid #4f4;
-	border-radius: var(--icon-rounding);
-}
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Do Not Disturb"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Vil ikke forstyrres"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Bitte nicht stören"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="No molestar"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Ne pas déranger"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Ne uznemiravaj"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Non disturbare"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Netrukdyti"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Niet storen"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Ikke forstyrr"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Nie przeszkadzać"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Elfoglalt"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Não perturbar"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Nu deranja"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Älä häiritse"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Stör ej"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Vui Lòng Không Làm Phiền"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Rahatsız Etmeyin"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Nerušit"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Μην ενοχλείτε"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Не ме безпокой"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Не беспокоить"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Не турбувати"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="ห้ามรบกวน"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="请勿打扰"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="取り込み中"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="請勿打擾"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="다른 용무 중"]:before {
-	position: absolute;
-	content: "";
-	top: -2px;
-	left: -2px;
-	height: 32px;
-	width: 32px;
-	border: 2px solid #f44;
-	border-radius: var(--icon-rounding);
-}
 .avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Online via mobile"]:before {
 	position: absolute;
 	content: "";
@@ -974,32 +959,17 @@ foreignObject {
 	border: 2px solid #f0f !important;
 	border-radius: var(--icon-rounding);
 }
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Streaming"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Streamer"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Transmitiendo"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="En direct"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="In diretta"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Transliuojama"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Közvetítés"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Streamt"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Strømmer"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Streamowanie"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Transmitindo"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Transmite live"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Striimaa"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Streamar"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Đang stream"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Yayın Yapıyor"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Streamuje"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Ζωντανά"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Стрийминг"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Стримит"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Трансляція"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="ถ่ายทอดสด"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="正在直播"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="配信"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="直播中"]:before,
-.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="配信"]:before {
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Do Not Disturb"]:before {
+	position: absolute;
+	content: "";
+	top: -1px;
+	left: -1px;
+	height: 32px;
+	width: 32px;
+	border: 1px solid #f44;
+	border-radius: var(--icon-rounding);
+}
+.avatar-3uk_u9 .wrapper-3t9DeA[aria-label*="Streaming"]:before {
 	position: absolute;
 	content: "";
 	top: -2px;
@@ -1020,16 +990,12 @@ foreignObject {
 	border-radius: var(--icon-rounding);
 }
 
-/*
-.scroller-wrap .scroller {
-	width: 50%!important;
-}
-*/
+/* removed partial language support as extended support is provided by the supported RadialStatus mini-theme */
 
 /* channel list */
 
 .unread-2lAfLh /* change colour of unread markers */ {
-	background-color: var(--accentcolor2);
+	background-color: var(--accentColour2);
 	width: 3px;
 	height: calc(100% - 2px);
 	margin: 0;
@@ -1179,26 +1145,18 @@ button[aria-label="Create Channel"] {
 	background-color: var(--shade1a);
 }
 
-.topSectionPlaying-1J5E4n,#app-mount .headerPlaying-j0WQBV,.topSectionPlaying-1J5E4n ~ .body-3ND3kc,#app-mount .headerPlaying-j0WQBV ~ .body-3iLsc4,#app-mount .headerPlaying-j0WQBV ~ .footer-1fjuF6{background:hsla(227, 37%, 19%, 0.7)!important}
-.topSectionStreaming-1Tpf5X,#app-mount .headerStreaming-2FjmGz,.topSectionStreaming-1Tpf5X ~ .body-3ND3kc,#app-mount .headerStreaming-2FjmGz ~ .body-3iLsc4,#app-mount .headerStreaming-2FjmGz ~ .footer-1fjuF6{background:hsla(262,80%,40%,.6)!important}
-.topSectionSpotify-1lI0-P,#app-mount .headerSpotify-zpWxgT,.topSectionSpotify-1lI0-P ~ .body-3ND3kc,#app-mount .headerSpotify-zpWxgT ~ .body-3iLsc4,#app-mount .headerSpotify-zpWxgT ~ .footer-1fjuF6{background:rgba(32,64,32,.70)!important;}
-.topSectionXbox-3fWLjS,#app-mount .headerXbox-3G-4PF,.topSectionXbox-3fWLjS ~ .body-3ND3kc,#app-mount .headerXbox-3G-4PF~.body-3iLsc4,#app-mount .headerXbox-3G-4PF ~ .footer-1fjuF6{background: rgba(16, 50, 16, .6)!important}
-
 .connectedAccount-36nQx7{position: relative}
 .connectedAccountIcon-3P3V6F,.connectedAccountName-f8AEe2,.connectedAccountVerifiedIcon-3aZz_K, .body-3ND3kc a {z-index:1;color:white;border-color:transparent}
-:not(.connectionHeader-2MDqhu) > img[src="/assets/f09c1c70a67ceaaeb455d163f3f9cbb8.png"] + div:before {content:"";height:46px;width:262px;background:#191919;position:absolute;margin-left:-38px}
-:not(.connectionHeader-2MDqhu) > img[src="/assets/ff3516ac66b71ef616b1df63e20fee65.png"] + div:before {content:"";height:46px;width:262px;background:#960505;position:absolute;margin-left:-38px}
-:not(.connectionHeader-2MDqhu) > img[src="/assets/806953fe1cc616477175cbcdf90d5cd3.png"] + div:before {content:"";height:46px;width:262px;background:#b27f19;position:absolute;margin-left:-38px}
-:not(.connectionHeader-2MDqhu) > img[src="/assets/4662875160dc4c56954003ebda995414.png"] + div:before {content:"";height:46px;width:262px;background:#004895;position:absolute;margin-left:-38px}
-:not(.connectionHeader-2MDqhu) > img[src="/assets/3abe9ce5a00cc24bd8aae04bf5968f4c.png"] + div:before {content:"";height:46px;width:262px;background:#882c0d;position:absolute;margin-left:-38px}
-:not(.connectionHeader-2MDqhu) > img[src="/assets/8c289d499232cd8e9582b4a5639d9d1d.png"] + div:before {content:"";height:46px;width:262px;background:#0f6089;position:absolute;margin-left:-38px}
-:not(.connectionHeader-2MDqhu) > img[src="/assets/edbbf6107b2cd4334d582b26e1ac786d.png"] + div:before {content:"";height:46px;width:262px;background:#220d4b;position:absolute;margin-left:-38px}
-:not(.connectionHeader-2MDqhu) > img[src="/assets/5be6cc17e596c02e7506f2776cfb1622.png"] + div:before {content:"";height:46px;width:262px;background:#1e71ad;position:absolute;margin-left:-38px}
-:not(.connectionHeader-2MDqhu) > img[src="/assets/f0655521c19c08c4ea4e508044ec7d8c.png"] + div:before {content:"";height:46px;width:262px;background:#064c12;position:absolute;margin-left:-38px}
-:not(.connectionHeader-2MDqhu) > img[src="/assets/8d8f815f3d81a33b1e70ec7c22e1b6fe.png"] + div:before {content:"";height:46px;width:262px;background:#0f176f;position:absolute;margin-left:-38px}
-/* 2.1 */
+:not(.connectionHeader-2MDqhu) > img[src="/assets/f09c1c70a67ceaaeb455d163f3f9cbb8.png"] + div:before {content:"";height:46px;width:262px;background:#191919;position:absolute;margin-left:-38px} /* steam */
+:not(.connectionHeader-2MDqhu) > img[src="/assets/4662875160dc4c56954003ebda995414.png"] + div:before {content:"";height:46px;width:262px;background:#004895;position:absolute;margin-left:-38px} /* twiter */
+:not(.connectionHeader-2MDqhu) > img[src="/assets/3abe9ce5a00cc24bd8aae04bf5968f4c.png"] + div:before {content:"";height:46px;width:262px;background:#882c0d;position:absolute;margin-left:-38px} /* reddit */
+:not(.connectionHeader-2MDqhu) > img[src="/assets/8c289d499232cd8e9582b4a5639d9d1d.png"] + div:before {content:"";height:46px;width:262px;background:#0f6089;position:absolute;margin-left:-38px} /* battle.net */
+:not(.connectionHeader-2MDqhu) > img[src="/assets/edbbf6107b2cd4334d582b26e1ac786d.png"] + div:before {content:"";height:46px;width:262px;background:#220d4b;position:absolute;margin-left:-38px} /* twitch */
+:not(.connectionHeader-2MDqhu) > img[src="/assets/f0655521c19c08c4ea4e508044ec7d8c.png"] + div:before {content:"";height:46px;width:262px;background:#064c12;position:absolute;margin-left:-38px} /* spotify */
+:not(.connectionHeader-2MDqhu) > img[src="/assets/8d8f815f3d81a33b1e70ec7c22e1b6fe.png"] + div:before {content:"";height:46px;width:262px;background:#0f176f;position:absolute;margin-left:-38px} /* facebook */
+/* connections added in 2.1 */
 :not(.connectionHeader-2MDqhu) > img[src="/assets/0d44ba28e39303de3832db580a252456.png"] + div:before {content:"";height:46px;width:262px;background:#397217;position:absolute;margin-left:-38px} /* xbox */
-:not(.connectionHeader-2MDqhu) > img[src="/assets/449cca50c1452b4ace3cbe9bc5ae0fd6.png"] + div:before {content:"";height:46px;width:262px;background:#801010;position:absolute;margin-left:-38px} /* yt */
+:not(.connectionHeader-2MDqhu) > img[src="/assets/449cca50c1452b4ace3cbe9bc5ae0fd6.png"] + div:before {content:"";height:46px;width:262px;background:#801010;position:absolute;margin-left:-38px} /* youtube */
 :not(.connectionHeader-2MDqhu) > img[src="/assets/5d69e29f0d71aaa04ed9725100199b4e.png"] + div:before {content:"";height:46px;width:262px;background:#0050af;position:absolute;margin-left:-38px} /* github uwu (placeholder colour lol) */
 
 
@@ -1241,7 +1199,7 @@ button[aria-label="Create Channel"] {
 	background-color: var(--shadeHighlight)!important;
 }
 ::-webkit-scrollbar-thumb:active {
-	background-color: var(--accentcolor2)!important;
+	background-color: var(--accentColour2)!important;
 }
 *:not(:hover)::-webkit-scrollbar-thumb {
 	background-color: transparent!important;
@@ -1255,7 +1213,7 @@ button[aria-label="Create Channel"] {
 }
 ::-webkit-scrollbar-button:single-button:vertical:decrement:active,
 ::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
-	border-color: transparent transparent var(--accentcolor2) transparent!important;
+	border-color: transparent transparent var(--accentColour2) transparent!important;
 }
 /* Down */
 ::-webkit-scrollbar-button:single-button:vertical:increment {
@@ -1264,10 +1222,12 @@ button[aria-label="Create Channel"] {
 }
 ::-webkit-scrollbar-button:vertical:single-button:increment:active,
 ::-webkit-scrollbar-button:vertical:single-button:increment:hover {
-	border-color: var(--accentcolor2) transparent transparent transparent!important;
+	border-color: var(--accentColour2) transparent transparent transparent!important;
 }
 
 /*
 
 #4f006e
 dinosaur_woman has left the game.
+
+revenge cold
