@@ -1,5 +1,5 @@
 /**
- * @name RealDark Configuration
+ * @name RealDark Configuration: AMOLED
  * @author D Mack (dmack6464)
  * @version 2.6
  * @description RealDark REQUIRED configuration file for any and all other RealDark theme files. I recommend using ThemeSettings by DevilBro if you're not familiar with CSS.
@@ -12,7 +12,7 @@
 
     --ThemeSettings:"This theme is mostly compatible with ThemeSettings."; /* some of these settings affect RealDark addons, scroll to bottom for Annoyances settings. */
 
-    --title:"RealDark"; /* title bar text */
+    --title:"RealDark AMOLED"; /* title bar text */
     --title-align:left; /* Options: center, left */
     --icon-rounding:0%; /* icon rounding: 0% for none, 50% for completely round icons */
 
@@ -21,21 +21,21 @@
     --mentionmark:#5555FF; /* mention marker colour, may be used as a second/third accent in future, #5555ff fefault */
 
 /* regular settings */
-    --RDbackground-primary:#030307; /* --main, #030307 default */
-    --shadeHighlight:#303034; /* new shade for a a few new items, #303034 default */
-    --RDbackground-tertiary:#222226; /* shade colour 0, #222226 default */
+    --RDbackground-primary:#000; /* --main, #030307 default */
+    --shadeHighlight:#222; /* new shade for a a few new items, #303034 default */
+    --RDbackground-tertiary:#111; /* shade colour 0, #222226 default */
     --shadeTransparent:#111b; /* first rgba hex now its officially supported, #202024a0 old default #111b new default */
-    --shade1:#18181c; /* shade colour 1, #18181c default */
-    --shade1a:#121216; /* shade colour 1a, #121216 default */
-    --shade2:#0f0f14; /* shade colour 2, #0f0f14 default */
-    --RDbackground-secondary:#09090D; /* shade colour 3, #09090d default */
-    --text:#DDDDDD;    /*text rgb(255,255,250) var(--text)*/
+    --shade1:#111; /* shade colour 1, #18181c default */
+    --shade1a:#111; /* shade colour 1a, #121216 default */
+    --shade2:#000; /* shade colour 2, #0f0f14 default */
+    --RDbackground-secondary:#000; /* shade colour 3, #09090d default */
+    --text:#ccc;    /*text rgb(255,255,250) var(--text)*/
     --text2:#889; /* secondary text colour, #090994 old default, #889 current default */
-    --textWarning:#f82; /* may be used for things other than text, #d4f is cool, but #f82 is default */
-    --textDanger:#f30; /* may be used for things other than text, #41a and #f44 is cool, but #f30 is default */
-    --links:#0ff; /* link highlight, #0ff default */
-    --accentColour:#3070ff; /* #3070ff default */
-    --accentColour2:#00a0ff; /* mainly intended to be the hover colour of elements originally coloured with accentColour, #00a0ff default */
+    --textWarning:#d70; /* may be used for things other than text, #d4f is cool, but #f82 is default */
+    --textDanger:#810; /* may be used for things other than text, #41a and #f44 is cool, but #f30 is default */
+    --links:#0aa; /* link highlight, #0ff default */
+    --accentColour:#159; /* #3070ff default */
+    --accentColour2:#08d; /* mainly intended to be the hover colour of elements originally coloured with accentColour, #00a0ff default */
     --textboxcolour:var(--shade1); /* shade1 default */
     --textBoxUnderLine:#404044; /* re-added for RealDark classic styling, #040444 default */
     --background-blur:1.5px; /* 1.5px default */

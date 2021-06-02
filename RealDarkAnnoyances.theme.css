@@ -1,7 +1,7 @@
 /**
  * @name RealDark Annoyances
  * @author D Mack (dmack6464)
- * @version 2.5
+ * @version 2.6
  * @description Optional addition to RealDark (or any?) theme that attempts to remove some of Discord's annoying "features".
  * @source https://github.com/dmack6464/RealDark/
  * @website https://discord.gg/pB2SmhC/
@@ -56,4 +56,9 @@
 .invite-18yqGF, /* message */
 .horizontal-3fI3M->:not(:first-child) /* user popout */ {
 	display: var(--spotifyPremiumOptions);
+}
+
+/* stage discovery button hide */
+[href="/discovery"] {
+	display: var(--stageDiscovery);
 }

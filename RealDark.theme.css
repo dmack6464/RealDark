@@ -1,7 +1,7 @@
 /**
  * @name RealDark
  * @author D Mack (dmack6464)
- * @version 2.5
+ * @version 2.6
  * @description A dark/black theme that boasts enhanced usability, readability, customisation and experimental features!
  * @source https://github.com/dmack6464/RealDark/
  * @website https://discord.gg/pB2SmhC/
@@ -13,6 +13,8 @@
 :root /* autoconfiguration of discord vars, RadialStatus */ {
 	/* refer to RealDarkConfiguration.theme.css for referenced variables. */
 	--TSCompatREADME:"below are technical settings, do not override";
+
+	--font-display: var(--font);
 
 	--background-secondary:var(--RDbackground-secondary);
 	--background-primary:var(--RDbackground-primary);
@@ -34,7 +36,6 @@
 	--header-primary:var(--text);
 	--text-normal:var(--text);
 
-	/* trialing text2 again */
 	--text-muted:var(--text2);
 	--interactive-muted:var(--text2);
 	--header-secondary:var(--text2);
@@ -52,6 +53,11 @@
 	display: var(--disableWarning);
 	color: red;
 	content: "RealDark requires RealDarkConfiguration(.theme).css, which appears to be missing!!!";
+}
+
+html.newBrand, ::-webkit-input-placeholder, body, button, select, div {
+    --font-family: var(--font)!important;
+    --font-display:var(--font)!important;
 }
 
 /* text selection, text highlight hack */
@@ -140,17 +146,22 @@ div[style*="color: rgb(0, 230, 33);"] {
 .theme-dark .autocomplete-1vrmpx,
 /*,.menu-3sdvDG*/
 .tooltip-2QfLtc, /* all tooltips */
-.newMessagesBar-265mhP /* channel message area, "xx new messages since xx:xx" */ {
+.newMessagesBar-265mhP, /* channel message area, "xx new messages since xx:xx" */
+[class*="messagesPopout"],
+[class*="recentMentionsPopout"] [class*="scroller-"] {
 	backdrop-filter:blur(var(--background-blur));
 }
 /*.menu-3sdvDG*/
 .theme-dark .autocomplete-1vrmpx,
 .theme-dark .tooltipPrimary-1d1ph4, /* all tooltips */
-.mention,
-.newMessagesBar-265mhP /* channel message area, "xx new messages since xx:xx" */ {
+.newMessagesBar-265mhP, /* channel message area, "xx new messages since xx:xx" */
+[class*="messagesPopout"],
+[class*="recentMentionsPopout"] [class*="scroller-"] {
 	background-color: var(--shadeTransparent);
 }
-.root-SR8cQa {
+.root-SR8cQa,
+[class*="messagesPopoutWrap"],
+[class*="recentMentionsPopout"] {
 	background-color: transparent;
 }
 
@@ -194,6 +205,138 @@ div[style*="color: rgb(0, 230, 33);"] {
 
 .chat-3bRxxu .messagesWrapper-3lZDfY {
   z-index: unset;
+}
+
+/* ------------ 2.6 stuff, thought it was 2.7 but forgot that the public version was still 2.5 */
+
+[id*="popout"] [class*="userPopout"] {
+	width: 400px!important;
+	max-height: 80vh;
+	overflow-y: scroll;
+}
+
+.body-3iLsc4 {
+	overflow: visible!important;
+	max-height: 300px;
+}
+
+/* additional highlight experiment */
+#channels [class*="modeMuted"] svg {
+	color: var(--textDanger);
+}
+#channels [class*="modeUnread"] svg {
+	color: var(--accentColour2);
+}
+#channels [class*="modeSelected"] /* accidental selected channel highlight found again! */ {
+	background-color: var(--accentColour);
+}
+
+/* anti-rebrand */
+[class*="reaction-"] {
+	background-color: var(--shade1);
+}
+[class*="reactionMe-"],
+[class*="reaction-"]:hover {
+	background-color: var(--shadeHighlight)!important;
+}
+
+/* friend tabs buttons, first 2 selectors are to fix unrelated selections */
+#app-mount :not([class*="tabBarContainer-"]) > [class*="tabBar-"] [aria-controls*="-tab"] {
+	color: #fff;
+}
+#app-mount :not([class*="tabBarContainer-"]) > [class*="tabBar-"] [aria-controls*="-tab"]:not([class*="selected-"]):hover {
+	background-color: var(--accentColour2)!important;
+}
+#app-mount [aria-controls='ONLINE-tab'] {
+	background-color: var(--accentColour);
+}
+#app-mount [aria-controls='ALL-tab'] {
+	order: -1;
+}
+#app-mount [aria-controls='PENDING-tab'] {
+	background-color: var(--textWarning);
+}
+#app-mount [aria-controls='BLOCKED-tab'] {
+	background-color: var(--textDanger);
+}
+#app-mount [aria-controls='ADD_FRIEND-tab'],
+#app-mount [aria-controls='ALL-tab'] {
+	background-color: var(--shadeHighlight)!important;
+}
+
+/* slider customisation! */
+[class*="slider-"] [class*="bar-"] {
+	background-color: var(--shade2);
+}
+[class*="slider-"] [class*="barFill-"] {
+	background-color: var(--shadeHighlight);
+}
+[class*="slider-"] [class*="grabber-"] {
+	width: 20px;
+	height: 20px;
+	margin-left: -10px;
+	margin-top: -10px;
+	background-color: var(--accentColour2);
+}
+
+[class*="message-"] [class*="buttonContainer-"] [class*="wrapper-"] {
+	background-color: var(--shade1a);
+}
+
+[role*="dialog"]:not([class*="userPopout"]) [class*="root-"] { /* universal dialog upper */
+	background-color: var(--shade1a);
+}
+
+/* ------------ 2.6 stuff */
+
+
+
+.theme-dark span[class*="searchFilter-"],
+.theme-dark span[class*="searchAnswer-"] {
+	background-color: var(--background-tertiary);
+	border-radius: 0px;
+}
+.theme-dark span[class*="searchAnswer-"] {
+	color: var(--accentColour2)
+}
+
+
+
+
+
+
+
+/* Checkboxes - Slate Theme - Tropical */
+.control-2BBjec [class*="container-"] .input-rwLH4i, /* guild settings > roles */
+.control-2BBjec [class*="container-"] [class*="input-"], /* .input-3ITkQf, experimental */
+#app-mount .checkboxWrapper-SkhIWG .input-rwLH4i,
+#app-mount .checkboxWrapper-SkhIWG .input-3ITkQf {
+	margin: 0;
+	opacity: 1;
+	height: 16px !important;
+	width: 16px !important;
+	position: relative;
+	-webkit-appearance: checkbox;
+	appearance: checkbox;
+	cursor: pointer;
+}
+.control-2BBjec [class*="container-"], /* guild settings > roles */
+[class*="checkboxWrapper-"] { /* #app-mount .checkboxWrapper-SkhIWG */
+	width: auto;
+	background: transparent !important;
+	display: flex;
+	align-items: center;
+	cursor: default;
+}
+.control-2BBjec [class*="container-"] [class*="slider-"],
+#app-mount .checkboxWrapper-SkhIWG .slider-TkfMQL {
+	display: none;
+}
+
+
+
+[class*="checkboxWrapper-"] [class*="checkbox-"] {
+	display: none;
 }
 
 /* ------------ 2.5 stuff */
@@ -246,11 +389,14 @@ div[style*="color: rgb(0, 230, 33);"] {
 	color: var(--accentColour);
 	fill: var(--accentColour);
 }
+[class*="unreadPill-"]:after {
+	content: "\2009messages";
+}
 
-.mention {
+.theme-dark .mention {
 	color: var(--accentColour);
 }
-.mention:hover {
+.theme-dark .mention:hover {
 	color: var(--accentColour2)!important;
 }
 
@@ -285,7 +431,7 @@ div[style*="color: rgb(0, 230, 33);"] {
 	background-color: var(--shade1a);
 }
 
-.lookLink-9FtZy-.colorLink-35jkBc:hover .contents-18-Yxp /* Reveal button in user settings > my account and maybe more? */ {
+[class*="lookLink"]:hover > div /* Reveal button in user settings > my account and maybe more? */ {
 	background-image:none;
 	text-decoration:underline;
 }
@@ -401,9 +547,10 @@ div[style*="color: rgb(0, 230, 33);"] {
 	border-bottom: 2px solid var(--textBoxUnderLine);
 }
 
-/* mentions: recolouring to accent colour */
+/* mentions / mention badges: recolouring to accent colour */
 .mention-1f5kbO, /* guild list/channel list top/bottom auto scroll things */
-.base-PmTxvP /* amount of guild mentions/guild mention counter */ {
+.base-PmTxvP, /* amount of guild mentions/guild mention counter */
+[class*="quickswitcher-"] [class*="badge-"] {
 	background-color: var(--accentColour)!important; /* important is required for the guild colour as its an inline property */
 }
 
@@ -597,7 +744,7 @@ div[style*="color: rgb(0, 230, 33);"] {
 }
 /* settings main panel header */
 .contentColumn-2hrIYH div:first-child h2,
-.h2-2gWE-o /* intended to affect user settings > keybinds */  {
+.h2-2gWE-o, /* intended to affect user settings > keybinds */ {
 	background-color: var(--background-tertiary);
 	top: 0px;
 	position: sticky;
@@ -616,7 +763,6 @@ div[style*="color: rgb(0, 230, 33);"] {
 
 /* ==== MegaSelector Zone ==== */
 
-
 /* border radius, shadows, border */
 foreignObject {
 	mask: none!important;
@@ -627,8 +773,6 @@ foreignObject {
 .unread-2lAfLh,
 .searchResultMessage-1fxgXh.hit-1fVM9e,
 .attachment-33OFj0,
-.userSettingsAccount-2eMFVR .userInfoEditing-1CEzdT,
-.userSettingsAccount-2eMFVR .userInfoViewing-16kqK3,
 .hljs, /* code block */
 .userPopout-3XzG_A ,/* profile popout */
 .scrollableContainer-2NUZem, /* text box */
@@ -650,7 +794,6 @@ foreignObject {
 .item-26Dhrx,
 .theme-dark .auditLog-3jNbM6, /* audit log action */
 .theme-dark .card-o7rAq-, /* server settings > intergrations */
-.roleDot-ZwSovK,
 .previewContainer-1KQDJS, /* new server settings role manager role preview */
 .container-_phMUq, /* new server settings role manager @everyone card thing */
 .colorPickerSwatch-5GX3Ve, /* server settings role colour picker */
@@ -668,8 +811,8 @@ foreignObject {
 .theme-dark .footer-3mqk7D, /* file upload dialog secondary */
 .tooltip-2QfLtc, /* all tooltips */
 .input-cIJ7To, /* profile popout, "Message @user" text box */
-.outer-1AjyKL, /* friend list "Active Now", users */
-.inset-3sAvek, /* friend list "Active Now", game name box */
+[class*="nowPlayingColumn"] [class*="outer-"], /* friend list "Active Now", users */
+[class*="nowPlayingColumn"] section, /* friend list "Active Now", game name box */
 .textContainer-C0szpm, /* code file preview, upper */
 .footer-2yA7Ep, /* code file preview, lower */
 .peopleListItem-2nzedh.active-rhSpJJ, /* friends list friend */
@@ -689,11 +832,27 @@ foreignObject {
 .searchBar-6Kv8R2 .searchBarComponent-32dTOx, /* dm list "find or start a conversation" box at top */
 .mention,
 .content-1Wq3SX, /* guild voice channels / vc, member hover */
-.roleDot-2bTP_S, .popoutRoleDot-1XPcoA, /* member list > member right click context menu > Roles dots */
 .css-1kj8ui-container > div, /* dropdown selector */
 .fieldList-21DyL8, /* user settings > my account, account details inner wrapper */
 .container-3auIfb, .input-rwLH4i, /* checkbox in noise supression area above user */
-.invite-18yqGF, .artwork-1vrmJ_ /* Spotify invite. */ {
+.invite-18yqGF, .artwork-1vrmJ_, /* Spotify invite. */
+[id*="-context"] [class*="item-"], /* ctx menu buttons */
+#guild-header-popout [class*="item-"], /* guild options buttons */ 
+[class*="roleDot-"], [class*="RoleDot-"], [class*="roleCircle"],
+[class*="circleButton-"],
+.container-2VW0UT, /* unsaved changes notice */
+[role*="dialog"] [class*="root-"],
+[class*="footer-"],
+[class*="card-"],
+[class*="message-"] [class*="buttonContainer-"] [class*="wrapper-"],
+[class*="scroller-"] [class*="item-"],
+[class*="recentMentionsPopout-"] [class*="button-"],
+[class*="quickswitcher-"] [class*="badge-"],
+[class*="messagesPopout"] [class*="messageContainer"], /* inbox messages */
+[class*="iconActiveMedium"],
+[class*="slider-"] [class*="grabber-"],
+[class*="reaction-"],
+[class*="userPopout"] [class*="headerTop"] {
 	box-shadow: none!important;
 	webkit-box-shadow:none!important;
 	border-radius: 0px!important;
@@ -707,12 +866,13 @@ foreignObject {
 .acronym-2mOFsV, /* guilds in guild list without set icon */
 .avatarUploaderInner-3UNxY3, /* guild settings */
 .iconActiveLarge-2nzn9z, /* server invite guild/server icon */
-.roleCircle-3xAZ1j,
 .border-Jn5IOt, /* direct vc speaking indicator */
 .overlay-39bWkM, /* direct vc speaking indicator? */
 .voiceAvatar-14IynY, /* direct vc profile pic */
 .avatar-SmRMf2.spotify-cover, /* default Powercord plugin for Spotify, above logged in user in bottom left */
-.avatarSpeaking-2IGMRN, .avatar-3tNQiO /* vc avatars */ {
+.avatarSpeaking-2IGMRN, .avatar-3tNQiO, /* vc avatars */
+[class*="wrapperSimple-"], /* small bugfix for guild icons */
+[class*="avatarWrapperNormal"] [class*="avatar-"] {
 	border-radius: var(--icon-rounding)!important/*required for spotify plugin*/;
 	/*border: 1px solid var(--links);*/ /* should be toggleable in devtools */
 }
@@ -734,12 +894,14 @@ foreignObject {
 .resultsGroup-r_nuzN .header-2N-gMV, /* guild message search */
 .bodyTitle-Y0qMQz, /* profile popout Role / Note text */
 .headerText-1HLrL7, /* profile popout "Playing a game" */
-.header-13Cw0-, /* friend list "Active Now" text */
+[class*="nowPlayingColumn"] > div h3, /* friend list "Active Now" text */
 .header-13MUnb, /* ctrl + k menu, headers */
 .uploadModal-2ifh8j .inner-3nWsbo .comment-4IWttf .label-3aiqT2, /* file upload dialog comment prompt */
 .userInfoSectionHeader-CBvMDh, /* fullscreen user profile, "Note" header */
 .activityHeader-1PExlk, /* fullscreen user profile, activity header */
-.unreadPill-2HyYtt /* unread messages divider */ {
+.unreadPill-2HyYtt, /* unread messages divider */
+.overrideList-Xc_VCf [class*="header-"], /* notification settings header */
+[class*="subtitle-"][class*="size12"] /* droptown menu subtext (channel categories, etc) */ {
 	text-transform: none!important;
 }
 
@@ -762,11 +924,13 @@ foreignObject {
 .resultsGroup-r_nuzN .header-2N-gMV, /* guild message search */
 .bodyTitle-Y0qMQz, /* profile popout Role / Note text */
 .headerText-1HLrL7, /* profile popout "Playing a game" */
-.header-13Cw0-, /* friend list "Active Now" text */ 
+[class*="nowPlayingColumn"] > div h3, /* friend list "Active Now" text */ 
 .header-13MUnb, /* ctrl + k menu, headers */
 .uploadModal-2ifh8j .inner-3nWsbo .comment-4IWttf .label-3aiqT2, /* file upload dialog comment prompt */
 .userInfoSectionHeader-CBvMDh, /* fullscreen user profile, "Note" header */
-.activityHeader-1PExlk /* fullscreen user profile, activity header */ {
+.activityHeader-1PExlk, /* fullscreen user profile, activity header */
+.overrideList-Xc_VCf [class*="header-"], /* notification settings header */
+[class*="subtitle-"][class*="size12"] /* droptown menu subtext (channel categories, etc) */ {
 	font-size: 16px;
 }
 
@@ -783,7 +947,7 @@ foreignObject {
 .searchBar-6Kv8R2 .searchBarComponent-32dTOx, /* dm list "find or start a conversation" box at top */
 .button-14-BFJ.enabled-2cQ-u7:hover, /* bottom left mute/deafen/settings buttons */
 .botTagRegular-2HEhHi, /* Bot tag */
-.mention:hover,
+.theme-dark .mention:hover,
 .topSectionPlaying-1J5E4n, /* user profile screen, activity background override */
 .theme-dark .selected-1Tbx07 /* @mention autocomplete list button hover */ {
 	background-color: var(--shadeHighlight);
@@ -793,14 +957,13 @@ foreignObject {
 
 .closeButton-1tv5uR, /* settings area close button */
 .theme-dark .closeButton-1tv5uR:hover,
-.theme-dark .inset-3sAvek, /* friend list "Active Now", game name box */
 .theme-dark .footer-3mqk7D, /* upload modal secondary colour */
 .header-ykumBX,
 .container-3XJ8ns,
 .container-_phMUq, /* new server settings role manager @everyone */
 .theme-dark .auditLog-3jNbM6, /* guild audit logs, log actions */
-.theme-dark .root-1gCeng, /* "change username" dialog */
 .theme-dark .attachment-33OFj0, /* attached file */
+.theme-dark [class*="nowPlayingColumn"] [class*="outer-"]:hover, /* friend list "Active Now", users */
 
 /* search box / search utility / search messages */
 .theme-dark .container-3ayLPN, /* before search options */
@@ -815,6 +978,7 @@ foreignObject {
 
 .messageGroupWrapper-o-Zw7G, /* Pinned Messages messages */
 .footer-2yA7Ep, /* code file preview, lower */
+[class*="nowPlayingColumn"] section, /* friend list "Active Now", game name box */
 
 /* guild list, guild folders modifications */
 .scroller-1Bvpku,
@@ -844,12 +1008,19 @@ foreignObject {
 	color: var(--textWarning);
 }
 
+/* manually add textWarning background colour */
+[class*="cardWarning-"],
+[class*="lookFilled"][class*="colorYellow"] /* yellow dialog box caption button */ {
+	background-color: var(--textWarning)!important;
+}
+
 /* manually add textDanger text colour */
 
 .strikethrough-1n4ekb, /* bottom left mute/deafen/settings */
 .colorDanger-2qLCe1, /* context menu, red text */
 .actionButton-uPB8Fs.actionDeny-de_uKj:hover, /* pending friend request, deny */
-.deny-3nAuT6, /* channel role permissions, deny */
+.deny-3nAuT6:not([class*="selected-"]), /* channel role permissions, deny */
+[aria-controls="logout-tab"],
 
 /* user settings > my account */
 .lookOutlined-3sRXeN.colorRed-1TFJan, /* Delete Account / Remove SMS Auth / associates */
@@ -905,6 +1076,10 @@ foreignObject {
 /* mention highlight recolour */
 .mentioned-xhSam7:before {
 	background-color: var(--mentionmark);
+}
+
+.theme-dark .mention {
+	background-color: var(--background-mentioned);
 }
 
 .name-3YKhmS {
