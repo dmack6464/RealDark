@@ -2,7 +2,8 @@
     "manifest": {
         "author": "D Mack#4481",
         "name": "RealDark",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "updater": "https:\/\/raw.githubusercontent.com\/dmack6464\/RealDark\/master\/Aliucord\/RealDark.json"
     },
     "background": {},
     "fonts": {
