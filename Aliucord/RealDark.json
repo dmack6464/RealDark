@@ -1,0 +1,39 @@
+{
+    "manifest": {
+        "author": "D Mack#4481",
+        "name": "RealDark",
+        "version": "1.0.0"
+    },
+    "background": {},
+    "fonts": {
+        "*": "https:\/\/cdn.discordapp.com\/attachments\/401193981339238400\/876855164550656020\/Roboto-Regular.ttf"
+    },
+    "simple_colors": {
+        "accent": -9279014,
+        "active_channel": -14671836,
+        "mention_highlight": 1613902456
+    },
+    "colors": {
+        "primary_dark_700": -15790316,
+        "primary_630": -15588842,
+        "primary_dark_600": -16777216,
+        "primary_dark_630": -15592938,
+        "primary_dark_800": -2144325580,
+        "primary_dark_660": -14671836,
+        "primary_700": -14671836,
+        "primary_dark_400": -8226326,
+        "link": -6120961,
+        "uikit_btn_bg_color_selector_red": -16736001,
+        "primary_800": -2490290,
+        "link_500": -6120961,
+        "primary_dark_900": -13489766,
+        "primary_900_alpha_80": -14671836
+    },
+    "drawable_tints": {
+        "drawable_button_grey": -1336913836,
+        "drawable_uikit_primary_800_bg_dark": -14303143,
+        "ic_channel_text_nsfw": -12288,
+        "drawable_circle_primary_900_alpha_80": -2673622
+    },
+    "raws": {}
+}
