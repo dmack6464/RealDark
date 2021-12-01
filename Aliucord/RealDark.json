@@ -2,7 +2,7 @@
     "manifest": {
         "author": "D Mack#4481",
         "name": "RealDark",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "updater": "https:\/\/raw.githubusercontent.com\/dmack6464\/RealDark\/master\/Aliucord\/RealDark.json"
     },
     "background": {},
@@ -34,7 +34,9 @@
         "drawable_button_grey": -1336913836,
         "drawable_uikit_primary_800_bg_dark": -14303143,
         "ic_channel_text_nsfw": -12288,
-        "drawable_circle_primary_900_alpha_80": -2673622
+        "drawable_circle_primary_900_alpha_80": -2673622,
+        "drawable_open_folder_dark": -13619148,
+        "ic_guild_folder": -2725874
     },
     "raws": {}
 }
