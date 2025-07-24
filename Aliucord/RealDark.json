@@ -1,18 +1,19 @@
 {
     "manifest": {
-        "author": "D Mack#4481",
+        "author": "D Mack#4481\/dmack6464",
         "name": "RealDark",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "updater": "https:\/\/raw.githubusercontent.com\/dmack6464\/RealDark\/master\/Aliucord\/RealDark.json"
     },
     "background": {},
     "fonts": {
-        "*": "https:\/\/cdn.discordapp.com\/attachments\/401193981339238400\/876855164550656020\/Roboto-Regular.ttf"
+        "*": "https:\/\/github.com\/dmack6464\/RealDark\/raw\/refs\/heads\/master\/Aliucord\/AtkinsonHyperlegible-Regular.ttf"
     },
     "simple_colors": {
         "accent": -9279014,
         "active_channel": -14671836,
-        "mention_highlight": 1613902456
+        "mention_highlight": 1613902456,
+        "statusbar": -15198180
     },
     "colors": {
         "primary_dark_700": -15790316,
