@@ -2,7 +2,7 @@
     "manifest": {
         "author": "D Mack#4481\/dmack6464",
         "name": "RealDark",
-        "version": "1.0.3",
+        "version": "1.0.4",
         "updater": "https:\/\/raw.githubusercontent.com\/dmack6464\/RealDark\/master\/Aliucord\/RealDark.json"
     },
     "background": {},
@@ -11,6 +11,7 @@
     },
     "simple_colors": {
         "active_channel": -14671836,
+        "mention_highlight": 1613902456,
         "statusbar": -15198180,
         "accent": -8226326
     },
