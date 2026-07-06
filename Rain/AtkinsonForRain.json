@@ -1,1 +1,25 @@
-
+{
+    "spec": 1,
+    "name": "Atkinson Hyperlegible",
+    "previewText": "a cool font for kettu and rain compatible mods",
+    "main": {
+        "ABCGintoNord-ExtraBold": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Bold.ttf?raw=1",
+        "ggsans-Bold": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Bold.ttf?raw=1",
+        "ggsans-BoldItalic": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-BoldItalic.ttf?raw=1",
+        "ggsans-ExtraBold": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Bold.ttf?raw=1",
+        "ggsans-ExtraBoldItalic": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-BoldItalic.ttf?raw=1",
+        "ggsans-Medium": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Regular.ttf?raw=1",
+        "ggsans-MediumItalic": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Italic.ttf?raw=1",
+        "ggsans-Normal": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Regular.ttf?raw=1",
+        "ggsans-NormalItalic": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Italic.ttf?raw=1",
+        "ggsans-Semibold": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Bold.ttf?raw=1",
+        "ggsans-SemiboldItalic": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-BoldItalic.ttf?raw=1",
+        "NotoSans-Bold": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Bold.ttf?raw=1",
+        "NotoSans-ExtraBold": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Bold.ttf?raw=1",
+        "NotoSans-Medium": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Regular.ttf?raw=1",
+        "NotoSans-Normal": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Regular.ttf?raw=1",
+        "NotoSans-NormalItalic": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Italic.ttf?raw=1",
+        "NotoSans-Semibold": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Bold.ttf?raw=1",
+        "ggmono-Normal": "https://github.com/dmack6464/RealDark/raw/master/Aliucord/AtkinsonHyperlegible-Regular.ttf?raw=1"
+    }
+}
